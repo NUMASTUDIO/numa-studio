@@ -5,19 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NUMA STUDIO</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
 
 /* NAVBAR */
 header{
-  position:absolute;
-  top:0; left:0; width:100%;
+  position:absolute; top:0; left:0; width:100%;
   display:flex; justify-content:space-between; align-items:center;
   padding:20px 40px; z-index:10;
 }
-header .logo{font-family:'Playfair Display';font-size:22px;letter-spacing:2px;}
+header .logo{font-family:'Playfair Display'; font-size:22px; letter-spacing:2px;}
 nav a{margin-left:25px;font-size:14px;opacity:.8;color:white;}
 nav a:hover{opacity:1;}
 header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13px;}
@@ -29,7 +27,7 @@ header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13
   display:flex; align-items:center; padding:0 40px; position:relative;
 }
 .hero::after{content:"";position:absolute;inset:0;background:rgba(0,0,0,0.55);}
-.hero-content{position:relative;max-width:650px;z-index:2;}
+.hero-content{position:relative;max-width:650px; z-index:2;}
 .hero h1{font-family:'Playfair Display',serif;font-size:36px;line-height:1.2;margin-bottom:15px;}
 .hero p{color:#ccc;margin-bottom:20px;font-size:14px;}
 .hero .buttons a{margin-right:10px;border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:12px;}
@@ -57,7 +55,16 @@ footer{background:#0a1318;padding:40px 30px;display:flex;justify-content:space-b
 footer .social a{margin-left:15px;color:#aaa;font-size:14px;}
 footer .social a:hover{color:#c9a96e;}
 
-/* RESPONSIVE */
+/* MEDIA QUERIES RESPONSIVE */
+
+/* Tablet */
+@media(max-width:1024px){
+  .grid-services{grid-template-columns:repeat(2,1fr);}
+  .grid-projects{grid-template-columns:repeat(2,1fr);}
+  .hero h1{font-size:32px;}
+}
+
+/* Celulares medianos */
 @media(max-width:768px){
   header{flex-direction:column;align-items:flex-start;}
   header .logo{margin-bottom:10px;}
@@ -70,22 +77,61 @@ footer .social a:hover{color:#c9a96e;}
   .hero h1{font-size:28px;}
 }
 
+/* Celulares pequeños */
 @media(max-width:480px){
-  header{align-items:flex-start;padding:15px 20px;}
-  header .logo{margin-bottom:15px;}
-  nav{width:100%;flex-direction:column;}
-  nav a{margin:8px 0;font-size:13px;}
-  header .btn{margin-top:12px;padding:6px 10px;font-size:12px;}
-  .hero{height:50vh;padding:0 15px;}
-  .hero h1{font-size:22px;line-height:1.2;}
-  .hero p{font-size:12px;margin-bottom:15px;}
-  .hero .buttons a{padding:5px 10px;font-size:11px;margin-right:8px;}
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:15px 20px;
+  }
+  header .logo{
+    margin-bottom:15px;
+    width:100%;
+  }
+  nav{
+    width:100%;
+    flex-direction:column;
+    margin-bottom:10px;
+  }
+  nav a{
+    display:block;
+    width:100%;
+    margin:6px 0;
+    font-size:14px;
+  }
+  header .btn{
+    width:100%;
+    text-align:center;
+    padding:8px 0;
+    margin-top:10px;
+    font-size:13px;
+  }
+  .hero{
+    height:50vh;
+    padding:0 15px;
+  }
+  .hero h1{
+    font-size:22px;
+    line-height:1.2;
+  }
+  .hero p{
+    font-size:12px;
+    margin-bottom:15px;
+  }
+  .hero .buttons a{
+    width:48%;
+    display:inline-block;
+    text-align:center;
+    padding:6px 0;
+    font-size:11px;
+    margin-right:4%;
+  }
+  .project{height:180px;}
 }
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
 <header>
   <div class="logo">NUMA STUDIO</div>
   <nav>
@@ -97,7 +143,6 @@ footer .social a:hover{color:#c9a96e;}
   <a href="#" class="btn">CONTACTAR</a>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>ARQUITECTURA NACIDA DE LA VISIÓN, CONSTRUIDA CON PROPÓSITO.</h1>
@@ -109,7 +154,6 @@ footer .social a:hover{color:#c9a96e;}
   </div>
 </section>
 
-<!-- SERVICIOS -->
 <section class="services">
   <h2>SERVICIOS</h2>
   <div class="grid-services">
@@ -122,7 +166,6 @@ footer .social a:hover{color:#c9a96e;}
   </div>
 </section>
 
-<!-- PROYECTOS -->
 <section class="projects">
   <h2>PROYECTOS DESTACADOS</h2>
   <div class="grid-projects">
@@ -133,7 +176,6 @@ footer .social a:hover{color:#c9a96e;}
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div>
     <strong>NUMA STUDIO</strong><br><br>
