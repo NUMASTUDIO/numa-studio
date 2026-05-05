@@ -149,6 +149,50 @@ footer .social a:hover{color:#c9a96e;}
     <a href="https://wa.me/5215512345678" target="_blank">WhatsApp</a>
   </div>
 </footer>
+  /* Header móvil corregido */
+@media(max-width:480px){
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+    padding:15px 20px;
+  }
+
+  header .logo{
+    margin-bottom:15px;
+  }
+
+  header nav{
+    flex-direction:column;
+    width:100%;
+  }
+
+  header nav a{
+    margin-left:0;
+    margin-bottom:10px;
+  }
+
+  header .btn{
+    margin-top:15px;
+  }
+
+  .hero{
+    height:60vh;
+    padding:0 20px;
+  }
+
+  .hero h1{
+    font-size:22px;
+  }
+
+  .hero p{
+    font-size:12px;
+  }
+
+  .hero .buttons a{
+    padding:6px 10px;
+    font-size:11px;
+  }
+}
 
 </body>
 </html>
