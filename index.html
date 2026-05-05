@@ -9,7 +9,7 @@
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
 
-/* ================== HEADER ================== */
+/* HEADER - PC y tablet */
 header{
   position:absolute;top:0;left:0;width:100%;
   display:flex;justify-content:space-between;align-items:center;
@@ -21,7 +21,7 @@ nav a{color:white;font-size:14px;opacity:.8;}
 nav a:hover{opacity:1;}
 header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13px;}
 
-/* ================== HERO ================== */
+/* HERO - PC y tablet */
 .hero{
   height:80vh;
   background:url('images/amouna.jpg.jpg') center/cover no-repeat;
@@ -33,7 +33,7 @@ header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13
 .hero p{color:#ccc;margin-bottom:20px;font-size:14px;}
 .hero .buttons a{margin-right:10px;border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:12px;}
 
-/* ================== SERVICIOS ================== */
+/* SERVICIOS - PC y tablet */
 .services{background:#f4f4f4;color:#111;padding:60px 30px;text-align:center;}
 .services h2{font-family:'Playfair Display';margin-bottom:40px;font-size:24px;letter-spacing:1px;}
 .grid-services{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
@@ -41,7 +41,7 @@ header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13
 .card h3{font-family:'Playfair Display';margin-bottom:10px;}
 .card p{font-size:14px;color:#666;}
 
-/* ================== PROYECTOS ================== */
+/* PROYECTOS - PC y tablet */
 .projects{padding:80px 30px;}
 .projects h2{text-align:center;margin-bottom:40px;font-family:'Playfair Display';font-size:24px;}
 .grid-projects{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
@@ -51,14 +51,14 @@ header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13
   font-family:'Playfair Display';background-color:rgba(0,0,0,0.25);background-blend-mode:darken;
 }
 
-/* ================== FOOTER ================== */
+/* FOOTER - PC y tablet */
 footer{background:#0a1318;padding:40px 30px;display:flex;justify-content:space-between;flex-wrap:wrap;color:#aaa;font-size:12px;}
 footer .social a{margin-left:15px;color:#aaa;font-size:14px;}
 footer .social a:hover{color:#c9a96e;}
 
-/* ================== MEDIA QUERIES SOLO CELULAR ================== */
+/* ===================== MEDIA QUERIES CELULAR ===================== */
 @media(max-width:480px){
-  /* HEADER vertical */
+  /* HEADER vertical para celular */
   header{
     flex-direction:column;
     align-items:center;
@@ -88,7 +88,7 @@ footer .social a:hover{color:#c9a96e;}
     font-size:13px;
   }
 
-  /* HERO compacto */
+  /* HERO compacto para celular */
   .hero{
     height:50vh;
     flex-direction:column;
@@ -106,7 +106,7 @@ footer .social a:hover{color:#c9a96e;}
     font-size:11px;
   }
 
-  /* Servicios y proyectos en una columna */
+  /* SERVICIOS y PROYECTOS en 1 columna */
   .grid-services,.grid-projects{
     grid-template-columns:1fr;
     gap:15px;
