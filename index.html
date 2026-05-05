@@ -1,13 +1,245 @@
 <!DOCTYPE html>
-<html>
-<body style="background:black;color:white">
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Numa Studio</title>
 
-<h1>PROYECTOS</h1>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-<img src="images/casa-natura.jpg.png" width="300">
-<img src="images/la-martina.jpg.png" width="300">
-<img src="images/amouna.jpg.jpg" width="300">
-<img src="images/mcdonalds.jpg.png" width="300">
+<style>
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter', sans-serif;
+  background:#0f1a21;
+  color:white;
+}
+
+/* NAVBAR */
+header{
+  position:absolute;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:25px 60px;
+  z-index:10;
+}
+
+header nav a{
+  margin:0 15px;
+  color:white;
+  text-decoration:none;
+  font-size:14px;
+  opacity:.8;
+}
+
+header nav a:hover{
+  opacity:1;
+}
+
+.btn{
+  border:1px solid #c9a96e;
+  padding:10px 18px;
+  color:#c9a96e;
+  text-decoration:none;
+  font-size:13px;
+}
+
+/* HERO */
+.hero{
+  height:100vh;
+  background:url('images/amouna.jpg.jpg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:80px 60px;
+  position:relative;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.5);
+}
+
+.hero-content{
+  position:relative;
+  max-width:600px;
+  z-index:2;
+}
+
+.hero h1{
+  font-family:'Playfair Display', serif;
+  font-size:48px;
+  margin-bottom:20px;
+}
+
+.hero p{
+  color:#ddd;
+  margin-bottom:25px;
+}
+
+.buttons a{
+  margin-right:15px;
+}
+
+/* SERVICIOS */
+.services{
+  background:#f4f4f4;
+  color:#111;
+  padding:80px 60px;
+  text-align:center;
+}
+
+.services h2{
+  font-family:'Playfair Display';
+  margin-bottom:40px;
+}
+
+.grid-services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:8px;
+}
+
+.card h3{
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:12px;
+  color:#666;
+}
+
+/* PROYECTOS */
+.projects{
+  padding:80px 60px;
+}
+
+.projects h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-family:'Playfair Display';
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.project{
+  height:260px;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:end;
+  padding:15px;
+  font-size:14px;
+  background-color:rgba(0,0,0,0.3);
+  background-blend-mode:darken;
+}
+
+/* FOOTER */
+footer{
+  background:#0a1318;
+  padding:60px;
+  display:flex;
+  justify-content:space-between;
+  color:#aaa;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+  <div><strong>NUMA STUDIO</strong></div>
+
+  <nav>
+    <a href="#">Inicio</a>
+    <a href="#">Servicios</a>
+    <a href="#">Proyectos</a>
+    <a href="#">Contacto</a>
+  </nav>
+
+  <a href="#" class="btn">CONTACTAR</a>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <h1>ARQUITECTURA NACIDA DE LA VISIÓN, CONSTRUIDA CON PROPÓSITO.</h1>
+    <p>Diseñamos espacios que combinan funcionalidad, estética y esencia.</p>
+
+    <div class="buttons">
+      <a href="#" class="btn">VER PROYECTOS</a>
+      <a href="#" class="btn">CONTACTAR</a>
+    </div>
+  </div>
+</section>
+
+<section class="services">
+  <h2>SERVICIOS</h2>
+
+  <div class="grid-services">
+    <div class="card"><h3>PROYECTO ARQUITECTÓNICO</h3><p>Diseño arquitectónico.</p></div>
+    <div class="card"><h3>RENDERS</h3><p>Visualización 3D.</p></div>
+    <div class="card"><h3>ASESORÍA</h3><p>Acompañamiento profesional.</p></div>
+  </div>
+</section>
+
+<section class="projects">
+  <h2>PROYECTOS DESTACADOS</h2>
+
+  <div class="grid">
+
+    <div class="project" style="background-image:url('images/casa-natura.jpg.png')">
+      CASA NATURA
+    </div>
+
+    <div class="project" style="background-image:url('images/la-martina.jpg.png')">
+      LA MARTINA
+    </div>
+
+    <div class="project" style="background-image:url('images/amouna.jpg.jpg')">
+      AMOUNA
+    </div>
+
+    <div class="project" style="background-image:url('images/mcdonalds.jpg.png')">
+      MCDONALD'S
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div>
+    <strong>NUMA STUDIO</strong><br><br>
+    © 2024
+  </div>
+
+  <div>
+    hola@numa.com<br>
+    +52 55 1234 5678
+  </div>
+</footer>
 
 </body>
 </html>
