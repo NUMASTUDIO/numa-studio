@@ -78,11 +78,91 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   color:#0f1a21;
 }
 
+/* SERVICIOS */
+.services{
+  background:#f4f4f4;
+  color:#111;
+  padding:60px 30px;
+  text-align:center;
+}
+.services h2{
+  font-family:'Playfair Display';
+  margin-bottom:40px;
+  font-size:24px;
+}
+.grid-services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+.card{
+  background:white;
+  padding:20px;
+  border-radius:8px;
+  text-align:center;
+  transition:0.3s;
+}
+.card:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
+.card img{
+  width:60px;
+  margin-bottom:10px;
+}
+.card h3{font-family:'Playfair Display';margin-bottom:10px;}
+.card p{font-size:14px;color:#666;}
+
+/* PROYECTOS DESTACADOS */
+.projects{
+  padding:80px 30px;
+}
+.projects h2{
+  text-align:center;
+  margin-bottom:40px;
+  font-family:'Playfair Display';
+  font-size:24px;
+}
+.grid-projects{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.project{
+  height:220px;
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:end;
+  justify-content:center;
+  color:white;
+  font-family:'Playfair Display';
+  font-size:16px;
+  padding:10px;
+  background-color:rgba(0,0,0,0.25);
+  background-blend-mode:darken;
+  transition:0.3s;
+  position:relative;
+  overflow:hidden;
+  border-radius:8px;
+}
+.project:hover{
+  transform:scale(1.05);
+  box-shadow:0 10px 20px rgba(0,0,0,0.3);
+}
+.project-title{
+  position:absolute;
+  bottom:10px;
+  left:10px;
+  font-family:'Playfair Display';
+  font-size:16px;
+  color:white;
+  text-shadow:1px 1px 4px rgba(0,0,0,0.7);
+}
+
 /* SOBRE NOSOTROS */
 .about{
   display:grid;
   grid-template-columns:1fr 1fr;
   min-height:500px;
+  margin-top:40px;
 }
 .about-img img{
   width:100%;
@@ -114,41 +194,6 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   margin-bottom:20px;
 }
 
-/* PROYECTOS */
-.projects{
-  padding:80px 30px;
-}
-.projects h2{
-  text-align:center;
-  margin-bottom:40px;
-  font-family:'Playfair Display';
-  font-size:24px;
-}
-.grid-projects{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-.project{
-  height:220px;
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:end;
-  justify-content:center;
-  color:white;
-  font-family:'Playfair Display';
-  font-size:16px;
-  padding:10px;
-  background-color:rgba(0,0,0,0.25);
-  background-blend-mode:darken;
-  transition:0.3s;
-}
-.project:hover{
-  transform:scale(1.05);
-  box-shadow:0 10px 20px rgba(0,0,0,0.3);
-}
-
 /* FOOTER */
 footer{
   background:#0a1318;
@@ -166,6 +211,10 @@ footer .social a{
   transition:0.3s;
 }
 footer .social a:hover{color:#c9a96e;}
+footer .firma img{
+  margin-top:10px;
+  width:150px;
+}
 
 /* RESPONSIVE */
 @media(max-width:768px){
@@ -177,6 +226,7 @@ footer .social a:hover{color:#c9a96e;}
   .about-text{padding:30px;}
   .grid-projects{grid-template-columns:1fr;}
   .project{height:180px;}
+  .grid-services{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -206,6 +256,47 @@ footer .social a:hover{color:#c9a96e;}
   </div>
 </section>
 
+<!-- SERVICIOS -->
+<section class="services">
+  <h2>SERVICIOS</h2>
+  <div class="grid-services">
+    <div class="card">
+      <img src="images/firma.png" alt="Icono Servicio 1">
+      <h3>PROYECTO ARQUITECTÓNICO</h3>
+      <p>Diseño arquitectónico funcional y estético.</p>
+    </div>
+    <div class="card">
+      <img src="images/firma.png" alt="Icono Servicio 2">
+      <h3>VISUALIZACIÓN 3D Y RENDERS</h3>
+      <p>Modelado 3D y renders realistas.</p>
+    </div>
+    <div class="card">
+      <img src="images/firma.png" alt="Icono Servicio 3">
+      <h3>LÁMINAS Y PRESENTACIONES</h3>
+      <p>Láminas profesionales para proyectos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS DESTACADOS -->
+<section class="projects">
+  <h2>PROYECTOS DESTACADOS</h2>
+  <div class="grid-projects">
+    <div class="project" style="background-image:url('images/amouna.jpg')">
+      <div class="project-title">AMOUNA</div>
+    </div>
+    <div class="project" style="background-image:url('images/casa-natura.png')">
+      <div class="project-title">CASA NATURA</div>
+    </div>
+    <div class="project" style="background-image:url('images/la-martina.png')">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+    <div class="project" style="background-image:url('images/mcdonalds.png')">
+      <div class="project-title">MCDONALD'S</div>
+    </div>
+  </div>
+</section>
+
 <!-- SOBRE NOSOTROS -->
 <section class="about">
   <div class="about-img">
@@ -215,18 +306,6 @@ footer .social a:hover{color:#c9a96e;}
     <p class="subtitle">SOBRE NOSOTROS</p>
     <h2>Diseñamos espacios que inspiran, combinando creatividad, funcionalidad y detalle en cada proyecto.</h2>
     <p>En NUMA STUDIO entendemos la arquitectura como una expresión de identidad. Cada proyecto es una oportunidad para crear algo único, adaptado a las necesidades de cada cliente.</p>
-    <a href="#" class="btn">CONOCER MÁS</a>
-  </div>
-</section>
-
-<!-- PROYECTOS DESTACADOS -->
-<section class="projects">
-  <h2>PROYECTOS DESTACADOS</h2>
-  <div class="grid-projects">
-    <div class="project" style="background-image:url('images/amouna.jpg')">AMOUNA</div>
-    <div class="project" style="background-image:url('images/casa-natura.png')">CASA NATURA</div>
-    <div class="project" style="background-image:url('images/la-martina.png')">LA MARTINA</div>
-    <div class="project" style="background-image:url('images/mcdonalds.png')">MCDONALD'S</div>
   </div>
 </section>
 
@@ -234,7 +313,7 @@ footer .social a:hover{color:#c9a96e;}
 <footer>
   <div>
     <strong>NUMA STUDIO</strong><br>© 2024 NUMA STUDIO
-    <div><img src="images/firma.png" alt="Firma" style="margin-top:10px;width:150px;"></div>
+    <div class="firma"><img src="images/firma.png" alt="Firma"></div>
   </div>
   <div class="social">
     <a href="#">Instagram</a>
