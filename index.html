@@ -14,16 +14,22 @@ body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
 
 /* NAVBAR */
 header{
-  position:absolute;top:0;left:0;width:100%;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 40px;z-index:10;
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+  z-index:10;
   flex-wrap:wrap;
 }
-header .logo{font-family:'Playfair Display';font-size:22px;letter-spacing:2px;margin-bottom:5px;}
+header .logo{font-family:'Playfair Display';font-size:22px;letter-spacing:2px;}
 header nav{display:flex;flex-wrap:wrap;}
-header nav a{margin-left:25px;font-size:14px;opacity:.8;color:white;margin-bottom:5px;}
+header nav a{margin-left:25px;font-size:14px;opacity:.8;color:white;margin-bottom:0;}
 header nav a:hover{opacity:1;}
-header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13px;margin-top:5px;}
+header .btn{border:1px solid #c9a96e;padding:8px 15px;color:#c9a96e;font-size:13px;margin-top:0;}
 
 /* HERO */
 .hero{
@@ -61,30 +67,36 @@ footer .social a{margin-left:15px;color:#aaa;font-size:14px;}
 footer .social a:hover{color:#c9a96e;}
 
 /* MEDIA QUERIES RESPONSIVE */
+
+/* Tableta */
 @media(max-width:1024px){
   .grid-services{grid-template-columns:repeat(2,1fr);}
   .grid-projects{grid-template-columns:repeat(2,1fr);}
   .hero h1{font-size:32px;}
 }
 
+/* Celulares grandes */
 @media(max-width:768px){
-  header{flex-direction:column;align-items:flex-start;}
-  header nav{flex-direction:column;align-items:flex-start;margin-top:10px;}
-  header nav a{margin-left:0;margin-bottom:8px;}
+  header{flex-direction:column;align-items:flex-start;padding:15px 20px;}
+  header .logo{margin-bottom:15px;}
+  header nav{flex-direction:column;width:100%;}
+  header nav a{margin-left:0;margin-bottom:10px;}
+  header .btn{margin-top:10px;}
   .hero{height:60vh;padding:0 20px;}
   .hero h1{font-size:28px;}
   .grid-services{grid-template-columns:1fr;}
   .grid-projects{grid-template-columns:1fr;}
 }
 
+/* Celulares pequeños */
 @media(max-width:480px){
-  .hero h1{font-size:24px;}
+  .hero h1{font-size:22px;}
   .hero p{font-size:12px;}
   .hero .buttons a{padding:6px 10px;font-size:11px;}
-  .projects h2,.services h2{font-size:20px;}
+  header nav a{font-size:12px;}
+  header .btn{font-size:11px;padding:6px 10px;}
   .project{height:180px;}
 }
-
 </style>
 </head>
 <body>
@@ -149,50 +161,6 @@ footer .social a:hover{color:#c9a96e;}
     <a href="https://wa.me/5215512345678" target="_blank">WhatsApp</a>
   </div>
 </footer>
-  /* Header móvil corregido */
-@media(max-width:480px){
-  header{
-    flex-direction:column;
-    align-items:flex-start;
-    padding:15px 20px;
-  }
-
-  header .logo{
-    margin-bottom:15px;
-  }
-
-  header nav{
-    flex-direction:column;
-    width:100%;
-  }
-
-  header nav a{
-    margin-left:0;
-    margin-bottom:10px;
-  }
-
-  header .btn{
-    margin-top:15px;
-  }
-
-  .hero{
-    height:60vh;
-    padding:0 20px;
-  }
-
-  .hero h1{
-    font-size:22px;
-  }
-
-  .hero p{
-    font-size:12px;
-  }
-
-  .hero .buttons a{
-    padding:6px 10px;
-    font-size:11px;
-  }
-}
 
 </body>
 </html>
