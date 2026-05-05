@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Numa Studio</title>
 
+<!-- Tipografías -->
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 
+<!-- Estilos -->
 <style>
-
 *{
   margin:0;
   padding:0;
@@ -17,12 +17,12 @@
 }
 
 body{
-  background:#0d1a22;
-  color:white;
   font-family:'Inter', sans-serif;
+  background:#0f1a21;
+  color:white;
 }
 
-/* NAV */
+/* NAVBAR */
 header{
   position:absolute;
   top:0;
@@ -30,25 +30,34 @@ header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  padding:30px 60px;
+  padding:25px 60px;
   z-index:10;
 }
 
-.logo{
-  font-family:'Playfair Display';
+header .logo{
+  font-family:'Playfair Display', serif;
+  font-size:20px;
   letter-spacing:2px;
 }
 
-nav a{
-  margin-left:30px;
-  text-decoration:none;
+header nav a{
+  margin-left:25px;
   color:white;
+  text-decoration:none;
   font-size:14px;
   opacity:.8;
 }
 
-nav a:hover{
+header nav a:hover{
   opacity:1;
+}
+
+.btn{
+  border:1px solid #c9a96e;
+  padding:10px 18px;
+  color:#c9a96e;
+  text-decoration:none;
+  font-size:13px;
 }
 
 /* HERO */
@@ -57,7 +66,7 @@ nav a:hover{
   background:url('images/amouna.jpg.jpg') center/cover no-repeat;
   display:flex;
   align-items:center;
-  padding:0 60px;
+  padding-left:60px;
   position:relative;
 }
 
@@ -75,7 +84,7 @@ nav a:hover{
 }
 
 .hero h1{
-  font-family:'Playfair Display';
+  font-family:'Playfair Display', serif;
   font-size:48px;
   line-height:1.2;
   margin-bottom:20px;
@@ -86,84 +95,163 @@ nav a:hover{
   font-size:14px;
 }
 
+/* BOTONES HERO */
+.hero .buttons a{
+  margin-right:15px;
+}
+
+/* SECCION SERVICIOS */
+.services{
+  background:#f4f4f4;
+  color:#111;
+  padding:80px 60px;
+  text-align:center;
+}
+
+.services h2{
+  font-family:'Playfair Display';
+  margin-bottom:40px;
+  letter-spacing:1px;
+}
+
+.grid-services{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.card{
+  background:white;
+  padding:25px;
+  border-radius:8px;
+}
+
+.card h3{
+  font-size:14px;
+  margin-bottom:10px;
+}
+
+.card p{
+  font-size:12px;
+  color:#666;
+}
+
 /* PROYECTOS */
 .projects{
-  padding:100px 60px;
+  padding:80px 60px;
 }
 
 .projects h2{
-  font-family:'Playfair Display';
-  font-size:22px;
+  text-align:center;
   margin-bottom:40px;
+  font-family:'Playfair Display';
 }
 
 .grid{
   display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:25px;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
 }
 
 .project{
-  height:300px;
+  height:260px;
   background-size:cover;
   background-position:center;
   display:flex;
   align-items:end;
-  padding:20px;
-  font-family:'Playfair Display';
-  font-size:16px;
-  letter-spacing:1px;
+  padding:15px;
+  font-size:14px;
   background-color:rgba(0,0,0,0.3);
   background-blend-mode:darken;
+  font-family:'Playfair Display';
+}
+
+/* FOOTER */
+footer{
+  background:#0a1318;
+  padding:60px;
+  display:flex;
+  justify-content:space-between;
+  color:#aaa;
+  font-size:13px;
+}
+
+footer .social a{
+  margin-left:15px;
+  text-decoration:none;
+  color:#aaa;
+  font-size:16px;
+}
+
+footer .social a:hover{
+  color:#c9a96e;
 }
 
 </style>
 
 </head>
-
 <body>
 
+<!-- NAVBAR -->
 <header>
   <div class="logo">NUMA STUDIO</div>
-
   <nav>
     <a href="#">INICIO</a>
     <a href="#">SERVICIOS</a>
     <a href="#">PROYECTOS</a>
     <a href="#">CONTACTO</a>
   </nav>
+  <a href="#" class="btn">CONTACTAR</a>
 </header>
 
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1>ARQUITECTURA NACIDA DE LA VISIÓN, CONSTRUIDA CON PROPÓSITO.</h1>
     <p>Diseñamos espacios que combinan estética, funcionalidad y esencia.</p>
+    <div class="buttons">
+      <a href="#" class="btn">VER PROYECTOS</a>
+      <a href="#" class="btn">CONTACTAR</a>
+    </div>
   </div>
 </section>
 
+<!-- SERVICIOS -->
+<section class="services">
+  <h2>SERVICIOS</h2>
+  <div class="grid-services">
+    <div class="card"><h3>PROYECTO ARQUITECTÓNICO</h3><p>Diseño arquitectónico funcional y estético.</p></div>
+    <div class="card"><h3>VISUALIZACIÓN 3D Y RENDERS</h3><p>Modelado 3D y renders realistas.</p></div>
+    <div class="card"><h3>LÁMINAS Y PRESENTACIONES</h3><p>Láminas profesionales para proyectos.</p></div>
+    <div class="card"><h3>TRÁMITES Y PERMISOS</h3><p>Gestión de permisos y trámites.</p></div>
+    <div class="card"><h3>LEVANTAMIENTOS</h3><p>Levantamientos arquitectónicos precisos.</p></div>
+    <div class="card"><h3>ASESORÍA</h3><p>Acompañamiento en decisiones de diseño.</p></div>
+  </div>
+</section>
+
+<!-- PROYECTOS -->
 <section class="projects">
-  <h2>PROYECTOS</h2>
-
+  <h2>PROYECTOS DESTACADOS</h2>
   <div class="grid">
-
-    <div class="project" style="background-image:url('images/casa-natura.jpg.png')">
-      CASA NATURA
-    </div>
-
-    <div class="project" style="background-image:url('images/la-martina.jpg.png')">
-      LA MARTINA
-    </div>
-
-    <div class="project" style="background-image:url('images/amouna.jpg.jpg')">
-      AMOUNA
-    </div>
-
-    <div class="project" style="background-image:url('images/mcdonalds.jpg.png')">
-      MCDONALD'S
-    </div>
-
+    <div class="project" style="background-image:url('images/casa-natura.jpg.png')">CASA NATURA</div>
+    <div class="project" style="background-image:url('images/la-martina.jpg.png')">LA MARTINA</div>
+    <div class="project" style="background-image:url('images/amouna.jpg.jpg')">AMOUNA</div>
+    <div class="project" style="background-image:url('images/mcdonalds.jpg.png')">MCDONALD'S</div>
   </div>
 </section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <strong>NUMA STUDIO</strong><br><br>
+    © 2024 NUMA STUDIO
+  </div>
+  <div class="social">
+    <a href="https://www.instagram.com/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/" target="_blank">Facebook</a>
+    <a href="https://wa.me/5215512345678" target="_blank">WhatsApp</a>
+  </div>
+</footer>
 
 </body>
 </html>
