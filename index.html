@@ -51,7 +51,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   max-width:650px;
 }
 .hero-logo{
-  width:250px; /* Aumenté mucho el tamaño para que imponga */
+  width:320px; /* LOGO GRANDE */
   margin-bottom:20px;
 }
 .hero h1{
@@ -104,10 +104,6 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   transition:0.3s;
 }
 .card:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
-.card img{
-  width:60px;
-  margin-bottom:10px;
-}
 .card h3{font-family:'Playfair Display';margin-bottom:10px;}
 .card p{font-size:14px;color:#666;}
 
@@ -214,7 +210,7 @@ footer .social a{
 footer .social a:hover{color:#c9a96e;}
 footer .firma img{
   margin-top:10px;
-  width:250px; /* Firma mucho más grande */
+  width:280px; /* FIRMA GRANDE */
 }
 
 /* RESPONSIVE */
@@ -222,7 +218,6 @@ footer .firma img{
   header{flex-direction:column;}
   nav{flex-direction:column;align-items:center;}
   .hero{padding:20px;text-align:center;}
-  .hero-logo{width:180px;} /* Ajuste para móviles */
   .hero h1{font-size:28px;}
   .about{grid-template-columns:1fr;}
   .about-text{padding:30px;}
@@ -264,4 +259,43 @@ footer .firma img{
     <div class="card"><h3>VISUALIZACIÓN 3D Y RENDERS</h3><p>Modelado 3D y renders realistas.</p></div>
     <div class="card"><h3>LÁMINAS Y PRESENTACIONES</h3><p>Láminas profesionales para proyectos.</p></div>
     <div class="card"><h3>TRÁMITES Y PERMISOS</h3><p>Gestión de permisos y trámites.</p></div>
-    <div class="card"><h3>LEV
+    <div class="card"><h3>LEVANTAMIENTOS</h3><p>Levantamientos arquitectónicos precisos.</p></div>
+    <div class="card"><h3>ASESORÍA</h3><p>Acompañamiento en decisiones de diseño.</p></div>
+  </div>
+</section>
+
+<section class="projects">
+  <h2>PROYECTOS DESTACADOS</h2>
+  <div class="grid-projects">
+    <div class="project" style="background-image:url('./images/amouna.jpg')"><div class="project-title">AMOUNA</div></div>
+    <div class="project" style="background-image:url('./images/casa-natura.jpg')"><div class="project-title">CASA NATURA</div></div>
+    <div class="project" style="background-image:url('./images/la-martina.jpg')"><div class="project-title">LA MARTINA</div></div>
+    <div class="project" style="background-image:url('./images/mcdonalds.jpg')"><div class="project-title">MCDONALD'S</div></div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-img">
+    <img src="./images/montana.jpg" alt="Montaña">
+  </div>
+  <div class="about-text">
+    <p class="subtitle">SOBRE NOSOTROS</p>
+    <h2>Diseñamos espacios que inspiran, combinando creatividad, funcionalidad y detalle en cada proyecto.</h2>
+    <p>En NUMA STUDIO entendemos la arquitectura como una expresión de identidad.</p>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <strong>NUMA STUDIO</strong><br>© 2024 NUMA STUDIO
+    <div class="firma"><img src="./images/firma.png" alt="Firma"></div>
+  </div>
+  <div class="social">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">WhatsApp</a>
+  </div>
+</footer>
+
+</body>
+</html>
