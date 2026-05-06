@@ -46,18 +46,18 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   background:rgba(0,0,0,0.55);
 }
 .hero-content {
-  position: relative;  /* mantiene el logo relativo al contenido */
+  position: relative;  /* necesario para que el logo absolute funcione */
   z-index: 2;
   max-width: 650px;    /* ancho del texto */
-  margin-left: 0;      /* no empuja el texto */
-  padding-left: 0;     /* texto como estaba antes */
+  margin-left: 0;      /* el texto no se mueve */
+  padding-left: 0;     /* el texto no se mueve */
 }
 
 .hero-logo {
-  position: absolute;  /* permite superponerse al texto */
-  top: 10px;           /* ajusta verticalmente hasta quedar sobre las letras */
+  position: absolute;  /* se pone encima del texto */
+  top: 85px;           /* ajusta verticalmente hasta pegarlo sobre las letras */
   left: 0px;           /* pegado al inicio del texto */
-  width: 500px !important;  /* tamaño grande */
+  width: 500px !important;  /* tamaño grande como en la referencia */
   z-index: 5;          /* encima del texto */
 }
 .hero h1{
