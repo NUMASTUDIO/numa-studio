@@ -34,8 +34,8 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   min-height:100vh;
   display:flex;
   align-items:center;
-  justify-content:center;
-  text-align:center;
+  justify-content:flex-start;
+  padding:0 60px;
   position:relative;
   background:url('./images/portada.jpg') center/cover no-repeat;
 }
@@ -48,30 +48,30 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 .hero-content{
   position:relative;
   z-index:2;
-  max-width:800px;
+  max-width:650px;
 }
 .hero-logo{
-  width:400px; /* Mucho más grande */
-  margin-bottom:30px;
+  width:130px;
+  margin-bottom:20px;
 }
 .hero h1{
   font-family:'Playfair Display';
-  font-size:50px;
+  font-size:46px;
   line-height:1.2;
   margin-bottom:15px;
 }
 .hero h1 span{color:#c9a96e;}
 .hero p{
   color:#ccc;
-  font-size:16px;
+  font-size:14px;
   margin-bottom:20px;
 }
 .buttons a{
   margin-right:10px;
   border:1px solid #c9a96e;
-  padding:12px 22px;
+  padding:10px 18px;
   color:#c9a96e;
-  font-size:14px;
+  font-size:12px;
   text-decoration:none;
 }
 .buttons a:hover{
@@ -89,7 +89,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 .services h2{
   font-family:'Playfair Display';
   margin-bottom:40px;
-  font-size:28px;
+  font-size:24px;
 }
 .grid-services{
   display:grid;
@@ -104,7 +104,10 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   transition:0.3s;
 }
 .card:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
-.card img{display:none;} /* Eliminamos todas las imágenes en servicios */
+.card img{
+  width:60px;
+  margin-bottom:10px;
+}
 .card h3{font-family:'Playfair Display';margin-bottom:10px;}
 .card p{font-size:14px;color:#666;}
 
@@ -116,7 +119,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   text-align:center;
   margin-bottom:40px;
   font-family:'Playfair Display';
-  font-size:28px;
+  font-size:24px;
 }
 .grid-projects{
   display:grid;
@@ -211,7 +214,7 @@ footer .social a{
 footer .social a:hover{color:#c9a96e;}
 footer .firma img{
   margin-top:10px;
-  width:400px; /* Firma mucho más grande */
+  width:150px;
 }
 
 /* RESPONSIVE */
@@ -219,21 +222,19 @@ footer .firma img{
   header{flex-direction:column;}
   nav{flex-direction:column;align-items:center;}
   .hero{padding:20px;text-align:center;}
-  .hero h1{font-size:36px;}
-  .hero-logo{width:300px;}
+  .hero h1{font-size:28px;}
   .about{grid-template-columns:1fr;}
   .about-text{padding:30px;}
   .grid-projects{grid-template-columns:1fr;}
   .project{height:180px;}
   .grid-services{grid-template-columns:1fr;}
-  footer .firma img{width:250px;}
 }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo"><img src="./images/logo.jpg" alt="NUMA STUDIO"></div>
+  <div class="logo"><img src="./images/logo.png" alt="NUMA STUDIO"></div>
   <nav>
     <a href="#">INICIO</a>
     <a href="#">SERVICIOS</a>
@@ -246,7 +247,7 @@ footer .firma img{
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <img src="./images/logo.jpg" class="hero-logo" alt="logo">
+    <img src="./images/logo.png" class="hero-logo" alt="logo">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
     <p>Diseñamos espacios que combinan funcionalidad, estética y esencia.</p>
     <div class="buttons">
@@ -269,4 +270,22 @@ footer .firma img{
       <p>Modelado 3D y renders realistas.</p>
     </div>
     <div class="card">
-      <h3>LÁMINAS Y PRESENTACIONES</h3
+      <h3>LÁMINAS Y PRESENTACIONES</h3>
+      <p>Láminas profesionales para proyectos.</p>
+    </div>
+    <div class="card">
+      <h3>TRÁMITES Y PERMISOS</h3>
+      <p>Gestión de permisos y trámites.</p>
+    </div>
+    <div class="card">
+      <h3>LEVANTAMIENTOS</h3>
+      <p>Levantamientos arquitectónicos precisos.</p>
+    </div>
+    <div class="card">
+      <h3>ASESORÍA</h3>
+      <p>Acompañamiento en decisiones de diseño.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROY
