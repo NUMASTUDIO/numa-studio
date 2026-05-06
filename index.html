@@ -45,20 +45,20 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   inset:0;
   background:rgba(0,0,0,0.55);
 }
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:90%;
-  margin-left:0;
+.hero-content {
+  position: relative;  /* mantiene el logo relativo al contenido */
+  z-index: 2;
+  max-width: 650px;    /* ancho del texto */
+  margin-left: 0;      /* no empuja el texto */
+  padding-left: 0;     /* texto como estaba antes */
 }
-  .hero-content{
-  padding-left:120px;
-}
-.hero-logo{
-  width:500px !important;
-  display:block;
-  margin-bottom:0;
-  transform: translateX(-40px);
+
+.hero-logo {
+  position: absolute;  /* permite superponerse al texto */
+  top: 10px;           /* ajusta verticalmente hasta quedar sobre las letras */
+  left: 0px;           /* pegado al inicio del texto */
+  width: 500px !important;  /* tamaño grande */
+  z-index: 5;          /* encima del texto */
 }
 .hero h1{
   font-family:'Playfair Display';
