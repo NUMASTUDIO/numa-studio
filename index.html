@@ -54,11 +54,19 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 }
   
 .hero-logo {
-  position: absolute;  /* se superpone al texto */
-  top: 60px;           /* ajustado verticalmente sobre la primera línea del h1 */
-  left: 0px;           /* pegado al inicio de la primera letra */
-  width: 500px !important;  /* tamaño grande como querías */
-  z-index: 5;          /* encima del texto */
+  position: absolute;
+  top: 0px;        /* mueve el logo justo arriba de las letras */
+  left: 0px;       /* pegado al inicio de la primera letra */
+  width: 500px !important;
+  z-index: 5;
+}
+
+@media(max-width:768px){
+  .hero-logo {
+    width: 300px !important;
+    top: 0px;
+    left: 0px;
+  }
 }
 .hero h1{
   font-family:'Playfair Display';
@@ -251,8 +259,10 @@ footer .firma img{
 </header>
 
 <section class="hero">
+  <!-- Logo encima de las letras -->
+  <img src="./images/logo.png" class="hero-logo" alt="logo">
+
   <div class="hero-content">
-    <img src="./images/logo.png" class="hero-logo" alt="logo">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
     <p>Diseñamos espacios que combinan funcionalidad, estética y esencia.</p>
     <div class="buttons">
