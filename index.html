@@ -1,252 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NUMA STUDIO</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-
-<style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
-
-/* HEADER */
-header{
-  position:absolute;top:0;left:0;width:100%;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:20px 40px;z-index:10;
-}
-header .logo img{height:50px;}
-nav{display:flex;gap:25px;}
-nav a{color:white;font-size:14px;text-decoration:none;opacity:.8;}
-nav a:hover{opacity:1;color:#c9a96e;}
-header .btn{
-  border:1px solid #c9a96e;
-  padding:8px 15px;
-  color:#c9a96e;
-  font-size:13px;
-  text-decoration:none;
-}
-header .btn:hover{background:#c9a96e;color:#0f1a21;}
-
-/* HERO */
-.hero{
-  min-height:100vh;
-  display:flex;
-  align-items:center;
-  justify-content:flex-start;
-  padding:0 60px;
-  position:relative;
-  background:url('./images/portada.jpg') center/cover no-repeat;
-}
-.hero::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.55);
-}
-.hero-content{
-  position:relative;
-  z-index:2;
-  max-width:650px;
-}
-.hero-logo{
-  width:130px;
-  margin-bottom:20px;
-}
-.hero h1{
-  font-family:'Playfair Display';
-  font-size:46px;
-  line-height:1.2;
-  margin-bottom:15px;
-}
-.hero h1 span{color:#c9a96e;}
-.hero p{
-  color:#ccc;
-  font-size:14px;
-  margin-bottom:20px;
-}
-.buttons a{
-  margin-right:10px;
-  border:1px solid #c9a96e;
-  padding:10px 18px;
-  color:#c9a96e;
-  font-size:12px;
-  text-decoration:none;
-}
-.buttons a:hover{
-  background:#c9a96e;
-  color:#0f1a21;
-}
-
-/* SERVICIOS */
-.services{
-  background:#f4f4f4;
-  color:#111;
-  padding:60px 30px;
-  text-align:center;
-}
-.services h2{
-  font-family:'Playfair Display';
-  margin-bottom:40px;
-  font-size:24px;
-}
-.grid-services{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-.card{
-  background:white;
-  padding:20px;
-  border-radius:8px;
-  text-align:center;
-  transition:0.3s;
-}
-.card:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
-.card img{
-  width:60px;
-  margin-bottom:10px;
-}
-.card h3{font-family:'Playfair Display';margin-bottom:10px;}
-.card p{font-size:14px;color:#666;}
-
-/* PROYECTOS DESTACADOS */
-.projects{
-  padding:80px 30px;
-}
-.projects h2{
-  text-align:center;
-  margin-bottom:40px;
-  font-family:'Playfair Display';
-  font-size:24px;
-}
-.grid-projects{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:20px;
-}
-.project{
-  height:220px;
-  background-size:cover;
-  background-position:center;
-  display:flex;
-  align-items:end;
-  justify-content:center;
-  color:white;
-  font-family:'Playfair Display';
-  font-size:16px;
-  padding:10px;
-  background-color:rgba(0,0,0,0.25);
-  background-blend-mode:darken;
-  transition:0.3s;
-  position:relative;
-  overflow:hidden;
-  border-radius:8px;
-}
-.project:hover{
-  transform:scale(1.05);
-  box-shadow:0 10px 20px rgba(0,0,0,0.3);
-}
-.project-title{
-  position:absolute;
-  bottom:10px;
-  left:10px;
-  font-family:'Playfair Display';
-  font-size:16px;
-  color:white;
-  text-shadow:1px 1px 4px rgba(0,0,0,0.7);
-}
-
-/* SOBRE NOSOTROS */
-.about{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  min-height:500px;
-  margin-top:40px;
-}
-.about-img img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-.about-text{
-  background:#fff;
-  color:#111;
-  padding:60px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-}
-.about .subtitle{
-  color:#c9a96e;
-  font-size:12px;
-  letter-spacing:2px;
-  margin-bottom:10px;
-}
-.about h2{
-  font-family:'Playfair Display';
-  font-size:26px;
-  margin-bottom:20px;
-}
-.about p{
-  font-size:14px;
-  color:#555;
-  margin-bottom:20px;
-}
-
-/* FOOTER */
-footer{
-  background:#0a1318;
-  padding:40px;
-  display:flex;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  color:#aaa;
-  font-size:12px;
-}
-footer .social a{
-  margin-left:15px;
-  color:#aaa;
-  font-size:14px;
-  transition:0.3s;
-}
-footer .social a:hover{color:#c9a96e;}
-footer .firma img{
-  margin-top:10px;
-  width:150px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-  header{flex-direction:column;}
-  nav{flex-direction:column;align-items:center;}
-  .hero{padding:20px;text-align:center;}
-  .hero h1{font-size:28px;}
-  .about{grid-template-columns:1fr;}
-  .about-text{padding:30px;}
-  .grid-projects{grid-template-columns:1fr;}
-  .project{height:180px;}
-  .grid-services{grid-template-columns:1fr;}
-}
-</style>
-</head>
-<body>
-
-<header>
-  <div class="logo"><img src="./images/logo.png" alt="NUMA STUDIO"></div>
-  <nav>
-    <a href="#">INICIO</a>
-    <a href="#">SERVICIOS</a>
-    <a href="#">PROYECTOS</a>
-    <a href="#">CONTACTO</a>
-  </nav>
-  <a href="#" class="btn">CONTACTAR</a>
-</header>
-
+<!-- HERO -->
 <section class="hero">
   <div class="hero-content">
-    <img src="./images/logo.png" class="hero-logo" alt="logo">
+    <!-- Aumenté el tamaño del logo -->
+    <img src="./images/logo.png" class="hero-logo" alt="logo" style="width:200px; margin-bottom:30px;">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
     <p>Diseñamos espacios que combinan funcionalidad, estética y esencia.</p>
     <div class="buttons">
@@ -256,43 +12,43 @@ footer .firma img{
   </div>
 </section>
 
+<!-- SERVICIOS -->
 <section class="services">
   <h2>SERVICIOS</h2>
   <div class="grid-services">
-    <div class="card"><img src="./images/firma.png"><h3>PROYECTO ARQUITECTÓNICO</h3><p>Diseño arquitectónico funcional y estético.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>VISUALIZACIÓN 3D Y RENDERS</h3><p>Modelado 3D y renders realistas.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>LÁMINAS Y PRESENTACIONES</h3><p>Láminas profesionales para proyectos.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>TRÁMITES Y PERMISOS</h3><p>Gestión de permisos y trámites.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>LEVANTAMIENTOS</h3><p>Levantamientos arquitectónicos precisos.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>ASESORÍA</h3><p>Acompañamiento en decisiones de diseño.</p></div>
+    <div class="card">
+      <h3>PROYECTO ARQUITECTÓNICO</h3>
+      <p>Diseño arquitectónico funcional y estético.</p>
+    </div>
+    <div class="card">
+      <h3>VISUALIZACIÓN 3D Y RENDERS</h3>
+      <p>Modelado 3D y renders realistas.</p>
+    </div>
+    <div class="card">
+      <h3>LÁMINAS Y PRESENTACIONES</h3>
+      <p>Láminas profesionales para proyectos.</p>
+    </div>
+    <div class="card">
+      <h3>TRÁMITES Y PERMISOS</h3>
+      <p>Gestión de permisos y trámites.</p>
+    </div>
+    <div class="card">
+      <h3>LEVANTAMIENTOS</h3>
+      <p>Levantamientos arquitectónicos precisos.</p>
+    </div>
+    <div class="card">
+      <h3>ASESORÍA</h3>
+      <p>Acompañamiento en decisiones de diseño.</p>
+    </div>
   </div>
 </section>
 
-<section class="projects">
-  <h2>PROYECTOS DESTACADOS</h2>
-  <div class="grid-projects">
-    <div class="project" style="background-image:url('./images/amouna.jpg')"><div class="project-title">AMOUNA</div></div>
-    <div class="project" style="background-image:url('./images/casa-natura.jpg')"><div class="project-title">CASA NATURA</div></div>
-    <div class="project" style="background-image:url('./images/la-martina.jpg')"><div class="project-title">LA MARTINA</div></div>
-    <div class="project" style="background-image:url('./images/mcdonalds.jpg')"><div class="project-title">MCDONALD'S</div></div>
-  </div>
-</section>
-
-<section class="about">
-  <div class="about-img">
-    <img src="./images/montana.jpg" alt="Montaña">
-  </div>
-  <div class="about-text">
-    <p class="subtitle">SOBRE NOSOTROS</p>
-    <h2>Diseñamos espacios que inspiran, combinando creatividad, funcionalidad y detalle en cada proyecto.</h2>
-    <p>En NUMA STUDIO entendemos la arquitectura como una expresión de identidad. Cada proyecto es una oportunidad para crear algo único, adaptado a las necesidades de cada cliente.</p>
-  </div>
-</section>
-
+<!-- FOOTER -->
 <footer>
   <div>
     <strong>NUMA STUDIO</strong><br>© 2024 NUMA STUDIO
-    <div class="firma"><img src="./images/firma.png" alt="Firma"></div>
+    <!-- Aumenté el tamaño de la firma -->
+    <div class="firma"><img src="./images/firma.png" alt="Firma" style="width:250px; margin-top:15px;"></div>
   </div>
   <div class="social">
     <a href="#">Instagram</a>
@@ -300,6 +56,3 @@ footer .firma img{
     <a href="#">WhatsApp</a>
   </div>
 </footer>
-
-</body>
-</html>
