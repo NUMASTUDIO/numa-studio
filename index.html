@@ -49,13 +49,11 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   position: relative;  /* necesario para que el logo absolute funcione */
   z-index: 2;
   max-width: 650px;    /* ancho del texto */
-  margin-left: 0;      /* el texto no se mueve */
-  padding-left: 0;     /* el texto no se mueve */
 }  
 .hero-logo {
-  position: absolute;
-  top: 60px;    /* mantiene el logo sobre la primera línea */
-  left: -60px;  /* más a la izquierda */
+  position: absolute;   /* encima del texto */
+  top: 70px;            /* ajusta verticalmente */
+  left: 0px;            /* pegado al inicio de la primera letra */
   width: 500px !important;
   z-index: 5;
 }
