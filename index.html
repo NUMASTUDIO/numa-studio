@@ -49,12 +49,12 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   position: relative;
   z-index: 2;
   max-width: 650px;
-  margin-top: 120px; /* ajusta este valor hasta que quede justo debajo del logo */
+  margin-top: 120px;
 }
 .hero-logo {
-  position: absolute;   /* encima del texto */
-  top: 70px;            /* ajusta verticalmente */
-  left: 0px;            /* pegado al inicio de la primera letra */
+  position: absolute;
+  top: 70px;
+  left: 0px;
   width: 500px !important;
   z-index: 5;
 }
@@ -74,7 +74,8 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 .hero h1 span{color:#c9a96e;}
 .hero p{
   color:#ccc;
-  font-size:14px;
+  font-size:16px; /* tamaño más visible */
+  line-height:1.5;
   margin-bottom:20px;
 }
 .buttons a{
@@ -116,7 +117,8 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 }
 .card:hover{transform:translateY(-5px);box-shadow:0 5px 15px rgba(0,0,0,0.2);}
 .card img{
-  width:60px;
+  width:128px;
+  height:128px;
   margin-bottom:10px;
 }
 .card h3{font-family:'Playfair Display';margin-bottom:10px;}
@@ -256,12 +258,11 @@ footer .firma img{
 </header>
 
 <section class="hero">
-  <!-- Logo encima de las letras -->
   <img src="./images/logo.png" class="hero-logo" alt="logo">
 
   <div class="hero-content">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
-   <p>Diseñamos espacios que combinan funcionalidad, estética y esencia, creando experiencias que trascienden.</p>
+    <p>Diseñamos espacios que combinan funcionalidad, estética y esencia, creando experiencias que trascienden.</p>
     <div class="buttons">
       <a href="#">VER PROYECTOS</a>
       <a href="#">CONTACTAR</a>
@@ -272,12 +273,36 @@ footer .firma img{
 <section class="services">
   <h2>SERVICIOS</h2>
   <div class="grid-services">
-    <div class="card"><img src="./images/firma.png"><h3>PROYECTO ARQUITECTÓNICO</h3><p>Diseño arquitectónico funcional y estético.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>VISUALIZACIÓN 3D Y RENDERS</h3><p>Modelado 3D y renders realistas.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>LÁMINAS Y PRESENTACIONES</h3><p>Láminas profesionales para proyectos.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>TRÁMITES Y PERMISOS</h3><p>Gestión de permisos y trámites.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>LEVANTAMIENTOS</h3><p>Levantamientos arquitectónicos precisos.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>ASESORÍA</h3><p>Acompañamiento en decisiones de diseño.</p></div>
+    <div class="card">
+      <img src="./images/proyecto-arquitectónico.png" alt="Proyecto Arquitectónico" class="icon">
+      <h3>PROYECTO ARQUITECTÓNICO</h3>
+      <p>Diseño arquitectónico funcional y estético.</p>
+    </div>
+    <div class="card">
+      <img src="./images/visualización-3d-y-renders.png" alt="Visualización 3D y Renders" class="icon">
+      <h3>VISUALIZACIÓN 3D Y RENDERS</h3>
+      <p>Modelado 3D y renders realistas.</p>
+    </div>
+    <div class="card">
+      <img src="./images/láminas-y-presentaciones.png" alt="Láminas y Presentaciones" class="icon">
+      <h3>LÁMINAS Y PRESENTACIONES</h3>
+      <p>Láminas profesionales para proyectos.</p>
+    </div>
+    <div class="card">
+      <img src="./images/tramites-y-permisos.png" alt="Trámites y Permisos" class="icon">
+      <h3>TRÁMITES Y PERMISOS</h3>
+      <p>Gestión de permisos y trámites.</p>
+    </div>
+    <div class="card">
+      <img src="./images/levantamientos.png" alt="Levantamientos" class="icon">
+      <h3>LEVANTAMIENTOS</h3>
+      <p>Levantamientos arquitectónicos precisos.</p>
+    </div>
+    <div class="card">
+      <img src="./images/asesoría.png" alt="Asesoría" class="icon">
+      <h3>ASESORÍA</h3>
+      <p>Acompañamiento en decisiones de diseño.</p>
+    </div>
   </div>
 </section>
 
