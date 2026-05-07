@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NUMA STUDIO</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
@@ -32,9 +33,9 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 .hero{
   min-height:100vh;
   display:flex;
-  align-items:flex-start; /* cambiamos a flex-start para que el contenido quede arriba */
+  align-items:center;
   justify-content:flex-start;
-  padding:0;
+  padding:0 60px;
   position:relative;
   background:url('./images/portada.jpg') center/cover no-repeat;
 }
@@ -44,41 +45,45 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   inset:0;
   background:rgba(0,0,0,0.55);
 }
-.hero-logo {
-  position: absolute;
-  top:120px;   /* baja el logo */
-  left:50px;   /* alinea a la izquierda */
-  width:500px !important;
-  z-index:5;
-}
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width:650px;
-  margin-top:260px;  /* baja el texto debajo del logo */
-  margin-left:50px;  /* alinea con el logo */
+  max-width: 650px;
+  margin-top: 120px; /* ajusta este valor hasta que quede justo debajo del logo */
+}
+.hero-logo {
+  position: absolute;   /* encima del texto */
+  top: 70px;            /* ajusta verticalmente */
+  left: 0px;            /* pegado al inicio de la primera letra */
+  width: 500px !important;
+  z-index: 5;
+}
+@media(max-width:768px){
+  .hero-logo {
+    width: 300px !important;
+    top: 0px;
+    left: 0px;
+  }
 }
 .hero h1{
   font-family:'Playfair Display';
   font-size:46px;
   line-height:1.2;
-  margin-bottom:20px;
+  margin-bottom:15px;
 }
 .hero h1 span{color:#c9a96e;}
 .hero p{
   color:#ccc;
-  font-size:16px;
-  margin-bottom:30px;
+  font-size:14px;
+  margin-bottom:20px;
 }
 .buttons a{
-  display:inline-block;
-  margin-right:15px;
+  margin-right:10px;
   border:1px solid #c9a96e;
-  padding:12px 20px;
+  padding:10px 18px;
   color:#c9a96e;
-  font-size:13px;
+  font-size:12px;
   text-decoration:none;
-  transition:0.3s;
 }
 .buttons a:hover{
   background:#c9a96e;
@@ -238,6 +243,7 @@ footer .firma img{
 </style>
 </head>
 <body>
+
 <header>
   <div class="logo"><img src="./images/logo.png" alt="NUMA STUDIO"></div>
   <nav>
@@ -250,6 +256,7 @@ footer .firma img{
 </header>
 
 <section class="hero">
+  <!-- Logo encima de las letras -->
   <img src="./images/logo.png" class="hero-logo" alt="logo">
 
   <div class="hero-content">
@@ -285,7 +292,9 @@ footer .firma img{
 </section>
 
 <section class="about">
-  <div class="about-img"><img src="./images/montana.jpg" alt="Montaña"></div>
+  <div class="about-img">
+    <img src="./images/montana.jpg" alt="Montaña">
+  </div>
   <div class="about-text">
     <p class="subtitle">SOBRE NOSOTROS</p>
     <h2>Diseñamos espacios que inspiran, combinando creatividad, funcionalidad y detalle en cada proyecto.</h2>
