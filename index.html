@@ -8,6 +8,7 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
+
 /* HEADER */
 header{
   position:absolute;top:0;left:0;width:100%;
@@ -26,13 +27,14 @@ header .btn{
   text-decoration:none;
 }
 header .btn:hover{background:#c9a96e;color:#0f1a21;}
+
 /* HERO */
 .hero{
   min-height:100vh;
   display:flex;
-  align-items:center;
+  align-items:flex-start; /* cambiamos a flex-start para que el contenido quede arriba */
   justify-content:flex-start;
-  padding:0 60px;
+  padding:0;
   position:relative;
   background:url('./images/portada.jpg') center/cover no-repeat;
 }
@@ -42,50 +44,47 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   inset:0;
   background:rgba(0,0,0,0.55);
 }
+.hero-logo {
+  position: absolute;
+  top:120px;   /* baja el logo */
+  left:50px;   /* alinea a la izquierda */
+  width:500px !important;
+  z-index:5;
+}
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 650px;
-  margin-top: 120px; /* ajusta este valor hasta que quede justo debajo del logo */
-}
-.hero-logo {
-  position: absolute; /* encima del texto */
-  top: 70px; /* ajusta verticalmente */
-  left: 0px; /* pegado al inicio de la primera letra */
-  width: 500px !important;
-  z-index: 5;
-}
-@media(max-width:768px){
-  .hero-logo {
-    width: 300px !important;
-    top: 0px;
-    left: 0px;
-  }
+  max-width:650px;
+  margin-top:260px;  /* baja el texto debajo del logo */
+  margin-left:50px;  /* alinea con el logo */
 }
 .hero h1{
   font-family:'Playfair Display';
   font-size:46px;
   line-height:1.2;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 .hero h1 span{color:#c9a96e;}
 .hero p{
   color:#ccc;
-  font-size:14px;
-  margin-bottom:20px;
+  font-size:16px;
+  margin-bottom:30px;
 }
 .buttons a{
-  margin-right:10px;
+  display:inline-block;
+  margin-right:15px;
   border:1px solid #c9a96e;
-  padding:10px 18px;
+  padding:12px 20px;
   color:#c9a96e;
-  font-size:12px;
+  font-size:13px;
   text-decoration:none;
+  transition:0.3s;
 }
 .buttons a:hover{
   background:#c9a96e;
   color:#0f1a21;
 }
+
 /* SERVICIOS */
 .services{
   background:#f4f4f4;
@@ -117,6 +116,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 }
 .card h3{font-family:'Playfair Display';margin-bottom:10px;}
 .card p{font-size:14px;color:#666;}
+
 /* PROYECTOS DESTACADOS */
 .projects{
   padding:80px 30px;
@@ -163,6 +163,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   color:white;
   text-shadow:1px 1px 4px rgba(0,0,0,0.7);
 }
+
 /* SOBRE NOSOTROS */
 .about{
   display:grid;
@@ -199,6 +200,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   color:#555;
   margin-bottom:20px;
 }
+
 /* FOOTER */
 footer{
   background:#0a1318;
@@ -220,6 +222,7 @@ footer .firma img{
   margin-top:10px;
   width:150px;
 }
+
 /* RESPONSIVE */
 @media(max-width:768px){
   header{flex-direction:column;}
@@ -245,22 +248,62 @@ footer .firma img{
   </nav>
   <a href="#" class="btn">CONTACTAR</a>
 </header>
+
 <section class="hero">
-  <!-- Logo encima de las letras -->
   <img src="./images/logo.png" class="hero-logo" alt="logo">
+
   <div class="hero-content">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
-    <p>Diseñamos espacios que combinan funcionalidad, estética y esencia.</p>
+    <p>Diseñamos espacios que combinan funcionalidad, estética y esencia, creando experiencias que trascienden.</p>
     <div class="buttons">
-      <a href="#">VER PROYECTOS</a>
-      <a href="#">CONTACTAR</a>
+      <a href="#" class="btn">VER PROYECTOS</a>
+      <a href="#" class="btn">CONTACTAR</a>
     </div>
   </div>
 </section>
+
 <section class="services">
   <h2>SERVICIOS</h2>
   <div class="grid-services">
     <div class="card"><img src="./images/firma.png"><h3>PROYECTO ARQUITECTÓNICO</h3><p>Diseño arquitectónico funcional y estético.</p></div>
     <div class="card"><img src="./images/firma.png"><h3>VISUALIZACIÓN 3D Y RENDERS</h3><p>Modelado 3D y renders realistas.</p></div>
     <div class="card"><img src="./images/firma.png"><h3>LÁMINAS Y PRESENTACIONES</h3><p>Láminas profesionales para proyectos.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>TRÁMITES Y PERMISOS</h3><p>Gestión de permisos y trámites.</p></
+    <div class="card"><img src="./images/firma.png"><h3>TRÁMITES Y PERMISOS</h3><p>Gestión de permisos y trámites.</p></div>
+    <div class="card"><img src="./images/firma.png"><h3>LEVANTAMIENTOS</h3><p>Levantamientos arquitectónicos precisos.</p></div>
+    <div class="card"><img src="./images/firma.png"><h3>ASESORÍA</h3><p>Acompañamiento en decisiones de diseño.</p></div>
+  </div>
+</section>
+
+<section class="projects">
+  <h2>PROYECTOS DESTACADOS</h2>
+  <div class="grid-projects">
+    <div class="project" style="background-image:url('./images/amouna.jpg')"><div class="project-title">AMOUNA</div></div>
+    <div class="project" style="background-image:url('./images/casa-natura.jpg')"><div class="project-title">CASA NATURA</div></div>
+    <div class="project" style="background-image:url('./images/la-martina.jpg')"><div class="project-title">LA MARTINA</div></div>
+    <div class="project" style="background-image:url('./images/mcdonalds.jpg')"><div class="project-title">MCDONALD'S</div></div>
+  </div>
+</section>
+
+<section class="about">
+  <div class="about-img"><img src="./images/montana.jpg" alt="Montaña"></div>
+  <div class="about-text">
+    <p class="subtitle">SOBRE NOSOTROS</p>
+    <h2>Diseñamos espacios que inspiran, combinando creatividad, funcionalidad y detalle en cada proyecto.</h2>
+    <p>En NUMA STUDIO entendemos la arquitectura como una expresión de identidad. Cada proyecto es una oportunidad para crear algo único, adaptado a las necesidades de cada cliente.</p>
+  </div>
+</section>
+
+<footer>
+  <div>
+    <strong>NUMA STUDIO</strong><br>© 2024 NUMA STUDIO
+    <div class="firma"><img src="./images/firma.png" alt="Firma"></div>
+  </div>
+  <div class="social">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">WhatsApp</a>
+  </div>
+</footer>
+
+</body>
+</html>
