@@ -49,7 +49,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   position: relative;
   z-index: 2;
   max-width: 650px;
-  margin-top: 150px; /* ajusta este valor hasta que quede justo debajo del logo */
+  margin-top: 120px; /* ajusta este valor hasta que quede justo debajo del logo */
 }
 .hero-logo {
   position: absolute;   /* encima del texto */
@@ -72,26 +72,22 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   margin-bottom:15px;
 }
 .hero h1 span{color:#c9a96e;}
-.hero p {
-  color: #ccc;
-  font-size: 16px; /* un poquito más grande que antes */
-  margin-top: 15px;
-  margin-bottom: 20px; /* espacio suficiente para los botones */
+.hero p{
+  color:#ccc;
+  font-size:16px; /* más grande que antes */
+  margin-bottom:20px;
 }
+.buttons a{
+  margin-right:10px;
+  border:1px solid #c9a96e;
+  padding:10px 18px;
+  color:#c9a96e;
+  font-size:12px;
+  text-decoration:none;
 }
-.buttons a {
-  display: inline-block;
-  margin-right: 10px;
-  border: 1px solid #c9a96e;
-  padding: 10px 18px;
-  color: #c9a96e;
-  font-size: 12px;
-  text-decoration: none;
-  transition: 0.3s;
-}
-.buttons a:hover {
-  background: #c9a96e;
-  color: #0f1a21;
+.buttons a:hover{
+  background:#c9a96e;
+  color:#0f1a21;
 }
 
 /* SERVICIOS */
@@ -267,9 +263,9 @@ footer .firma img{
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
     <p>Diseñamos espacios que combinan funcionalidad, estética y esencia, creando experiencias que trascienden.</p>
     <div class="buttons">
-  <a href="#" class="btn">VER PROYECTOS</a>
-  <a href="#" class="btn">CONTACTAR</a>
-</div>
+      <a href="#" class="btn">VER PROYECTOS</a>
+      <a href="#" class="btn">CONTACTAR</a>
+    </div>
   </div>
 </section>
 
@@ -279,44 +275,4 @@ footer .firma img{
     <div class="card"><img src="./images/firma.png"><h3>PROYECTO ARQUITECTÓNICO</h3><p>Diseño arquitectónico funcional y estético.</p></div>
     <div class="card"><img src="./images/firma.png"><h3>VISUALIZACIÓN 3D Y RENDERS</h3><p>Modelado 3D y renders realistas.</p></div>
     <div class="card"><img src="./images/firma.png"><h3>LÁMINAS Y PRESENTACIONES</h3><p>Láminas profesionales para proyectos.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>TRÁMITES Y PERMISOS</h3><p>Gestión de permisos y trámites.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>LEVANTAMIENTOS</h3><p>Levantamientos arquitectónicos precisos.</p></div>
-    <div class="card"><img src="./images/firma.png"><h3>ASESORÍA</h3><p>Acompañamiento en decisiones de diseño.</p></div>
-  </div>
-</section>
-
-<section class="projects">
-  <h2>PROYECTOS DESTACADOS</h2>
-  <div class="grid-projects">
-    <div class="project" style="background-image:url('./images/amouna.jpg')"><div class="project-title">AMOUNA</div></div>
-    <div class="project" style="background-image:url('./images/casa-natura.jpg')"><div class="project-title">CASA NATURA</div></div>
-    <div class="project" style="background-image:url('./images/la-martina.jpg')"><div class="project-title">LA MARTINA</div></div>
-    <div class="project" style="background-image:url('./images/mcdonalds.jpg')"><div class="project-title">MCDONALD'S</div></div>
-  </div>
-</section>
-
-<section class="about">
-  <div class="about-img">
-    <img src="./images/montana.jpg" alt="Montaña">
-  </div>
-  <div class="about-text">
-    <p class="subtitle">SOBRE NOSOTROS</p>
-    <h2>Diseñamos espacios que inspiran, combinando creatividad, funcionalidad y detalle en cada proyecto.</h2>
-    <p>En NUMA STUDIO entendemos la arquitectura como una expresión de identidad. Cada proyecto es una oportunidad para crear algo único, adaptado a las necesidades de cada cliente.</p>
-  </div>
-</section>
-
-<footer>
-  <div>
-    <strong>NUMA STUDIO</strong><br>© 2024 NUMA STUDIO
-    <div class="firma"><img src="./images/firma.png" alt="Firma"></div>
-  </div>
-  <div class="social">
-    <a href="#">Instagram</a>
-    <a href="#">Facebook</a>
-    <a href="#">WhatsApp</a>
-  </div>
-</footer>
-
-</body>
-</html>
+    <div class="card"><img
