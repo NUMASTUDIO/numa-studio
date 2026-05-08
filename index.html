@@ -190,8 +190,14 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   text-align:left;
 }
 .about-text .firma img{
-  width:180px; /* tamaño proporcional */
+  width:220px; /* más grande para mejor visibilidad */
   height:auto;
+}
+
+@media(max-width:768px){
+  .about-text .firma img{
+    width:180px; /* tamaño más pequeño en móviles */
+  }
 }
 
 /* FOOTER */
