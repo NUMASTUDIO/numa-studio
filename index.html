@@ -146,14 +146,15 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 
 /* NUEVO ESTILO PROYECTOS/DESCTACADOS */
 .projects-title .proyectos {
-  color: #c9a96e;           /* dorado como los botones */
+  color: #c9a96e;           /* dorado */
   font-family: 'Inter', sans-serif;  /* misma fuente que botones */
-  font-size:14px;            /* mismo tamaño que los botones */
-  font-weight:600;           /* grosor */
+  font-size: 14px;          /* tamaño igual a botones */
+  font-weight: 600;         /* grosor */
   text-transform: uppercase; /* mayúsculas */
-  display:block;             /* fuerza línea separada */
-  margin-bottom:3px;         /* espacio reducido con DESTACADOS */
-  line-height:1;             /* ajusta el espaciado para que queden más juntos */
+  display: block;           /* fuerza línea separada */
+  margin-bottom: 0;         /* elimina separación excesiva */
+  line-height: 1.1;         /* espacio natural entre PROYECTOS y DESTACADOS */
+  letter-spacing: 0;        /* opcional, para que quede ajustado */
 }
 
 .grid-projects{
@@ -368,6 +369,12 @@ footer .firma{ display:none; }
       <div class="project-title">MCDONALD'S</div>
     </div>
   </div>
+
+  <!-- BOTÓN VER PROYECTOS -->
+  <div class="btn-proyectos-container">
+    <a href="#proyectos" class="btn-proyectos">VER PROYECTOS</a>
+  </div>
+</section>
 
   <!-- BOTÓN VER PROYECTOS CON ESTILO IGUAL A PORTADA -->
   <div class="btn-proyectos-container">
