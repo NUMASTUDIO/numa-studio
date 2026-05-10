@@ -29,6 +29,7 @@ body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
   background: #c9a96e;
   color: #0f1a21;
 }
+
 /* HEADER */
 header{
   position:absolute;top:0;left:0;width:100%;
@@ -142,24 +143,18 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   font-family:'Playfair Display';
   font-size:24px;
 }
-  .projects-title .proyectos {
+
+/* NUEVO ESTILO PROYECTOS/DESCTACADOS */
+.projects-title .proyectos {
   color: #c9a96e;           /* dorado como los botones */
   font-family: 'Inter', sans-serif;  /* misma fuente que botones */
   font-size:14px;            /* mismo tamaño que los botones */
   font-weight:600;           /* grosor */
   text-transform: uppercase; /* mayúsculas */
-  display:block;             /* fuerza la línea separada */
-  margin-bottom:2px;         /* separación mínima con DESTACADOS */
+  display:block;             /* fuerza línea separada */
+  margin-bottom:3px;         /* reduce espacio entre PROYECTOS y DESTACADOS */
 }
-  .projects-title .proyectos {
-  color: #c9a96e;       /* dorado como los botones */
-  font-family: 'Inter', sans-serif;  /* misma fuente que los botones */
-  font-size:14px;       /* mismo tamaño que los botones */
-  font-weight:600;      /* mantiene el grosor */
-  text-transform: uppercase;  /* convierte a mayúsculas */
-  display:block;        /* fuerza que sea bloque y quede arriba */
-  margin-bottom:5px;    /* un poquito de espacio entre PROYECTOS y DESTACADOS */
-}
+
 .grid-projects{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -232,16 +227,6 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
     width:180px; /* tamaño más pequeño en móviles */
   }
 }
-.about-text .firma img{
-  width:220px; /* más grande para mejor visibilidad */
-  height:auto;
-}
-
-@media(max-width:768px){
-  .about-text .firma img{
-    width:180px; /* tamaño más pequeño en móviles */
-  }
-}
 
 /* FOOTER */
 footer{
@@ -269,7 +254,6 @@ footer .social a img:hover{
   opacity:0.8;
 }
 footer .social a:hover{color:#c9a96e;}
-/* Eliminamos la firma del footer */
 footer .firma{ display:none; }
 
 /* RESPONSIVE */
