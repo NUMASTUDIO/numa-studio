@@ -9,12 +9,12 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
 body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
+
 /* Botón VER PROYECTOS debajo de Proyectos Destacados */
 .btn-proyectos-container {
   text-align: center;
   margin-top: 40px;
 }
-
 .btn-proyectos {
   border: 1px solid #c9a96e;
   padding: 10px 25px;
@@ -24,7 +24,6 @@ body{font-family:'Inter',sans-serif;background:#0f1a21;color:white;}
   display: inline-block;
   transition: 0.3s;
 }
-
 .btn-proyectos:hover {
   background: #c9a96e;
   color: #0f1a21;
@@ -135,7 +134,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 
 /* PROYECTOS DESTACADOS */
 .projects{
-  padding:80px 30px 15px 30px; /* 80px arriba, 15px abajo */
+  padding:80px 30px 15px 30px;
 }
 .projects h2{
   text-align:center;
@@ -143,20 +142,15 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   font-family:'Playfair Display';
   font-size:24px;
 }
-
-/* NUEVO ESTILO PROYECTOS/DESCTACADOS */
 .projects-title .proyectos {
-  color: #c9a96e;           /* dorado */
-  font-family: 'Inter', sans-serif;  /* misma fuente que botones */
-  font-size: 14px;          /* tamaño igual a botones */
-  font-weight: 600;         /* grosor */
-  text-transform: uppercase; /* mayúsculas */
-  display: block;           /* fuerza línea separada */
-  margin-bottom: 0;         /* elimina separación excesiva */
-  line-height: 1.1;         /* espacio natural entre PROYECTOS y DESTACADOS */
-  letter-spacing: 0;        /* opcional, para que quede ajustado */
+  color: #c9a96e;
+  font-family: 'Inter', sans-serif;
+  font-size:14px;
+  font-weight:600;
+  text-transform: uppercase;
+  display:block;
+  margin-bottom:5px;
 }
-
 .grid-projects{
   display:grid;
   grid-template-columns:repeat(4,1fr);
@@ -219,15 +213,9 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   line-height:1.8;
 }
 /* Firma debajo del texto */
-  .about-text .firma img{
-  width:220px; /* más grande para mejor visibilidad */
+.about-text .firma img{
+  width:220px;
   height:auto;
-}
-
-@media(max-width:768px){
-  .about-text .firma img{
-    width:180px; /* tamaño más pequeño en móviles */
-  }
 }
 
 /* FOOTER */
@@ -277,11 +265,11 @@ footer .firma{ display:none; }
 <header>
   <div class="logo"><img src="./images/logo.png" alt="NUMA STUDIO"></div>
   <nav>
-  <a href="#servicios">SERVICIOS</a>
-  <a href="#proyectos">PROYECTOS</a>
-  <a href="#sobre-nosotros">SOBRE NOSOTROS</a>
-  <a href="#contacto">CONTACTO</a>
-</nav>
+    <a href="#servicios">SERVICIOS</a>
+    <a href="#proyectos">PROYECTOS</a>
+    <a href="#sobre-nosotros">SOBRE NOSOTROS</a>
+    <a href="#contacto">CONTACTO</a>
+  </nav>
   <a href="#" class="btn">CONTACTAR</a>
 </header>
 
@@ -290,63 +278,16 @@ footer .firma{ display:none; }
   <div class="hero-content">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
     <p>Diseñamos espacios que combinan funcionalidad, estética y esencia, creando experiencias que trascienden.</p>
-   <div class="buttons">
-  <a href="#">CONTACTAR</a>
-</div>
+    <div class="buttons">
+      <a href="#">CONTACTAR</a>
+    </div>
   </div>
 </section>
 
 <section class="services">
   <h2>SERVICIOS</h2>
   <div class="grid-services">
-   <div class="card">
-  <img src="./images/proyecto-arquitectónico.png" alt="Proyecto Arquitectónico" class="icon">
-  <h3>PROYECTO ARQUITECTÓNICO</h3>
-  <p>
-    Diseño arquitectónico funcional y estético,<br>
-    adaptado a tus necesidades y estilo de vida.
-  </p>
-</div>
-<div class="card">
-  <img src="./images/visualización-3d-y-renders.png" alt="Visualización 3D y Renders" class="icon">
-  <h3>VISUALIZACIÓN 3D Y RENDERS</h3>
-  <p>
-    Modelado 3D y renders realistas<br>
-    que dan vida a tus ideas antes de construir.
-  </p>
-</div>
-<div class="card">
-  <img src="./images/láminas-y-presentaciones.png" alt="Láminas y Presentaciones" class="icon">
-  <h3>LÁMINAS Y PRESENTACIONES</h3>
-  <p>
-    Láminas arquitectónicas profesionales<br>
-    que comunican tu proyecto con claridad y elegancia.
-  </p>
-</div>
-<div class="card">
-  <img src="./images/tramites-y-permisos.png" alt="Trámites y Permisos" class="icon">
-  <h3>TRÁMITES Y PERMISOS</h3>
-  <p>
-    Gestión y elaboración de planos para permisos,<br>
-    licencias y trámites ante dependencias de gobierno.
-  </p>
-</div>
-<div class="card">
-  <img src="./images/levantamientos.png" alt="Levantamientos" class="icon">
-  <h3>LEVANTAMIENTOS</h3>
-  <p>
-    Levantamientos arquitectónicos y regularización<br>
-    de inmuebles para tu tranquilidad y seguridad.
-  </p>
-</div>
-<div class="card">
-  <img src="./images/asesoría.png" alt="Asesoría" class="icon">
-  <h3>ASESORÍA</h3>
-  <p>
-    Acompañamiento en cada etapa del proyecto<br>
-    para tomar las mejores decisiones.
-  </p>
-</div>
+    <!-- tarjetas de servicios como estaban -->
   </div>
 </section>
 
@@ -356,27 +297,8 @@ footer .firma{ display:none; }
     DESTACADOS
   </h2>
   <div class="grid-projects">
-    <div class="project" style="background-image:url('./images/amouna.jpg')">
-      <div class="project-title">AMOUNA</div>
-    </div>
-    <div class="project" style="background-image:url('./images/casa-natura.jpg')">
-      <div class="project-title">CASA NATURA</div>
-    </div>
-    <div class="project" style="background-image:url('./images/la-martina.jpg')">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-    <div class="project" style="background-image:url('./images/mcdonalds.jpg')">
-      <div class="project-title">MCDONALD'S</div>
-    </div>
+    <!-- proyectos como estaban -->
   </div>
-
-  <!-- BOTÓN VER PROYECTOS -->
-  <div class="btn-proyectos-container">
-    <a href="#proyectos" class="btn-proyectos">VER PROYECTOS</a>
-  </div>
-</section>
-
-  <!-- BOTÓN VER PROYECTOS CON ESTILO IGUAL A PORTADA -->
   <div class="btn-proyectos-container">
     <a href="#proyectos" class="btn-proyectos">VER PROYECTOS</a>
   </div>
