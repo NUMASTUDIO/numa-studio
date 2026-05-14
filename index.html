@@ -203,7 +203,16 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   min-height:500px;
   margin-top:40px;
 }
-.about-img img{ width:100%; height:100%; object-fit:cover; }
+.about-img{
+  overflow:hidden;
+}
+
+.about-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
 .about-text{
   background: url('./images/fondo-gris.jpg') center center / cover no-repeat;
   padding:60px;
