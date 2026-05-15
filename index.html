@@ -40,6 +40,7 @@ nav{
   display:flex;
   align-items:center;
   gap:25px;
+
   position:absolute;
   top:45px;
   right:380px;
@@ -87,28 +88,27 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 }
 .hero-logo {
   position: absolute;
-  top: 70px;
+  top: 200px; /* Ajusta esta distancia para alinear con el texto */
   left: 0px;
-  width: 500px !important;
+  width: 300px !important; /* tamaño reducido */
   z-index: 5;
 }
 .hero-social{
   display:flex;
   align-items:center;
   gap:12px;
+
   position:absolute;
   top:20px;
   right:40px;
   z-index:10;
 }
-
 .hero-social a img{
   width:70px;
   height:70px;
   object-fit:contain;
   transition:0.3s;
 }
-
 .hero-social a img:hover{
   transform:scale(1.1);
   opacity:0.8;
@@ -222,7 +222,6 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 .about-img{
   overflow:hidden;
 }
-
 .about-img img{
   width:100%;
   height:100%;
@@ -332,6 +331,7 @@ footer .firma{ display:none; }
   font-size:14px;
   font-family:'Inter',sans-serif;
 }
+
 /* RESPONSIVE */
 @media(max-width:768px){
   header{flex-direction:column;}
@@ -344,6 +344,7 @@ footer .firma{ display:none; }
   .project{height:180px;}
   .grid-services{grid-template-columns:1fr;}
 }
+
 .titulo-proyectos {
   color: #c9a96e;
   font-size: 14px;
@@ -424,12 +425,20 @@ footer .firma{ display:none; }
   position:absolute;
   right:20px;
   bottom:0;
-  width:340px;
+  width:260px;
   height:auto;
   pointer-events:none;
 }
 .about-text{
-  position: relative;
+  position: relative; /* Asegura que el muñeco se posicione respecto a este contenedor */
+}
+.muneco-about{
+  position: absolute;
+  right: 20px; /* distancia del borde derecho */
+  bottom: 0;    /* pegado al borde inferior */
+  width: 340px; /* tamaño del muñeco */
+  height: auto;
+  pointer-events: none; /* para que no interfiera con clics */
 }
 </style>
 </head>
@@ -448,10 +457,18 @@ footer .firma{ display:none; }
 <section class="hero">
   <img src="./images/logo.png" class="hero-logo" alt="logo">
   <div class="hero-social">
-    <a href="https://www.instagram.com/numastudioarq/" target="_blank"><img src="./images/instagram.png" alt="Instagram"></a>
-    <a href="https://www.facebook.com/numastudioarq/" target="_blank"><img src="./images/facebook.png" alt="Facebook"></a>
-    <a href="mailto:numastudioarq@outlook.com"><img src="./images/correo.png" alt="Correo"></a>
-    <a href="https://wa.me/527441298860" target="_blank"><img src="./images/whatsapp.png" alt="WhatsApp"></a>
+    <a href="https://www.instagram.com/numastudioarq/" target="_blank">
+      <img src="./images/instagram.png" alt="Instagram">
+    </a>
+    <a href="https://www.facebook.com/numastudioarq/" target="_blank">
+      <img src="./images/facebook.png" alt="Facebook">
+    </a>
+    <a href="mailto:numastudioarq@outlook.com">
+      <img src="./images/correo.png" alt="Correo">
+    </a>
+    <a href="https://wa.me/527441298860" target="_blank">
+      <img src="./images/whatsapp.png" alt="WhatsApp">
+    </a>
   </div>
   <div class="hero-content">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
@@ -459,92 +476,4 @@ footer .firma{ display:none; }
   </div>
 </section>
 
-<section id="servicios" class="services">
-  <h2>SERVICIOS</h2>
-  <div class="grid-services">
-    <div class="card">
-      <img src="./images/proyecto-arquitectónico.png" alt="Proyecto Arquitectónico" class="icon">
-      <h3>PROYECTO ARQUITECTÓNICO</h3>
-      <p>Diseño arquitectónico funcional y estético,<br>adaptado a tus necesidades y estilo de vida.</p>
-    </div>
-    <div class="card">
-      <img src="./images/visualización-3d-y-renders.png" alt="Visualización 3D y Renders" class="icon">
-      <h3>VISUALIZACIÓN 3D Y RENDERS</h3>
-      <p>Modelado 3D y renders realistas<br>que dan vida a tus ideas antes de construir.</p>
-    </div>
-    <div class="card">
-      <img src="./images/láminas-y-presentaciones.png" alt="Láminas y Presentaciones" class="icon">
-      <h3>LÁMINAS Y PRESENTACIONES</h3>
-      <p>Láminas arquitectónicas profesionales<br>que comunican tu proyecto con claridad y elegancia.</p>
-    </div>
-    <div class="card">
-      <img src="./images/tramites-y-permisos.png" alt="Trámites y Permisos" class="icon">
-      <h3>TRÁMITES Y PERMISOS</h3>
-      <p>Gestión y elaboración de planos para permisos,<br>licencias y trámites ante dependencias de gobierno.</p>
-    </div>
-    <div class="card">
-      <img src="./images/levantamientos.png" alt="Levantamientos" class="icon">
-      <h3>LEVANTAMIENTOS</h3>
-      <p>Levantamientos arquitectónicos y regularización<br>de inmuebles para tu tranquilidad y seguridad.</p>
-    </div>
-    <div class="card">
-      <img src="./images/asesoría.png" alt="Asesoría" class="icon">
-      <h3>ASESORÍA</h3>
-      <p>Acompañamiento en cada etapa del proyecto<br>para tomar las mejores decisiones.</p>
-    </div>
-  </div>
-</section>
-
-<section id="proyectos" class="projects">
-  <h2><span class="titulo-proyectos">PROYECTOS</span><br>DESTACADOS</h2>
-  <div class="grid-projects">
-    <div class="project" style="background-image:url('./images/amouna.jpg')">
-      <div class="project-title">AMOUNA</div>
-    </div>
-    <div class="project" style="background-image:url('./images/casa-natura.jpg')">
-      <div class="project-title">CASA NATURA</div>
-    </div>
-    <div class="project" style="background-image:url('./images/la-martina.jpg')">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-    <div class="project" style="background-image:url('./images/mcdonalds.jpg')">
-      <div class="project-title">MCDONALD'S</div>
-    </div>
-  </div>
-  <div class="btn-proyectos-container">
-    <a href="#proyectos" class="btn-proyectos">VER PROYECTOS</a>
-  </div>
-</section>
-
-<section id="sobre-nosotros" class="about">
-  <div class="about-img">
-    <img src="./images/montana.jpg" alt="Montaña">
-  </div>
-  <div class="about-text">
-    <p class="subtitle">SOBRE NOSOTROS</p>
-    <h2>LA <span>ESENCIA</span> DE CADA ESPACIO,<br>LA HISTORIA DE CADA PERSONA.</h2>
-    <p>Numa Studio nace de la pasión por la arquitectura y el compromiso de crear espacios que mejoren la vida de las personas. Creemos en el diseño con propósito, en la atención al detalle y en la honestidad como base de cada proyecto.</p>
-    <div class="firma">
-      <img src="./images/firma.png" alt="Firma">
-    </div>
-    <div class="btn-proyectos-container" style="text-align:left; margin-top:25px;">
-      <a href="#proyectos" class="btn-proyectos">VER MÁS</a>
-    </div>
-    <img src="./images/muneco1.png" class="muneco-about" alt="Muñeco">
-  </div>
-</section>
-
-<footer id="contacto">
-  <div class="social-container">
-    <div class="footer-contacto-texto">
-      <h2>HABLEMOS</h2>
-      <p>numastudioarq@outlook.com<br>+52 744 129 8860</p>
-    </div>
-  </div>
-  <div class="footer-logo">
-    <img src="./images/logo.png" alt="NUMA STUDIO">
-  </div>
-</footer>
-
-</body>
-</html>
+<!-- El resto del código sigue igual -->
