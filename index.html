@@ -88,9 +88,9 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 }
 .hero-logo {
   position: absolute;
-  top: 200px; /* Ajusta esta distancia para alinear con el texto */
+  top: 70px;
   left: 0px;
-  width: 300px !important; /* tamaño reducido */
+  width: 500px !important;
   z-index: 5;
 }
 .hero-social{
@@ -103,12 +103,14 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
   right:40px;
   z-index:10;
 }
+
 .hero-social a img{
   width:70px;
   height:70px;
   object-fit:contain;
   transition:0.3s;
 }
+
 .hero-social a img:hover{
   transform:scale(1.1);
   opacity:0.8;
@@ -222,6 +224,7 @@ header .btn:hover{background:#c9a96e;color:#0f1a21;}
 .about-img{
   overflow:hidden;
 }
+
 .about-img img{
   width:100%;
   height:100%;
@@ -291,6 +294,7 @@ footer .social a img:hover{
 }
 footer .social a:hover{color:#c9a96e;}
 footer .firma{ display:none; }
+  /* NUEVA COLUMNA CONTACTOS */
 .contactos-extra{
   display:flex;
   flex-direction:column;
@@ -307,12 +311,13 @@ footer .firma{ display:none; }
   font-weight:400;
   margin-bottom:20px;
 }
+
 .contactos-extra img{
   width:70px;
   height:70px;
   object-fit:contain;
 }
-.contacto-item{
+  .contacto-item{
   display:flex;
   align-items:center;
   gap:2px;
@@ -326,6 +331,7 @@ footer .firma{ display:none; }
   object-fit:contain;
   flex-shrink:0;
 }
+
 .contacto-item span{
   color:#ffffff;
   font-size:14px;
@@ -352,12 +358,13 @@ footer .firma{ display:none; }
   font-family: 'Inter', sans-serif;
   font-weight: 400;
 }
-.social-container{
+  .social-container{
   display:flex;
   flex-direction:column;
   align-items:center;
   transform:translateX(60px);
 }
+
 .footer-texto{
   margin-top:10px;
   text-align:center;
@@ -368,13 +375,13 @@ footer .firma{ display:none; }
   justify-content:center;
   line-height:1;
 }
-.footer-contacto-texto p{
+  .footer-contacto-texto p{
   color:#d8d8d8;
   font-size:14px;
   font-family:'Inter',sans-serif;
   line-height:1.8;
 }
-.footer-contacto-texto h2{
+  .footer-contacto-texto h2{
   font-family:'Inter',sans-serif;
   font-size:14px;
   color:#c9a96e;
@@ -382,19 +389,20 @@ footer .firma{ display:none; }
   letter-spacing:2px;
   font-weight:400;
 }
-.footer-logo{
+  .footer-logo{
   width:100%;
   display:flex;
   justify-content:center;
   margin-top:40px;
 }
+
 .footer-logo img{
   width:320px;
   max-width:100%;
   height:auto;
   opacity:0.95;
 }
-.enlaces-footer{
+  .enlaces-footer{
   display:flex;
   flex-direction:column;
   align-items:flex-start;
@@ -411,6 +419,7 @@ footer .firma{ display:none; }
   font-weight:400;
   margin-bottom:20px;
 }
+
 .enlaces-footer a{
   color:#ffffff;
   text-decoration:none;
@@ -418,10 +427,11 @@ footer .firma{ display:none; }
   font-family:'Inter',sans-serif;
   transition:0.3s;
 }
+
 .enlaces-footer a:hover{
   color:#c9a96e;
 }
-.muneco-about{
+  .muneco-about{
   position:absolute;
   right:20px;
   bottom:0;
@@ -429,9 +439,10 @@ footer .firma{ display:none; }
   height:auto;
   pointer-events:none;
 }
-.about-text{
+  .about-text{
   position: relative; /* Asegura que el muñeco se posicione respecto a este contenedor */
 }
+
 .muneco-about{
   position: absolute;
   right: 20px; /* distancia del borde derecho */
@@ -446,34 +457,126 @@ footer .firma{ display:none; }
 
 <header>
   <div class="logo"><img src="./images/logo.png" alt="NUMA STUDIO"></div>
-  <nav>
-    <a href="#servicios">SERVICIOS</a>
-    <a href="#proyectos">PROYECTOS</a>
-    <a href="#sobre-nosotros">SOBRE NOSOTROS</a>
-    <a href="#contacto">CONTACTO</a>
-  </nav>
+ <nav>
+  <a href="#servicios">SERVICIOS</a>
+  <a href="#proyectos">PROYECTOS</a>
+  <a href="#sobre-nosotros">SOBRE NOSOTROS</a>
+  <a href="#contacto">CONTACTO</a>
+</nav>
 </header>
 
 <section class="hero">
   <img src="./images/logo.png" class="hero-logo" alt="logo">
   <div class="hero-social">
-    <a href="https://www.instagram.com/numastudioarq/" target="_blank">
-      <img src="./images/instagram.png" alt="Instagram">
-    </a>
-    <a href="https://www.facebook.com/numastudioarq/" target="_blank">
-      <img src="./images/facebook.png" alt="Facebook">
-    </a>
-    <a href="mailto:numastudioarq@outlook.com">
-      <img src="./images/correo.png" alt="Correo">
-    </a>
-    <a href="https://wa.me/527441298860" target="_blank">
-      <img src="./images/whatsapp.png" alt="WhatsApp">
-    </a>
-  </div>
+
+  <a href="https://www.instagram.com/numastudioarq/" target="_blank">
+    <img src="./images/instagram.png" alt="Instagram">
+  </a>
+
+  <a href="https://www.facebook.com/numastudioarq/" target="_blank">
+    <img src="./images/facebook.png" alt="Facebook">
+  </a>
+
+  <a href="mailto:numastudioarq@outlook.com">
+    <img src="./images/correo.png" alt="Correo">
+  </a>
+
+  <a href="https://wa.me/527441298860" target="_blank">
+    <img src="./images/whatsapp.png" alt="WhatsApp">
+  </a>
+
+</div>
   <div class="hero-content">
     <h1>ARQUITECTURA NACIDA<br>DE LA <span>VISIÓN</span>, CONSTRUIDA<br>CON <span>PROPÓSITO</span>.</h1>
     <p>Diseñamos espacios que combinan funcionalidad, estética y esencia, creando experiencias que trascienden.</p>
   </div>
 </section>
 
-<!-- El resto del código sigue igual -->
+<section id="servicios" class="services">
+  <h2>SERVICIOS</h2>
+  <div class="grid-services">
+    <div class="card">
+      <img src="./images/proyecto-arquitectónico.png" alt="Proyecto Arquitectónico" class="icon">
+      <h3>PROYECTO ARQUITECTÓNICO</h3>
+      <p>Diseño arquitectónico funcional y estético,<br>adaptado a tus necesidades y estilo de vida.</p>
+    </div>
+
+    <div class="card">
+      <img src="./images/visualización-3d-y-renders.png" alt="Visualización 3D y Renders" class="icon">
+      <h3>VISUALIZACIÓN 3D Y RENDERS</h3>
+      <p>Modelado 3D y renders realistas<br>que dan vida a tus ideas antes de construir.</p>
+    </div>
+
+    <div class="card">
+      <img src="./images/láminas-y-presentaciones.png" alt="Láminas y Presentaciones" class="icon">
+      <h3>LÁMINAS Y PRESENTACIONES</h3>
+      <p>Láminas arquitectónicas profesionales<br>que comunican tu proyecto con claridad y elegancia.</p>
+    </div>
+
+    <div class="card">
+      <img src="./images/tramites-y-permisos.png" alt="Trámites y Permisos" class="icon">
+      <h3>TRÁMITES Y PERMISOS</h3>
+      <p>Gestión y elaboración de planos para permisos,<br>licencias y trámites ante dependencias de gobierno.</p>
+    </div>
+
+    <div class="card">
+      <img src="./images/levantamientos.png" alt="Levantamientos" class="icon">
+      <h3>LEVANTAMIENTOS</h3>
+      <p>Levantamientos arquitectónicos y regularización<br>de inmuebles para tu tranquilidad y seguridad.</p>
+    </div>
+
+    <div class="card">
+      <img src="./images/asesoría.png" alt="Asesoría" class="icon">
+      <h3>ASESORÍA</h3>
+      <p>Acompañamiento en cada etapa del proyecto<br>para tomar las mejores decisiones.</p>
+    </div>
+  </div>
+</section>
+
+<section id="proyectos" class="projects">
+  <h2>
+    <span class="titulo-proyectos">PROYECTOS</span><br>
+    DESTACADOS
+  </h2>
+
+  <div class="grid-projects">
+    <div class="project" style="background-image:url('./images/amouna.jpg')">
+      <div class="project-title">AMOUNA</div>
+    </div>
+
+    <div class="project" style="background-image:url('./images/casa-natura.jpg')">
+      <div class="project-title">CASA NATURA</div>
+    </div>
+
+    <div class="project" style="background-image:url('./images/la-martina.jpg')">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="project" style="background-image:url('./images/mcdonalds.jpg')">
+      <div class="project-title">MCDONALD'S</div>
+    </div>
+  </div>
+
+  <div class="btn-proyectos-container">
+    <a href="#proyectos" class="btn-proyectos">VER PROYECTOS</a>
+  </div>
+</section>
+
+<section id="sobre-nosotros" class="about">
+  <div class="about-img">
+    <img src="./images/montana.jpg" alt="Montaña">
+  </div>
+
+  <div class="about-text">
+    <p class="subtitle">SOBRE NOSOTROS</p>
+
+    <h2>
+      LA <span>ESENCIA</span> DE CADA ESPACIO,<br>
+      LA HISTORIA DE CADA PERSONA.
+    </h2>
+
+    <p>
+      Numa Studio nace de la pasión por la arquitectura y el compromiso de crear espacios que mejoren la vida de las personas. Creemos en el diseño con propósito, en la atención al detalle y en la honestidad como base de cada proyecto.
+    </p>
+
+    <div class="
