@@ -90,26 +90,99 @@ nav > a:hover{
   transform:scale(1.1);
   opacity:0.8;
 }
+/* FONDO GENERAL */
 
-/* CONTENIDO */
-
-.contenido{
-  padding-top:160px;
-  padding-left:135px;
-  text-align:left;
+body{
+  font-family:'Inter',sans-serif;
+  background:#0d0d0d;
+  color:#fff;
+  overflow:hidden;
+  height:100vh;
 }
 
-.contenido h1{
-  font-family:'Playfair Display';
-  font-size:52px;
-  margin-bottom:20px;
+/* COVER FLOW */
+
+.coverflow-container{
+  width:100%;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  perspective:2200px;
+  overflow:hidden;
+  position:relative;
 }
 
-.contenido p{
-  font-size:18px;
-  color:#666;
+/* TRACK */
+
+.coverflow{
+  position:relative;
+  width:100%;
+  height:700px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
+/* ITEMS */
+
+.project{
+  position:absolute;
+  width:780px;
+  height:440px;
+  transition:all .6s ease;
+  cursor:pointer;
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 30px 60px rgba(0,0,0,0.45);
+}
+
+/* IMAGEN */
+
+.project img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* CENTRO */
+
+.project.active{
+  transform:translateX(0) scale(1);
+  z-index:5;
+  opacity:1;
+}
+
+/* IZQUIERDA */
+
+.project.left{
+  transform:
+  translateX(-520px)
+  rotateY(55deg)
+  scale(.78);
+
+  opacity:.45;
+  z-index:2;
+}
+
+/* DERECHA */
+
+.project.right{
+  transform:
+  translateX(520px)
+  rotateY(-55deg)
+  scale(.78);
+
+  opacity:.45;
+  z-index:2;
+}
+
+/* MÁS LEJOS */
+
+.project.hidden{
+  opacity:0;
+  pointer-events:none;
+}
 /* RESPONSIVE */
 
 @media(max-width:768px){
@@ -138,12 +211,7 @@ nav > a:hover{
   }
 
 }
-.sobre-nosotros-fondo{
-  background-image:url('./images/fondo-tenue.png');
-  background-size:100%;
-  background-position:center;
-  background-repeat:repeat-y;
-}
+
 </style>
 </head>
 
@@ -184,6 +252,24 @@ nav > a:hover{
 
 </div>
 </header>
+<div class="coverflow-container">
 
+  <div class="coverflow">
+
+    <div class="project left">
+      <img src="./images/render1.jpg" alt="">
+    </div>
+
+    <div class="project active">
+      <img src="./images/cruz-del-sur-depto.jpg" alt="">
+    </div>
+
+    <div class="project right">
+      <img src="./images/acuario-regional.jpg" alt="">
+    </div>
+
+  </div>
+
+</div>
 </body>
 </html>
