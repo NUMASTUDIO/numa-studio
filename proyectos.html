@@ -18,8 +18,16 @@
 
 body{
   font-family:'Inter',sans-serif;
-  background:#ffffff;
-  color:#111;
+
+  background:
+  radial-gradient(circle at center,
+  #1b1b1b 0%,
+  #0d0d0d 55%,
+  #000000 100%);
+
+  color:#fff;
+  overflow:hidden;
+  height:100vh;
 }
 
 /* HEADER */
@@ -183,6 +191,98 @@ body{
   opacity:0;
   pointer-events:none;
 }
+  /* CAROUSEL */
+
+.carousel-wrapper{
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:relative;
+  perspective:2200px;
+}
+
+/* TRACK */
+
+.carousel-track{
+  display:flex;
+  align-items:center;
+  gap:80px;
+  position:absolute;
+  animation:scrollFlow 45s linear infinite;
+}
+
+/* ITEMS */
+
+.carousel-item{
+  width:780px;
+  height:440px;
+  border-radius:18px;
+  overflow:hidden;
+  position:relative;
+  flex-shrink:0;
+
+  transform:
+  rotateY(-18deg)
+  scale(.82);
+
+  opacity:.55;
+
+  transition:all .6s ease;
+
+  box-shadow:
+  0 25px 60px rgba(0,0,0,.45);
+}
+
+/* IMAGEN */
+
+.carousel-item img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+/* HOVER */
+
+.carousel-item:hover{
+  transform:
+  rotateY(0deg)
+  scale(1);
+
+  opacity:1;
+  z-index:10;
+}
+
+/* TITULO */
+
+.project-title{
+  position:absolute;
+  bottom:35px;
+  left:40px;
+
+  font-family:'Playfair Display';
+  font-size:28px;
+  color:#fff;
+  letter-spacing:2px;
+
+  opacity:.95;
+}
+
+/* MOVIMIENTO */
+
+@keyframes scrollFlow{
+
+  0%{
+    transform:translateX(0);
+  }
+
+  100%{
+    transform:translateX(-50%);
+  }
+
+}
 /* RESPONSIVE */
 
 @media(max-width:768px){
@@ -252,32 +352,78 @@ body{
 
 </div>
 </header>
-<div class="coverflow-container">
+<div class="carousel-wrapper">
 
-  <div class="coverflow">
+  <div class="carousel-track">
 
-    <div class="project hidden">
-      <img src="./images/amouna.jpg" alt="">
+    <div class="carousel-item">
+      <img src="./images/acuario-regional-1.jpg" alt="">
+      <div class="project-title">ACUARIO REGIONAL</div>
     </div>
 
-    <div class="project left">
-      <img src="./images/casa-natura.jpg" alt="">
+    <div class="carousel-item">
+      <img src="./images/costasal-lilith.jpg" alt="">
+      <div class="project-title">COSTASAL LILITH</div>
     </div>
 
-    <div class="project active">
-      <img src="./images/cruz-del-sur-depto.jpg" alt="">
+    <div class="carousel-item">
+      <img src="./images/practica-vray.jpg" alt="">
+      <div class="project-title">PRÁCTICA VRAY</div>
     </div>
 
-    <div class="project right">
-      <img src="./images/acuario-regional.jpg" alt="">
+    <div class="carousel-item">
+      <img src="./images/la-martina-1.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
     </div>
 
-    <div class="project hidden">
-      <img src="./images/la-martina.jpg" alt="">
+    <div class="carousel-item">
+      <img src="./images/la-martina-2.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
     </div>
 
-    <div class="project hidden">
-      <img src="./images/mcdonalds.jpg" alt="">
+    <div class="carousel-item">
+      <img src="./images/la-martina-3.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-4.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-5.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-6.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-7.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-8.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-9.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-10.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
+    </div>
+
+    <div class="carousel-item">
+      <img src="./images/la-martina-11.jpg" alt="">
+      <div class="project-title">LA MARTINA</div>
     </div>
 
   </div>
