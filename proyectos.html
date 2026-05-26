@@ -157,15 +157,33 @@ nav > a:hover{
 @keyframes floatTile{
 
   0%{
-    transform:scale(1);
+    transform:
+    scale(1)
+    translateY(0px);
+  }
+
+  25%{
+    transform:
+    scale(1.02)
+    translateY(-4px);
   }
 
   50%{
-    transform:scale(1.03);
+    transform:
+    scale(1.035)
+    translateY(2px);
+  }
+
+  75%{
+    transform:
+    scale(1.02)
+    translateY(-3px);
   }
 
   100%{
-    transform:scale(1);
+    transform:
+    scale(1)
+    translateY(0px);
   }
 
 }
