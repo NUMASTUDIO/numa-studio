@@ -114,103 +114,84 @@ body{
   opacity:0;
   pointer-events:none;
 }
-  /* CAROUSEL */
+  /* MOSAIC WALL */
 
-.carousel-wrapper{
+.mosaic-wall{
   width:100%;
   height:100vh;
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fill,minmax(240px,1fr));
+
+  grid-auto-rows:240px;
+
+  gap:8px;
+
+  padding:90px 8px 8px;
+
   overflow:hidden;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  position:relative;
-  perspective:2200px;
 }
 
-/* TRACK */
+/* TILES */
 
-.carousel-track{
-  display:flex;
-  align-items:center;
-  gap:20px;
-  position:absolute;
- width:max-content;
-animation:scrollFlow 90s linear infinite;
-}
-
-/* ITEMS */
-
-.carousel-item{
-  width:680px;
-height:390px;
-  border-radius:18px;
-  overflow:hidden;
+.tile{
   position:relative;
-  flex-shrink:0;
+  overflow:hidden;
+  background:#111;
 
-  transform:
-  rotateY(-18deg)
-  scale(.88);
-
-  opacity:.55;
-
-  transition:all .6s ease;
-
-backface-visibility:hidden;
--webkit-backface-visibility:hidden;
-transform-style:preserve-3d;
-will-change:transform;
-  
-  box-shadow:
-0 12px 30px rgba(0,0,0,.35);
+  animation:floatTile 12s ease-in-out infinite;
 }
 
 /* IMAGEN */
 
-.carousel-item img{
+.tile img{
   width:100%;
   height:100%;
   object-fit:cover;
+
+  transition:
+  transform 1.2s ease,
+  opacity 1s ease;
 }
 
 /* HOVER */
 
-.carousel-item:hover{
-  transform:
-  rotateY(0deg)
-  scale(1);
-
-  opacity:1;
-  z-index:10;
+.tile:hover img{
+  transform:scale(1.08);
 }
 
-/* TITULO */
+/* MOVIMIENTO SUAVE */
 
-.project-title{
-  position:absolute;
-  bottom:35px;
-  left:40px;
-
-  font-family:'Playfair Display';
-  font-size:28px;
-  color:#fff;
-  letter-spacing:2px;
-
-  opacity:.95;
-}
-
-/* MOVIMIENTO */
-
-@keyframes scrollFlow{
+@keyframes floatTile{
 
   0%{
-    transform:translateX(0);
+    transform:scale(1);
+  }
+
+  50%{
+    transform:scale(1.03);
   }
 
   100%{
-    transform:translateX(-50%);
+    transform:scale(1);
   }
 
+}
+
+/* ROTACIÓN DE ALGUNAS */
+
+.tile:nth-child(3n){
+  animation-duration:18s;
+}
+
+.tile:nth-child(4n){
+  animation-duration:14s;
+}
+
+.tile:nth-child(5n){
+  animation-duration:20s;
 }
 /* RESPONSIVE */
 
@@ -281,213 +262,31 @@ will-change:transform;
 
 </div>
 </header>
-<div class="carousel-wrapper">
+<div class="mosaic-wall">
 
-  <div class="carousel-track">
+  <div class="tile"><img src="./images/acuario-regional-1.jpg"></div>
+  <div class="tile"><img src="./images/costasal-lilith.jpg"></div>
+  <div class="tile"><img src="./images/practica-vray.jpg"></div>
+  <div class="tile"><img src="./images/amouna.jpg"></div>
 
-<div class="carousel-item">
-  <img src="./images/acuario-regional.jpg" alt="">
-  <div class="project-title">ACUARIO REGIONAL</div>
-</div>
-    
-    <div class="carousel-item">
-      <img src="./images/acuario-regional-1.jpg" alt="">
-      <div class="project-title">ACUARIO REGIONAL</div>
-    </div>
+  <div class="tile"><img src="./images/casa-natura.jpg"></div>
+  <div class="tile"><img src="./images/cruz-del-sur-depto.jpg"></div>
+  <div class="tile"><img src="./images/mcdonalds.jpg"></div>
+  <div class="tile"><img src="./images/la-martina.jpg"></div>
 
-    <div class="carousel-item">
-      <img src="./images/costasal-lilith.jpg" alt="">
-      <div class="project-title">COSTASAL LILITH</div>
-    </div>
+  <div class="tile"><img src="./images/la-martina-1.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-2.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-3.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-4.jpg"></div>
 
-    <div class="carousel-item">
-      <img src="./images/practica-vray.jpg" alt="">
-      <div class="project-title">PRÁCTICA VRAY</div>
-    </div>
+  <div class="tile"><img src="./images/la-martina-5.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-6.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-7.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-8.jpg"></div>
 
-    <div class="carousel-item">
-  <img src="./images/amouna.jpg" alt="">
-  <div class="project-title">AMOUNA</div>
-</div>
-
-<div class="carousel-item">
-  <img src="./images/casa-natura.jpg" alt="">
-  <div class="project-title">CASA NATURA</div>
-</div>
-
-<div class="carousel-item">
-  <img src="./images/cruz-del-sur-depto.jpg" alt="">
-  <div class="project-title">CRUZ DEL SUR</div>
-</div>
-
-<div class="carousel-item">
-  <img src="./images/mcdonalds.jpg" alt="">
-  <div class="project-title">MCDONALD'S</div>
-</div>
-
-     <div class="carousel-item">
-  <img src="./images/la-martina.jpg" alt="">
-  <div class="project-title">LA MARTINA</div>
-</div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-1.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-2.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-3.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-4.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-5.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-6.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-7.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-8.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-9.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-10.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-11.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-
-    
-   <div class="carousel-item">
-  <img src="./images/acuario-regional.jpg" alt="">
-  <div class="project-title">ACUARIO REGIONAL</div>
-</div>
-    
-    <div class="carousel-item">
-      <img src="./images/acuario-regional-1.jpg" alt="">
-      <div class="project-title">ACUARIO REGIONAL</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/costasal-lilith.jpg" alt="">
-      <div class="project-title">COSTASAL LILITH</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/practica-vray.jpg" alt="">
-      <div class="project-title">PRÁCTICA VRAY</div>
-    </div>
-
-    <div class="carousel-item">
-  <img src="./images/amouna.jpg" alt="">
-  <div class="project-title">AMOUNA</div>
-</div>
-
-<div class="carousel-item">
-  <img src="./images/casa-natura.jpg" alt="">
-  <div class="project-title">CASA NATURA</div>
-</div>
-
-<div class="carousel-item">
-  <img src="./images/cruz-del-sur-depto.jpg" alt="">
-  <div class="project-title">CRUZ DEL SUR</div>
-</div>
-
-<div class="carousel-item">
-  <img src="./images/mcdonalds.jpg" alt="">
-  <div class="project-title">MCDONALD'S</div>
-</div>
-
-    <div class="carousel-item">
-  <img src="./images/la-martina.jpg" alt="">
-  <div class="project-title">LA MARTINA</div>
-</div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-1.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-2.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-3.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-4.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-5.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-6.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-7.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-8.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-9.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-10.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-    <div class="carousel-item">
-      <img src="./images/la-martina-11.jpg" alt="">
-      <div class="project-title">LA MARTINA</div>
-    </div>
-
-  </div>
+  <div class="tile"><img src="./images/la-martina-9.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-10.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-11.jpg"></div>
 
 </div>
 </body>
