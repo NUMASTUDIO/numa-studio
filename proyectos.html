@@ -112,26 +112,43 @@ nav > a:hover{
   width:100%;
   height:100vh;
 
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  grid-auto-rows: minmax(160px, 1fr);
+  display:flex;
+  gap:20px;
 
-  gap:8px;
-
-  padding:90px 8px 8px;
+  padding:120px 40px;
 
   overflow:hidden;
-  align-content:center;
+  white-space:nowrap;
+
+  position:relative;
+}
+  .mosaic-wall{
+  animation:flow 40s linear infinite;
 }
 
+@keyframes flow{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(-50%); }
+}
 /* TILES */
 
 .tile{
-  position:relative;
-  overflow:hidden;
-  background:#111;
+  flex:0 0 auto;
 
-  animation:floatTile 12s ease-in-out infinite;
+  width:240px;
+  height:240px;
+
+  border-radius:14px;
+  overflow:hidden;
+
+  box-shadow:0 10px 30px rgba(0,0,0,0.4);
+
+  transition:transform 0.4s ease, filter 0.4s ease;
+}
+  .tile:hover{
+  transform:scale(1.15);
+  z-index:10;
+  filter:brightness(1.1);
 }
 
 /* IMAGEN */
@@ -279,6 +296,31 @@ nav > a:hover{
   <div class="tile"><img src="./images/la-martina-10.jpg"></div>
   <div class="tile"><img src="./images/la-martina-11.jpg"></div>
 
+
+  <div class="tile"><img src="./images/acuario-regional.jpg"></div>
+<div class="tile"><img src="./images/acuario-regional-1.jpg"></div>
+  <div class="tile"><img src="./images/costasal-lilith.jpg"></div>
+  <div class="tile"><img src="./images/practica-vray.jpg"></div>
+  <div class="tile"><img src="./images/amouna.jpg"></div>
+
+  <div class="tile"><img src="./images/casa-natura.jpg"></div>
+  <div class="tile"><img src="./images/cruz-del-sur-depto.jpg"></div>
+  <div class="tile"><img src="./images/mcdonalds.jpg"></div>
+  <div class="tile"><img src="./images/la-martina.jpg"></div>
+
+  <div class="tile"><img src="./images/la-martina-1.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-2.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-3.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-4.jpg"></div>
+
+  <div class="tile"><img src="./images/la-martina-5.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-6.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-7.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-8.jpg"></div>
+
+  <div class="tile"><img src="./images/la-martina-9.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-10.jpg"></div>
+  <div class="tile"><img src="./images/la-martina-11.jpg"></div>
 </div>
 </body>
 </html>
