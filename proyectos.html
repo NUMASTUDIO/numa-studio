@@ -235,6 +235,70 @@ nav > a:hover{
 
 }
 
+  #projectModal{
+  position:fixed;
+  inset:0;
+
+  background:rgba(0,0,0,.85);
+
+  display:none;
+  justify-content:center;
+  align-items:center;
+
+  z-index:9999;
+}
+
+#projectModal.active{
+  display:flex;
+}
+
+#projectBox{
+  width:min(1100px,85vw);
+  height:min(700px,80vh);
+
+  position:relative;
+
+  background:#111;
+
+  overflow:hidden;
+}
+
+#projectModalImage{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.project-info{
+  position:absolute;
+
+  left:25px;
+  right:25px;
+  bottom:25px;
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.project-info span{
+  color:#fff;
+  font-size:14px;
+  letter-spacing:3px;
+}
+
+.project-info button{
+  background:transparent;
+  border:1px solid #c9a96e;
+
+  color:#c9a96e;
+
+  padding:12px 24px;
+
+  cursor:pointer;
+
+  letter-spacing:2px;
+}
 </style>
 </head>
 
@@ -318,7 +382,7 @@ nav > a:hover{
 <div class="tile hidden"><img src="./images/resort-zihuatanejo-3.jpg"></div>
 
 <div class="tile">
-  <img id="oceanFrontSlider" src="./images/ocean-front-0.jpg">
+ <img id="oceanFrontSlider" src="./images/ocean-front-0.jpg" style="cursor:pointer;">
 </div>
 <div class="tile hidden"><img src="./images/ocean-front-1.jpg"></div>
 <div class="tile hidden"><img src="./images/ocean-front-2.jpg"></div>
@@ -365,5 +429,52 @@ setInterval(() => {
 
 }, 5000);
 </script>
+  <div id="projectModal">
+
+  <div id="projectBox">
+
+    <img id="projectModalImage" src="./images/ocean-front-0.jpg">
+
+    <div class="project-info">
+      <span>OCEAN FRONT</span>
+      <button>VER PROYECTO</button>
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+const oceanFrontTile =
+document.getElementById("oceanFrontSlider");
+
+const projectModal =
+document.getElementById("projectModal");
+
+const projectModalImage =
+document.getElementById("projectModalImage");
+
+oceanFrontTile.addEventListener("click",()=>{
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  oceanFrontTile.src;
+
+});
+
+projectModal.addEventListener("click",(e)=>{
+
+  if(e.target === projectModal){
+
+    projectModal.classList.remove("active");
+
+  }
+
+});
+
+</script>
+  
 </body>
 </html>
