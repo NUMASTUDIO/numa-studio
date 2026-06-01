@@ -315,7 +315,9 @@ nav > a:hover{
 <div class="tile hidden"><img src="./images/resort-zihuatanejo-2.jpg"></div>
 <div class="tile hidden"><img src="./images/resort-zihuatanejo-3.jpg"></div>
 
-<div class="tile"><img src="./images/ocean-front-0.jpg"></div>
+<div class="tile">
+  <img id="oceanFrontSlider" src="./images/ocean-front-0.jpg">
+</div>
 <div class="tile hidden"><img src="./images/ocean-front-1.jpg"></div>
 <div class="tile hidden"><img src="./images/ocean-front-2.jpg"></div>
 <div class="tile hidden"><img src="./images/ocean-front-3.jpg"></div>
@@ -325,5 +327,31 @@ nav > a:hover{
 <div class="tile hidden"><img src="./images/ocean-front-7.jpg"></div>
 
 </div>
+  <script>
+const oceanFrontImages = [
+  "./images/ocean-front-0.jpg",
+  "./images/ocean-front-1.jpg",
+  "./images/ocean-front-2.jpg",
+  "./images/ocean-front-3.jpg",
+  "./images/ocean-front-4.jpg",
+  "./images/ocean-front-5.jpg",
+  "./images/ocean-front-6.jpg",
+  "./images/ocean-front-7.jpg"
+];
+
+let oceanFrontIndex = 0;
+
+setInterval(() => {
+  oceanFrontIndex++;
+
+  if(oceanFrontIndex >= oceanFrontImages.length){
+    oceanFrontIndex = 0;
+  }
+
+  document.getElementById("oceanFrontSlider").src =
+    oceanFrontImages[oceanFrontIndex];
+
+}, 5000);
+</script>
 </body>
 </html>
