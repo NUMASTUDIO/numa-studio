@@ -147,6 +147,8 @@ nav > a:hover{
   transition:
   transform 1.2s ease,
   opacity 1s ease;
+
+  opacity:1;
 }
 
 /* HOVER */
@@ -342,14 +344,24 @@ const oceanFrontImages = [
 let oceanFrontIndex = 0;
 
 setInterval(() => {
-  oceanFrontIndex++;
 
-  if(oceanFrontIndex >= oceanFrontImages.length){
-    oceanFrontIndex = 0;
-  }
+  const img = document.getElementById("oceanFrontSlider");
 
-  document.getElementById("oceanFrontSlider").src =
-    oceanFrontImages[oceanFrontIndex];
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    oceanFrontIndex++;
+
+    if(oceanFrontIndex >= oceanFrontImages.length){
+      oceanFrontIndex = 0;
+    }
+
+    img.src = oceanFrontImages[oceanFrontIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
 
 }, 5000);
 </script>
