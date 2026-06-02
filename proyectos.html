@@ -575,6 +575,26 @@ modalPrev.addEventListener("click",(e)=>{
 
 });
 
+  document.addEventListener("keydown",(e)=>{
+
+  if(!projectModal.classList.contains("active")){
+    return;
+  }
+
+  if(e.key === "ArrowRight"){
+
+    modalNext.click();
+
+  }
+
+  if(e.key === "ArrowLeft"){
+
+    modalPrev.click();
+
+  }
+
+});
+
 </script>
   
 </body>
