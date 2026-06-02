@@ -396,21 +396,27 @@ nav > a:hover{
 <div class="tile hidden"><img src="./images/cruz-del-sur-depto-5.jpg"></div>
 <div class="tile hidden"><img src="./images/cocina-integral-funes.jpg"></div>
   <div class="tile"><img src="./images/mcdonalds.jpg"></div>
-  <div class="tile"><img src="./images/la-martina.jpg"></div>
+  <div class="tile">
+  <img
+    id="laMartinaSlider"
+    src="./images/la-martina.jpg"
+    style="cursor:pointer;"
+  >
+</div>
 
-  <div class="tile"><img src="./images/la-martina-1.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-2.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-3.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-4.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-1.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-2.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-3.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-4.jpg"></div>
 
-  <div class="tile"><img src="./images/la-martina-5.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-6.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-7.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-8.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-5.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-6.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-7.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-8.jpg"></div>
 
-  <div class="tile"><img src="./images/la-martina-9.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-10.jpg"></div>
-  <div class="tile"><img src="./images/la-martina-11.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-9.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-10.jpg"></div>
+  <div class="tile hidden"><img src="./images/la-martina-11.jpg"></div>
 
   <div class="tile hidden"><img src="./images/casas-acapulco-diamente-0.jpg"></div>
 <div class="tile hidden"><img src="./images/casas-acapulco-diamente-1.jpg"></div>
@@ -469,6 +475,48 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+const laMartinaImages = [
+  "./images/la-martina.jpg",
+  "./images/la-martina-1.jpg",
+  "./images/la-martina-2.jpg",
+  "./images/la-martina-3.jpg",
+  "./images/la-martina-4.jpg",
+  "./images/la-martina-5.jpg",
+  "./images/la-martina-6.jpg",
+  "./images/la-martina-7.jpg",
+  "./images/la-martina-8.jpg",
+  "./images/la-martina-9.jpg",
+  "./images/la-martina-10.jpg",
+  "./images/la-martina-11.jpg"
+];
+
+let laMartinaIndex = 0;
+
+setInterval(() => {
+
+  const img =
+  document.getElementById("laMartinaSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    laMartinaIndex++;
+
+    if(laMartinaIndex >= laMartinaImages.length){
+      laMartinaIndex = 0;
+    }
+
+    img.src =
+    laMartinaImages[laMartinaIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
+    
 </script>
   <div id="projectModal">
 
