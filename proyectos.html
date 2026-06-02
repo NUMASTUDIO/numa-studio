@@ -275,6 +275,41 @@ nav > a:hover{
   object-fit:cover;
 }
 
+  #modalPrev,
+#modalNext{
+
+  position:absolute;
+
+  top:50%;
+
+  transform:translateY(-50%);
+
+  width:70px;
+
+  cursor:pointer;
+
+  z-index:10;
+
+  transition:.3s;
+}
+
+#modalPrev:hover,
+#modalNext:hover{
+
+  transform:
+  translateY(-50%)
+  scale(1.08);
+
+}
+
+#modalPrev{
+  left:20px;
+}
+
+#modalNext{
+  right:20px;
+}
+
 .project-info{
   position:absolute;
 
@@ -437,16 +472,29 @@ setInterval(() => {
 </script>
   <div id="projectModal">
 
-  <div id="projectBox">
+ <div id="projectBox">
 
-    <img id="projectModalImage" src="./images/ocean-front-0.jpg">
+    <img
+      id="modalPrev"
+      src="./images/boton-flecha-izquierda.png"
+    >
+
+    <img
+      id="projectModalImage"
+      src="./images/ocean-front-0.jpg"
+    >
+
+    <img
+      id="modalNext"
+      src="./images/boton-flecha-derecha.png"
+    >
 
     <div class="project-info">
       <span>OCEAN FRONT</span>
       <button>VER PROYECTO</button>
     </div>
 
-  </div>
+</div>
 
 </div>
 
@@ -457,6 +505,12 @@ document.getElementById("oceanFrontSlider");
 
 const projectModal =
 document.getElementById("projectModal");
+
+  const modalPrev =
+document.getElementById("modalPrev");
+
+const modalNext =
+document.getElementById("modalNext");
 
 const projectModalImage =
 document.getElementById("projectModalImage");
@@ -487,6 +541,37 @@ projectModal.addEventListener("click",(e)=>{
     projectModal.classList.remove("active");
 
   }
+
+});
+
+  modalNext.addEventListener("click",(e)=>{
+
+  e.stopPropagation();
+
+  oceanFrontIndex++;
+
+  if(oceanFrontIndex >= oceanFrontImages.length){
+    oceanFrontIndex = 0;
+  }
+
+  projectModalImage.src =
+  oceanFrontImages[oceanFrontIndex];
+
+});
+
+modalPrev.addEventListener("click",(e)=>{
+
+  e.stopPropagation();
+
+  oceanFrontIndex--;
+
+  if(oceanFrontIndex < 0){
+    oceanFrontIndex =
+    oceanFrontImages.length - 1;
+  }
+
+  projectModalImage.src =
+  oceanFrontImages[oceanFrontIndex];
 
 });
 
