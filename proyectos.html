@@ -473,12 +473,18 @@ nav > a:hover{
 <div class="tile"><img src="./images/departamento-101-sol-y-mar-02.jpg"></div>
 <div class="tile"><img src="./images/departamento-101-sol-y-mar-03.jpg"></div>
 
-  <div class="tile"><img src="./images/villa-irma-01.jpg"></div>
-<div class="tile"><img src="./images/villa-irma-02.jpg"></div>
-<div class="tile"><img src="./images/villa-irma-03.jpg"></div>
-<div class="tile"><img src="./images/villa-irma-04.jpg"></div>
-<div class="tile"><img src="./images/villa-irma-05.jpg"></div>
-<div class="tile"><img src="./images/villa-irma-06.jpg"></div>
+  <div class="tile">
+  <img
+    id="villaIrmaSlider"
+    src="./images/villa-irma-01.jpg"
+    style="cursor:pointer;"
+  >
+</div>
+<div class="tile hidden"><img src="./images/villa-irma-02.jpg"></div>
+<div class="tile hidden"><img src="./images/villa-irma-03.jpg"></div>
+<div class="tile hidden"><img src="./images/villa-irma-04.jpg"></div>
+<div class="tile hidden"><img src="./images/villa-irma-05.jpg"></div>
+<div class="tile hidden"><img src="./images/villa-irma-06.jpg"></div>
 <div class="tile hidden"><img src="./images/villa-irma-07.jpg"></div>
 
 <div class="tile">
@@ -551,6 +557,18 @@ const laMartinaImages = [
   "./images/cruz-del-sur-depto-4.jpg",
   "./images/cruz-del-sur-depto-5.jpg"
 ];
+
+    const villaIrmaImages = [
+  "./images/villa-irma-01.jpg",
+  "./images/villa-irma-02.jpg",
+  "./images/villa-irma-03.jpg",
+  "./images/villa-irma-04.jpg",
+  "./images/villa-irma-05.jpg",
+  "./images/villa-irma-06.jpg",
+  "./images/villa-irma-07.jpg"
+];
+
+let villaIrmaIndex = 0;
 
     const casasDiamanteImages = [
   "./images/casas-acapulco-diamente-0.jpg",
