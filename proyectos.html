@@ -737,6 +737,19 @@ projectModal.addEventListener("click",(e)=>{
 
   }
 
+      if(currentProject === "cruzDelSur"){
+
+    cruzDelSurIndex++;
+
+    if(cruzDelSurIndex >= cruzDelSurImages.length){
+      cruzDelSurIndex = 0;
+    }
+
+    projectModalImage.src =
+    cruzDelSurImages[cruzDelSurIndex];
+
+  }
+
 });
 
 modalPrev.addEventListener("click",(e)=>{
@@ -768,6 +781,20 @@ modalPrev.addEventListener("click",(e)=>{
 
     projectModalImage.src =
     laMartinaImages[laMartinaIndex];
+
+  }
+
+    if(currentProject === "cruzDelSur"){
+
+    cruzDelSurIndex--;
+
+    if(cruzDelSurIndex < 0){
+      cruzDelSurIndex =
+      cruzDelSurImages.length - 1;
+    }
+
+    projectModalImage.src =
+    cruzDelSurImages[cruzDelSurIndex];
 
   }
 
