@@ -617,14 +617,31 @@ projectModal.addEventListener("click",(e)=>{
 
   e.stopPropagation();
 
-  oceanFrontIndex++;
+  if(currentProject === "oceanFront"){
 
-  if(oceanFrontIndex >= oceanFrontImages.length){
-    oceanFrontIndex = 0;
+    oceanFrontIndex++;
+
+    if(oceanFrontIndex >= oceanFrontImages.length){
+      oceanFrontIndex = 0;
+    }
+
+    projectModalImage.src =
+    oceanFrontImages[oceanFrontIndex];
+
   }
 
-  projectModalImage.src =
-  oceanFrontImages[oceanFrontIndex];
+  if(currentProject === "laMartina"){
+
+    laMartinaIndex++;
+
+    if(laMartinaIndex >= laMartinaImages.length){
+      laMartinaIndex = 0;
+    }
+
+    projectModalImage.src =
+    laMartinaImages[laMartinaIndex];
+
+  }
 
 });
 
@@ -632,15 +649,33 @@ modalPrev.addEventListener("click",(e)=>{
 
   e.stopPropagation();
 
-  oceanFrontIndex--;
+  if(currentProject === "oceanFront"){
 
-  if(oceanFrontIndex < 0){
-    oceanFrontIndex =
-    oceanFrontImages.length - 1;
+    oceanFrontIndex--;
+
+    if(oceanFrontIndex < 0){
+      oceanFrontIndex =
+      oceanFrontImages.length - 1;
+    }
+
+    projectModalImage.src =
+    oceanFrontImages[oceanFrontIndex];
+
   }
 
-  projectModalImage.src =
-  oceanFrontImages[oceanFrontIndex];
+  if(currentProject === "laMartina"){
+
+    laMartinaIndex--;
+
+    if(laMartinaIndex < 0){
+      laMartinaIndex =
+      laMartinaImages.length - 1;
+    }
+
+    projectModalImage.src =
+    laMartinaImages[laMartinaIndex];
+
+  }
 
 });
 
