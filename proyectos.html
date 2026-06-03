@@ -313,32 +313,61 @@ nav > a:hover{
 .project-info{
   position:absolute;
 
-  left:25px;
-  right:25px;
-  bottom:25px;
+  left:0;
+  right:0;
+  bottom:0;
 
   display:flex;
   justify-content:space-between;
   align-items:center;
+
+  padding:30px 35px;
+
+  background:
+  linear-gradient(
+    to top,
+    rgba(0,0,0,.85) 0%,
+    rgba(0,0,0,.55) 50%,
+    rgba(0,0,0,0) 100%
+  );
 }
 
 .project-info span{
   color:#fff;
-  font-size:14px;
-  letter-spacing:3px;
+
+  font-size:15px;
+
+  letter-spacing:4px;
+
+  font-weight:500;
+
+  text-transform:uppercase;
 }
 
 .project-info button{
-  background:transparent;
+  background:rgba(0,0,0,.35);
+
   border:1px solid #c9a96e;
 
   color:#c9a96e;
 
-  padding:12px 24px;
+  padding:12px 28px;
 
   cursor:pointer;
 
   letter-spacing:2px;
+
+  backdrop-filter:blur(6px);
+
+  transition:.3s;
+}
+
+.project-info button:hover{
+
+  background:#c9a96e;
+
+  color:#111;
+
 }
 </style>
 </head>
