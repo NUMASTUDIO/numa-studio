@@ -624,6 +624,8 @@ setInterval(() => {
 const oceanFrontTile =
 document.getElementById("oceanFrontSlider");
 const laMartinaTile =
+const cruzDelSurTile =
+document.getElementById("cruzDelSurSlider");
   
 document.getElementById("laMartinaSlider");
 let currentProject = "oceanFront";
@@ -667,6 +669,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   laMartinaTile.src;
+
+});
+
+  cruzDelSurTile.addEventListener("click",()=>{
+
+  currentProject = "cruzDelSur";
+
+  projectTitle.textContent =
+  "CRUZ DEL SUR";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  cruzDelSurTile.src;
 
 });
   
