@@ -453,7 +453,13 @@ nav > a:hover{
   <div class="tile hidden"><img src="./images/la-martina-10.jpg"></div>
   <div class="tile hidden"><img src="./images/la-martina-11.jpg"></div>
 
-  <div class="tile"><img src="./images/casas-acapulco-diamente-0.jpg"></div>
+  <div class="tile">
+  <img
+    id="casasDiamanteSlider"
+    src="./images/casas-acapulco-diamente-0.jpg"
+    style="cursor:pointer;"
+  >
+</div>
 <div class="tile"><img src="./images/casas-acapulco-diamente-1.jpg"></div>
 <div class="tile"><img src="./images/casas-acapulco-diamente-2.jpg"></div>
 <div class="tile"><img src="./images/casas-acapulco-diamente-3.jpg"></div>
@@ -538,6 +544,15 @@ const laMartinaImages = [
   "./images/cruz-del-sur-depto-5.jpg"
 ];
 
+    const casasDiamanteImages = [
+  "./images/casas-acapulco-diamente-0.jpg",
+  "./images/casas-acapulco-diamente-1.jpg",
+  "./images/casas-acapulco-diamente-2.jpg",
+  "./images/casas-acapulco-diamente-3.jpg"
+];
+
+let casasDiamanteIndex = 0;
+
 let cruzDelSurIndex = 0;
 
 let laMartinaIndex = 0;
@@ -589,6 +604,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("casasDiamanteSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    casasDiamanteIndex++;
+
+    if(casasDiamanteIndex >= casasDiamanteImages.length){
+      casasDiamanteIndex = 0;
+    }
+
+    img.src =
+    casasDiamanteImages[casasDiamanteIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -629,6 +668,10 @@ document.getElementById("laMartinaSlider");
 
 const cruzDelSurTile =
 document.getElementById("cruzDelSurSlider");
+
+const casasDiamanteTile =
+document.getElementById("casasDiamanteSlider");
+
 let currentProject = "oceanFront";
   
 const projectModal =
@@ -684,6 +727,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   cruzDelSurTile.src;
+
+});
+
+  casasDiamanteTile.addEventListener("click",()=>{
+
+  currentProject = "casasDiamante";
+
+  projectTitle.textContent =
+  "CASAS ACAPULCO DIAMANTE";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  casasDiamanteTile.src;
 
 });
   
@@ -750,6 +807,19 @@ projectModal.addEventListener("click",(e)=>{
 
   }
 
+    if(currentProject === "casasDiamante"){
+
+  casasDiamanteIndex++;
+
+  if(casasDiamanteIndex >= casasDiamanteImages.length){
+    casasDiamanteIndex = 0;
+  }
+
+  projectModalImage.src =
+  casasDiamanteImages[casasDiamanteIndex];
+
+}
+
 });
 
 modalPrev.addEventListener("click",(e)=>{
@@ -797,6 +867,20 @@ modalPrev.addEventListener("click",(e)=>{
     cruzDelSurImages[cruzDelSurIndex];
 
   }
+
+  if(currentProject === "casasDiamante"){
+
+  casasDiamanteIndex--;
+
+  if(casasDiamanteIndex < 0){
+    casasDiamanteIndex =
+    casasDiamanteImages.length - 1;
+  }
+
+  projectModalImage.src =
+  casasDiamanteImages[casasDiamanteIndex];
+
+}
 
 });
 
