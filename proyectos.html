@@ -554,7 +554,9 @@ setInterval(() => {
 
 const oceanFrontTile =
 document.getElementById("oceanFrontSlider");
-
+const laMartinaTile =
+document.getElementById("laMartinaSlider");
+  
 const projectModal =
 document.getElementById("projectModal");
 
@@ -573,6 +575,15 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   oceanFrontTile.src;
+
+});
+
+  laMartinaTile.addEventListener("click",()=>{
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  laMartinaTile.src;
 
 });
 
