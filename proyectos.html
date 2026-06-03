@@ -654,6 +654,28 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img = document.getElementById("villaIrmaSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    villaIrmaIndex++;
+
+    if(villaIrmaIndex >= villaIrmaImages.length){
+      villaIrmaIndex = 0;
+    }
+
+    img.src = villaIrmaImages[villaIrmaIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -697,6 +719,9 @@ document.getElementById("cruzDelSurSlider");
 
 const casasDiamanteTile =
 document.getElementById("casasDiamanteSlider");
+
+const villaIrmaTile =
+document.getElementById("villaIrmaSlider");
 
 let currentProject = "oceanFront";
   
@@ -753,6 +778,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   cruzDelSurTile.src;
+
+});
+
+  villaIrmaTile.addEventListener("click",()=>{
+
+  currentProject = "villaIrma";
+
+  projectTitle.textContent =
+  "VILLA IRMA";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  villaIrmaTile.src;
 
 });
 
@@ -833,6 +872,19 @@ projectModal.addEventListener("click",(e)=>{
 
   }
 
+    if(currentProject === "villaIrma"){
+
+  villaIrmaIndex++;
+
+  if(villaIrmaIndex >= villaIrmaImages.length){
+    villaIrmaIndex = 0;
+  }
+
+  projectModalImage.src =
+  villaIrmaImages[villaIrmaIndex];
+
+}
+
     if(currentProject === "casasDiamante"){
 
   casasDiamanteIndex++;
@@ -893,6 +945,20 @@ modalPrev.addEventListener("click",(e)=>{
     cruzDelSurImages[cruzDelSurIndex];
 
   }
+
+  if(currentProject === "villaIrma"){
+
+  villaIrmaIndex--;
+
+  if(villaIrmaIndex < 0){
+    villaIrmaIndex =
+    villaIrmaImages.length - 1;
+  }
+
+  projectModalImage.src =
+  villaIrmaImages[villaIrmaIndex];
+
+}
 
   if(currentProject === "casasDiamante"){
 
