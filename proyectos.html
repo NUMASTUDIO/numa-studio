@@ -542,9 +542,9 @@ setInterval(() => {
     >
 
     <div class="project-info">
-      <span>OCEAN FRONT</span>
+      <span id="projectTitle">OCEAN FRONT</span>
       <button>VER PROYECTO</button>
-    </div>
+</div>
 
 </div>
 
@@ -570,10 +570,15 @@ document.getElementById("modalNext");
 
 const projectModalImage =
 document.getElementById("projectModalImage");
+  const projectTitle =
+document.getElementById("projectTitle");
 
 oceanFrontTile.addEventListener("click",()=>{
 
   currentProject = "oceanFront";
+
+  projectTitle.textContent =
+  "OCEAN FRONT";
 
   projectModal.classList.add("active");
 
@@ -586,13 +591,16 @@ oceanFrontTile.addEventListener("click",()=>{
 
   currentProject = "laMartina";
 
+  projectTitle.textContent =
+  "LA MARTINA";
+
   projectModal.classList.add("active");
 
   projectModalImage.src =
   laMartinaTile.src;
 
 });
-
+  
 projectModal.addEventListener("click",(e)=>{
 
   if(e.target === projectModal){
