@@ -555,7 +555,9 @@ setInterval(() => {
 const oceanFrontTile =
 document.getElementById("oceanFrontSlider");
 const laMartinaTile =
+  
 document.getElementById("laMartinaSlider");
+let currentProject = "oceanFront";
   
 const projectModal =
 document.getElementById("projectModal");
@@ -571,6 +573,8 @@ document.getElementById("projectModalImage");
 
 oceanFrontTile.addEventListener("click",()=>{
 
+  currentProject = "oceanFront";
+
   projectModal.classList.add("active");
 
   projectModalImage.src =
@@ -578,7 +582,9 @@ oceanFrontTile.addEventListener("click",()=>{
 
 });
 
-  laMartinaTile.addEventListener("click",()=>{
+ laMartinaTile.addEventListener("click",()=>{
+
+  currentProject = "laMartina";
 
   projectModal.classList.add("active");
 
