@@ -418,10 +418,16 @@ nav > a:hover{
   <div class="tile"><img src="./images/amouna.jpg"></div>
 
   <div class="tile"><img src="./images/casa-natura.jpg"></div>
-  <div class="tile"><img src="./images/cruz-del-sur-depto.jpg"></div>
-<div class="tile"><img src="./images/cruz-del-sur-depto-2.jpg"></div>
-<div class="tile"><img src="./images/cruz-del-sur-depto-3.jpg"></div>
-<div class="tile"><img src="./images/cruz-del-sur-depto-4.jpg"></div>
+  <div class="tile">
+  <img
+    id="cruzDelSurSlider"
+    src="./images/cruz-del-sur-depto.jpg"
+    style="cursor:pointer;"
+  >
+</div>
+<div class="tile hidden"><img src="./images/cruz-del-sur-depto-2.jpg"></div>
+<div class="tile hidden"><img src="./images/cruz-del-sur-depto-3.jpg"></div>
+<div class="tile hidden"><img src="./images/cruz-del-sur-depto-4.jpg"></div>
 <div class="tile hidden"><img src="./images/cruz-del-sur-depto-5.jpg"></div>
 <div class="tile hidden"><img src="./images/cocina-integral-funes.jpg"></div>
   <div class="tile"><img src="./images/mcdonalds.jpg"></div>
@@ -524,6 +530,16 @@ const laMartinaImages = [
   "./images/la-martina-11.jpg"
 ];
 
+    const cruzDelSurImages = [
+  "./images/cruz-del-sur-depto.jpg",
+  "./images/cruz-del-sur-depto-2.jpg",
+  "./images/cruz-del-sur-depto-3.jpg",
+  "./images/cruz-del-sur-depto-4.jpg",
+  "./images/cruz-del-sur-depto-5.jpg"
+];
+
+let cruzDelSurIndex = 0;
+
 let laMartinaIndex = 0;
 
 setInterval(() => {
@@ -543,6 +559,30 @@ setInterval(() => {
 
     img.src =
     laMartinaImages[laMartinaIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("cruzDelSurSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    cruzDelSurIndex++;
+
+    if(cruzDelSurIndex >= cruzDelSurImages.length){
+      cruzDelSurIndex = 0;
+    }
+
+    img.src =
+    cruzDelSurImages[cruzDelSurIndex];
 
     img.style.opacity = "1";
 
