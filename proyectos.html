@@ -437,10 +437,17 @@ nav > a:hover{
   
 <div class="tile"><img src="./images/plaza-rt86.jpg"></div>
 
-<div class="tile"><img src="./images/los-guajolotes-aztlan-01.jpg"></div>
-<div class="tile"><img src="./images/los-guajolotes-aztlan-02.jpg"></div>
-<div class="tile"><img src="./images/los-guajolotes-aztlan-03.jpg"></div>
-<div class="tile"><img src="./images/los-guajolotes-aztlan-04.jpg"></div>
+<div class="tile">
+  <img
+    id="guajolotesSlider"
+    src="./images/los-guajolotes-aztlan-01.jpg"
+    style="cursor:pointer;"
+  >
+</div>
+
+<div class="tile hidden"><img src="./images/los-guajolotes-aztlan-02.jpg"></div>
+<div class="tile hidden"><img src="./images/los-guajolotes-aztlan-03.jpg"></div>
+<div class="tile hidden"><img src="./images/los-guajolotes-aztlan-04.jpg"></div>
   
   <div class="tile">
   <img
@@ -569,6 +576,15 @@ const laMartinaImages = [
   "./images/cruz-del-sur-depto-5.jpg"
 ];
 
+    const guajolotesImages = [
+  "./images/los-guajolotes-aztlan-01.jpg",
+  "./images/los-guajolotes-aztlan-02.jpg",
+  "./images/los-guajolotes-aztlan-03.jpg",
+  "./images/los-guajolotes-aztlan-04.jpg"
+];
+
+let guajolotesIndex = 0;
+
     const villaIrmaImages = [
   "./images/villa-irma-01.jpg",
   "./images/villa-irma-02.jpg",
@@ -687,6 +703,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("guajolotesSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    guajolotesIndex++;
+
+    if(guajolotesIndex >= guajolotesImages.length){
+      guajolotesIndex = 0;
+    }
+
+    img.src =
+    guajolotesImages[guajolotesIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -730,6 +770,9 @@ document.getElementById("cruzDelSurSlider");
 
 const casasDiamanteTile =
 document.getElementById("casasDiamanteSlider");
+
+const guajolotesTile =
+document.getElementById("guajolotesSlider");
 
 const villaIrmaTile =
 document.getElementById("villaIrmaSlider");
@@ -817,6 +860,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   casasDiamanteTile.src;
+
+});
+
+  guajolotesTile.addEventListener("click",()=>{
+
+  currentProject = "guajolotes";
+
+  projectTitle.textContent =
+  "LOS GUAJOLOTES AZTLÁN";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  guajolotesTile.src;
 
 });
   
@@ -909,6 +966,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "guajolotes"){
+
+  guajolotesIndex++;
+
+  if(guajolotesIndex >= guajolotesImages.length){
+    guajolotesIndex = 0;
+  }
+
+  projectModalImage.src =
+  guajolotesImages[guajolotesIndex];
+
+}
+
 });
 
 modalPrev.addEventListener("click",(e)=>{
@@ -982,6 +1052,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   casasDiamanteImages[casasDiamanteIndex];
+
+}
+
+  if(currentProject === "guajolotes"){
+
+  guajolotesIndex--;
+
+  if(guajolotesIndex < 0){
+    guajolotesIndex =
+    guajolotesImages.length - 1;
+  }
+
+  projectModalImage.src =
+  guajolotesImages[guajolotesIndex];
 
 }
 
