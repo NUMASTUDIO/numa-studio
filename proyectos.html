@@ -415,9 +415,17 @@ nav > a:hover{
 <div class="tile"><img src="./images/acuario-regional-1.jpg"></div>
   <div class="tile"><img src="./images/costasal-lilith.jpg"></div>
   <div class="tile"><img src="./images/practica-vray.jpg"></div>
-  <div class="tile"><img src="./images/amouna.jpg"></div>
-   <div class="tile"><img src="./images/amouna-01.jpg"></div>
-<div class="tile"><img src="./images/amouna-02.jpg"></div>
+  
+<div class="tile">
+  <img
+    id="amounaSlider"
+    src="./images/amouna.jpg"
+    style="cursor:pointer;"
+  >
+</div>
+
+<div class="tile hidden"><img src="./images/amouna-01.jpg"></div>
+<div class="tile hidden"><img src="./images/amouna-02.jpg"></div>
 
   <div class="tile"><img src="./images/casa-natura.jpg"></div>
   <div class="tile">
@@ -568,13 +576,21 @@ const laMartinaImages = [
   "./images/la-martina-11.jpg"
 ];
 
-    const cruzDelSurImages = [
+  const cruzDelSurImages = [
   "./images/cruz-del-sur-depto.jpg",
   "./images/cruz-del-sur-depto-2.jpg",
   "./images/cruz-del-sur-depto-3.jpg",
   "./images/cruz-del-sur-depto-4.jpg",
   "./images/cruz-del-sur-depto-5.jpg"
 ];
+
+  const amounaImages = [
+  "./images/amouna.jpg",
+  "./images/amouna-01.jpg",
+  "./images/amouna-02.jpg"
+];
+
+let amounaIndex = 0;
 
     const guajolotesImages = [
   "./images/los-guajolotes-aztlan-01.jpg",
@@ -727,6 +743,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("amounaSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    amounaIndex++;
+
+    if(amounaIndex >= amounaImages.length){
+      amounaIndex = 0;
+    }
+
+    img.src =
+    amounaImages[amounaIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -773,6 +813,9 @@ document.getElementById("casasDiamanteSlider");
 
 const guajolotesTile =
 document.getElementById("guajolotesSlider");
+
+const amounaTile =
+document.getElementById("amounaSlider");
 
 const villaIrmaTile =
 document.getElementById("villaIrmaSlider");
@@ -874,6 +917,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   guajolotesTile.src;
+
+});
+
+  amounaTile.addEventListener("click",()=>{
+
+  currentProject = "amouna";
+
+  projectTitle.textContent =
+  "AMOUNA";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  amounaTile.src;
 
 });
   
@@ -979,6 +1036,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "amouna"){
+
+  amounaIndex++;
+
+  if(amounaIndex >= amounaImages.length){
+    amounaIndex = 0;
+  }
+
+  projectModalImage.src =
+  amounaImages[amounaIndex];
+
+}
+
 });
 
 modalPrev.addEventListener("click",(e)=>{
@@ -1066,6 +1136,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   guajolotesImages[guajolotesIndex];
+
+}
+
+  if(currentProject === "amouna"){
+
+  amounaIndex--;
+
+  if(amounaIndex < 0){
+    amounaIndex =
+    amounaImages.length - 1;
+  }
+
+  projectModalImage.src =
+  amounaImages[amounaIndex];
 
 }
 
