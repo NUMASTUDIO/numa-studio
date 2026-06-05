@@ -495,9 +495,16 @@ nav > a:hover{
 <div class="tile"><img src="./images/resort-zihuatanejo-2.jpg"></div>
 <div class="tile"><img src="./images/resort-zihuatanejo-3.jpg"></div>
 
-  <div class="tile"><img src="./images/departamento-101-sol-y-mar-01.jpg"></div>
-<div class="tile"><img src="./images/departamento-101-sol-y-mar-02.jpg"></div>
-<div class="tile"><img src="./images/departamento-101-sol-y-mar-03.jpg"></div>
+<div class="tile">
+  <img
+    id="solYMarSlider"
+    src="./images/departamento-101-sol-y-mar-01.jpg"
+    style="cursor:pointer;"
+  >
+</div>
+
+<div class="tile hidden"><img src="./images/departamento-101-sol-y-mar-02.jpg"></div>
+<div class="tile hidden"><img src="./images/departamento-101-sol-y-mar-03.jpg"></div>
 
   <div class="tile">
   <img
@@ -584,6 +591,14 @@ const laMartinaImages = [
   "./images/cruz-del-sur-depto-5.jpg"
 ];
 
+  const solYMarImages = [
+  "./images/departamento-101-sol-y-mar-01.jpg",
+  "./images/departamento-101-sol-y-mar-02.jpg",
+  "./images/departamento-101-sol-y-mar-03.jpg"
+];
+
+let solYMarIndex = 0;
+
   const amounaImages = [
   "./images/amouna.jpg",
   "./images/amouna-01.jpg",
@@ -592,7 +607,7 @@ const laMartinaImages = [
 
 let amounaIndex = 0;
 
-    const guajolotesImages = [
+  const guajolotesImages = [
   "./images/los-guajolotes-aztlan-01.jpg",
   "./images/los-guajolotes-aztlan-02.jpg",
   "./images/los-guajolotes-aztlan-03.jpg",
@@ -601,7 +616,7 @@ let amounaIndex = 0;
 
 let guajolotesIndex = 0;
 
-    const villaIrmaImages = [
+  const villaIrmaImages = [
   "./images/villa-irma-01.jpg",
   "./images/villa-irma-02.jpg",
   "./images/villa-irma-03.jpg",
@@ -613,7 +628,7 @@ let guajolotesIndex = 0;
 
 let villaIrmaIndex = 0;
 
-    const casasDiamanteImages = [
+  const casasDiamanteImages = [
   "./images/casas-acapulco-diamente-0.jpg",
   "./images/casas-acapulco-diamente-1.jpg",
   "./images/casas-acapulco-diamente-2.jpg",
@@ -767,6 +782,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("solYMarSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    solYMarIndex++;
+
+    if(solYMarIndex >= solYMarImages.length){
+      solYMarIndex = 0;
+    }
+
+    img.src =
+    solYMarImages[solYMarIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -816,6 +855,9 @@ document.getElementById("guajolotesSlider");
 
 const amounaTile =
 document.getElementById("amounaSlider");
+
+const solYMarTile =
+document.getElementById("solYMarSlider");
 
 const villaIrmaTile =
 document.getElementById("villaIrmaSlider");
@@ -931,6 +973,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   amounaTile.src;
+
+});
+
+  solYMarTile.addEventListener("click",()=>{
+
+  currentProject = "solYMar";
+
+  projectTitle.textContent =
+  "DEPARTAMENTO 101 SOL Y MAR";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  solYMarTile.src;
 
 });
   
@@ -1049,6 +1105,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "solYMar"){
+
+  solYMarIndex++;
+
+  if(solYMarIndex >= solYMarImages.length){
+    solYMarIndex = 0;
+  }
+
+  projectModalImage.src =
+  solYMarImages[solYMarIndex];
+
+}
+
 });
 
 modalPrev.addEventListener("click",(e)=>{
@@ -1150,6 +1219,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   amounaImages[amounaIndex];
+
+}
+
+  if(currentProject === "solYMar"){
+
+  solYMarIndex--;
+
+  if(solYMarIndex < 0){
+    solYMarIndex =
+    solYMarImages.length - 1;
+  }
+
+  projectModalImage.src =
+  solYMarImages[solYMarIndex];
 
 }
 
