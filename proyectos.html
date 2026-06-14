@@ -592,6 +592,14 @@ const laMartinaImages = [
   "./images/la-martina-11.jpg"
 ];
 
+const costasalLilithImages = [
+  "./images/costasal-lilith-00.jpg",
+  "./images/costasal-lilith-01.jpg",
+  "./images/costasal-lilith-02.jpg"
+];
+
+let costasalLilithIndex = 0;
+
   const cruzDelSurImages = [
   "./images/cruz-del-sur-depto.jpg",
   "./images/cruz-del-sur-depto-2.jpg",
@@ -815,6 +823,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("costasalLilithSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    costasalLilithIndex++;
+
+    if(costasalLilithIndex >= costasalLilithImages.length){
+      costasalLilithIndex = 0;
+    }
+
+    img.src =
+    costasalLilithImages[costasalLilithIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -867,6 +899,9 @@ document.getElementById("amounaSlider");
 
 const solYMarTile =
 document.getElementById("solYMarSlider");
+
+const costasalLilithTile =
+document.getElementById("costasalLilithSlider");
 
 const villaIrmaTile =
 document.getElementById("villaIrmaSlider");
@@ -926,6 +961,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   cruzDelSurTile.src;
+
+});
+
+  costasalLilithTile.addEventListener("click",()=>{
+
+  currentProject = "costasalLilith";
+
+  projectTitle.textContent =
+  "COSTASAL LILITH";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  costasalLilithTile.src;
 
 });
 
@@ -1049,6 +1098,19 @@ projectModal.addEventListener("click",(e)=>{
 
   }
 
+    if(currentProject === "costasalLilith"){
+
+  costasalLilithIndex++;
+
+  if(costasalLilithIndex >= costasalLilithImages.length){
+    costasalLilithIndex = 0;
+  }
+
+  projectModalImage.src =
+  costasalLilithImages[costasalLilithIndex];
+
+}
+
       if(currentProject === "cruzDelSur"){
 
     cruzDelSurIndex++;
@@ -1160,6 +1222,20 @@ modalPrev.addEventListener("click",(e)=>{
     laMartinaImages[laMartinaIndex];
 
   }
+
+  if(currentProject === "costasalLilith"){
+
+  costasalLilithIndex--;
+
+  if(costasalLilithIndex < 0){
+    costasalLilithIndex =
+    costasalLilithImages.length - 1;
+  }
+
+  projectModalImage.src =
+  costasalLilithImages[costasalLilithIndex];
+
+}
 
     if(currentProject === "cruzDelSur"){
 
