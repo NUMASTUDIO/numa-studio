@@ -619,6 +619,21 @@ const costasalLilithImages = [
 
 let costasalLilithIndex = 0;
 
+const loftCaborealImages = [
+  "./images/loft-caboreal-00.jpg",
+  "./images/loft-caboreal-01.jpg",
+  "./images/loft-caboreal-02.jpg",
+  "./images/loft-caboreal-03.jpg",
+  "./images/loft-caboreal-04.jpg",
+  "./images/loft-caboreal-05.jpg",
+  "./images/loft-caboreal-06.jpg",
+  "./images/loft-caboreal-07.jpg",
+  "./images/loft-caboreal-08.jpg",
+  "./images/loft-caboreal-09.jpg"
+];
+
+let loftCaborealIndex = 0;
+
   const cruzDelSurImages = [
   "./images/cruz-del-sur-depto.jpg",
   "./images/cruz-del-sur-depto-2.jpg",
@@ -866,6 +881,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("loftCaborealSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    loftCaborealIndex++;
+
+    if(loftCaborealIndex >= loftCaborealImages.length){
+      loftCaborealIndex = 0;
+    }
+
+    img.src =
+    loftCaborealImages[loftCaborealIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -912,6 +951,9 @@ document.getElementById("casasDiamanteSlider");
 
 const guajolotesTile =
 document.getElementById("guajolotesSlider");
+
+const loftCaborealTile =
+document.getElementById("loftCaborealSlider");
 
 const amounaTile =
 document.getElementById("amounaSlider");
@@ -980,6 +1022,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   cruzDelSurTile.src;
+
+});
+
+  loftCaborealTile.addEventListener("click",()=>{
+
+  currentProject = "loftCaboreal";
+
+  projectTitle.textContent =
+  "LOFT CABOREAL";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  loftCaborealTile.src;
 
 });
 
@@ -1103,6 +1159,19 @@ projectModal.addEventListener("click",(e)=>{
     oceanFrontImages[oceanFrontIndex];
 
   }
+
+    if(currentProject === "loftCaboreal"){
+
+  loftCaborealIndex++;
+
+  if(loftCaborealIndex >= loftCaborealImages.length){
+    loftCaborealIndex = 0;
+  }
+
+  projectModalImage.src =
+  loftCaborealImages[loftCaborealIndex];
+
+}
 
   if(currentProject === "laMartina"){
 
@@ -1281,6 +1350,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   villaIrmaImages[villaIrmaIndex];
+
+}
+
+  if(currentProject === "loftCaboreal"){
+
+  loftCaborealIndex--;
+
+  if(loftCaborealIndex < 0){
+    loftCaborealIndex =
+    loftCaborealImages.length - 1;
+  }
+
+  projectModalImage.src =
+  loftCaborealImages[loftCaborealIndex];
 
 }
 
