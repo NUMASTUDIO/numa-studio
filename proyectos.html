@@ -682,6 +682,18 @@ let amounaIndex = 0;
 
 let guajolotesIndex = 0;
 
+  const mcdonaldsImages = [
+  "./images/mcdonald's-00.jpg",
+  "./images/mcdonald's-01.jpg",
+  "./images/mcdonald's-02.jpg",
+  "./images/mcdonald's-03.jpg",
+  "./images/mcdonald's-04.jpg",
+  "./images/mcdonald's-05.jpg",
+  "./images/mcdonald's-06.jpg"
+];
+
+let mcdonaldsIndex = 0;
+
   const villaIrmaImages = [
   "./images/villa-irma-01.jpg",
   "./images/villa-irma-02.jpg",
@@ -920,6 +932,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("mcdonaldsSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    mcdonaldsIndex++;
+
+    if(mcdonaldsIndex >= mcdonaldsImages.length){
+      mcdonaldsIndex = 0;
+    }
+
+    img.src =
+    mcdonaldsImages[mcdonaldsIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -963,6 +999,9 @@ document.getElementById("cruzDelSurSlider");
 
 const casasDiamanteTile =
 document.getElementById("casasDiamanteSlider");
+
+const mcdonaldsTile =
+document.getElementById("mcdonaldsSlider");
 
 const guajolotesTile =
 document.getElementById("guajolotesSlider");
@@ -1023,6 +1062,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   laMartinaTile.src;
+
+});
+
+  mcdonaldsTile.addEventListener("click",()=>{
+
+  currentProject = "mcdonalds";
+
+  projectTitle.textContent =
+  "MCDONALD'S";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  mcdonaldsTile.src;
 
 });
 
@@ -1175,6 +1228,20 @@ projectModal.addEventListener("click",(e)=>{
 
   }
 
+    modalNext.addEventListener("click",(e)=>{
+    if(currentProject === "mcdonalds"){
+
+  mcdonaldsIndex++;
+
+  if(mcdonaldsIndex >= mcdonaldsImages.length){
+    mcdonaldsIndex = 0;
+  }
+
+  projectModalImage.src =
+  mcdonaldsImages[mcdonaldsIndex];
+
+}
+
     if(currentProject === "loftCaboreal"){
 
   loftCaborealIndex++;
@@ -1311,6 +1378,21 @@ modalPrev.addEventListener("click",(e)=>{
     oceanFrontImages[oceanFrontIndex];
 
   }
+
+  modalPrev.addEventListener("click",(e)=>{
+  if(currentProject === "mcdonalds"){
+
+  mcdonaldsIndex--;
+
+  if(mcdonaldsIndex < 0){
+    mcdonaldsIndex =
+    mcdonaldsImages.length - 1;
+  }
+
+  projectModalImage.src =
+  mcdonaldsImages[mcdonaldsIndex];
+
+}
 
   if(currentProject === "laMartina"){
 
