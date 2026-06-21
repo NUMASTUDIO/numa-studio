@@ -809,6 +809,30 @@ setInterval(() => {
 
     setInterval(() => {
 
+  const img =
+  document.getElementById("resortZihuatanejoSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    resortZihuatanejoIndex++;
+
+    if(resortZihuatanejoIndex >= resortZihuatanejoImages.length){
+      resortZihuatanejoIndex = 0;
+    }
+
+    img.src =
+    resortZihuatanejoImages[resortZihuatanejoIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
+
+    setInterval(() => {
+
   const img = document.getElementById("villaIrmaSlider");
 
   img.style.opacity = "0";
