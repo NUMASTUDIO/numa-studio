@@ -667,6 +667,15 @@ const loftCaborealImages = [
 
 let loftCaborealIndex = 0;
 
+  const amenidadesCasasAcapulcoImages = [
+  "./images/amenidades-casas-acapulco-00.jpg",
+  "./images/amenidades-casas-acapulco-01.jpg",
+  "./images/amenidades-casas-acapulco-02.jpg",
+  "./images/amenidades-casas-acapulco-03.jpg"
+];
+
+let amenidadesCasasAcapulcoIndex = 0;
+
   const resortZihuatanejoImages = [
   "./images/resort-zihuatanejo-0.jpg",
   "./images/resort-zihuatanejo-1.jpg",
@@ -1007,6 +1016,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("amenidadesCasasAcapulcoSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    amenidadesCasasAcapulcoIndex++;
+
+    if(amenidadesCasasAcapulcoIndex >= amenidadesCasasAcapulcoImages.length){
+      amenidadesCasasAcapulcoIndex = 0;
+    }
+
+    img.src =
+    amenidadesCasasAcapulcoImages[amenidadesCasasAcapulcoIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1047,6 +1080,9 @@ document.getElementById("laMartinaSlider");
 
 const cruzDelSurTile =
 document.getElementById("cruzDelSurSlider");
+
+const amenidadesCasasAcapulcoTile =
+document.getElementById("amenidadesCasasAcapulcoSlider");
 
 const resortZihuatanejoTile =
 document.getElementById("resortZihuatanejoSlider");
@@ -1116,6 +1152,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   laMartinaTile.src;
+
+});
+
+  amenidadesCasasAcapulcoTile.addEventListener("click",()=>{
+
+  currentProject = "amenidadesCasasAcapulco";
+
+  projectTitle.textContent =
+  "AMENIDADES CASAS ACAPULCO";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  amenidadesCasasAcapulcoTile.src;
 
 });
 
@@ -1294,6 +1344,19 @@ projectModal.addEventListener("click",(e)=>{
 
   }
 
+    if(currentProject === "amenidadesCasasAcapulco"){
+
+  amenidadesCasasAcapulcoIndex++;
+
+  if(amenidadesCasasAcapulcoIndex >= amenidadesCasasAcapulcoImages.length){
+    amenidadesCasasAcapulcoIndex = 0;
+  }
+
+  projectModalImage.src =
+  amenidadesCasasAcapulcoImages[amenidadesCasasAcapulcoIndex];
+
+}
+
     if(currentProject === "resortZihuatanejo"){
 
   resortZihuatanejoIndex++;
@@ -1455,6 +1518,20 @@ modalPrev.addEventListener("click",(e)=>{
     oceanFrontImages[oceanFrontIndex];
 
   }
+
+  if(currentProject === "amenidadesCasasAcapulco"){
+
+  amenidadesCasasAcapulcoIndex--;
+
+  if(amenidadesCasasAcapulcoIndex < 0){
+    amenidadesCasasAcapulcoIndex =
+    amenidadesCasasAcapulcoImages.length - 1;
+  }
+
+  projectModalImage.src =
+  amenidadesCasasAcapulcoImages[amenidadesCasasAcapulcoIndex];
+
+}
 
   if(currentProject === "resortZihuatanejo"){
 
