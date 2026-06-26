@@ -702,6 +702,16 @@ const loftCaborealImages = [
 
 let loftCaborealIndex = 0;
 
+  const casaNaturaImages = [
+  "./images/casa-natura-00.jpg",
+  "./images/casa-natura-01.jpg",
+  "./images/casa-natura-02.jpg",
+  "./images/casa-natura-03.jpg",
+  "./images/casa-natura-04.jpg"
+];
+
+let casaNaturaIndex = 0;
+
   const amenidadesCasasAcapulcoImages = [
   "./images/amenidades-casas-acapulco-00.jpg",
   "./images/amenidades-casas-acapulco-01.jpg",
@@ -1099,6 +1109,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("casaNaturaSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    casaNaturaIndex++;
+
+    if(casaNaturaIndex >= casaNaturaImages.length){
+      casaNaturaIndex = 0;
+    }
+
+    img.src =
+    casaNaturaImages[casaNaturaIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1148,6 +1182,9 @@ document.getElementById("resortZihuatanejoSlider");
 
 const casasDiamanteTile =
 document.getElementById("casasDiamanteSlider");
+
+const casaNaturaTile =
+document.getElementById("casaNaturaSlider");
 
 const mcdonaldsTile =
 document.getElementById("mcdonaldsSlider");
@@ -1228,6 +1265,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   laMartinaTile.src;
+
+});
+
+  casaNaturaTile.addEventListener("click",()=>{
+
+  currentProject = "casaNatura";
+
+  projectTitle.textContent =
+  "CASA NATURA";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  casaNaturaTile.src;
 
 });
 
@@ -1433,6 +1484,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "casaNatura"){
+
+  casaNaturaIndex++;
+
+  if(casaNaturaIndex >= casaNaturaImages.length){
+    casaNaturaIndex = 0;
+  }
+
+  projectModalImage.src =
+  casaNaturaImages[casaNaturaIndex];
+
+}
+
     if(currentProject === "resortZihuatanejo"){
 
   resortZihuatanejoIndex++;
@@ -1633,6 +1697,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   amenidadesCasasAcapulcoImages[amenidadesCasasAcapulcoIndex];
+
+}
+
+  if(currentProject === "casaNatura"){
+
+  casaNaturaIndex--;
+
+  if(casaNaturaIndex < 0){
+    casaNaturaIndex =
+    casaNaturaImages.length - 1;
+  }
+
+  projectModalImage.src =
+  casaNaturaImages[casaNaturaIndex];
 
 }
 
