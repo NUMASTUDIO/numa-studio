@@ -698,6 +698,14 @@ let costasalLilithIndex = 0;
 
 let oceanicWondersAquariumIndex = 0;
 
+  const wonderlandImages = [
+  "./images/wonderland-01.jpg",
+  "./images/wonderland-02.jpg",
+  "./images/wonderland-03.jpg"
+];
+
+let wonderlandIndex = 0;
+
 const loftCaborealImages = [
   "./images/loft-caboreal-00.jpg",
   "./images/loft-caboreal-01.jpg",
@@ -1144,6 +1152,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("wonderlandSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    wonderlandIndex++;
+
+    if(wonderlandIndex >= wonderlandImages.length){
+      wonderlandIndex = 0;
+    }
+
+    img.src =
+    wonderlandImages[wonderlandIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1181,6 +1213,9 @@ document.getElementById("oceanFrontSlider");
 
 const laMartinaTile =
 document.getElementById("laMartinaSlider");
+
+const wonderlandTile =
+document.getElementById("wonderlandSlider");
 
 const cruzDelSurTile =
 document.getElementById("cruzDelSurSlider");
@@ -1262,6 +1297,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   oceanicWondersAquariumTile.src;
+
+});
+
+  wonderlandTile.addEventListener("click",()=>{
+
+  currentProject = "wonderland";
+
+  projectTitle.textContent =
+  "WONDERLAND";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  wonderlandTile.src;
 
 });
 
@@ -1495,6 +1544,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "wonderland"){
+
+  wonderlandIndex++;
+
+  if(wonderlandIndex >= wonderlandImages.length){
+    wonderlandIndex = 0;
+  }
+
+  projectModalImage.src =
+  wonderlandImages[wonderlandIndex];
+
+}
+
     if(currentProject === "casaNatura"){
 
   casaNaturaIndex++;
@@ -1682,6 +1744,20 @@ modalPrev.addEventListener("click",(e)=>{
     oceanFrontImages[oceanFrontIndex];
 
   }
+
+  if(currentProject === "wonderland"){
+
+  wonderlandIndex--;
+
+  if(wonderlandIndex < 0){
+    wonderlandIndex =
+    wonderlandImages.length - 1;
+  }
+
+  projectModalImage.src =
+  wonderlandImages[wonderlandIndex];
+
+}
 
   if(currentProject === "oceanicWondersAquarium"){
 
