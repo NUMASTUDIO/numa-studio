@@ -705,6 +705,18 @@ const laMartinaImages = [
   "./images/la-martina-11.jpg"
 ];
 
+    const santuarioHuellitasImages = [
+  "./images/santuario-huellitas-00.jpg",
+  "./images/santuario-huellitas-01.jpg",
+  "./images/santuario-huellitas-02.jpg",
+  "./images/santuario-huellitas-03.jpg",
+  "./images/santuario-huellitas-04.jpg",
+  "./images/santuario-huellitas-05.jpg",
+  "./images/santuario-huellitas-06.jpg"
+];
+
+let santuarioHuellitasIndex = 0;
+
 const costasalLilithImages = [
   "./images/costasal-lilith-00.jpg",
   "./images/costasal-lilith-01.jpg",
@@ -1203,6 +1215,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("santuarioHuellitasSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    santuarioHuellitasIndex++;
+
+    if(santuarioHuellitasIndex >= santuarioHuellitasImages.length){
+      santuarioHuellitasIndex = 0;
+    }
+
+    img.src =
+    santuarioHuellitasImages[santuarioHuellitasIndex];
+
+    img.style.opacity = "1";
+
+  },500);
+
+},5000);
     
 </script>
   <div id="projectModal">
@@ -1246,6 +1282,9 @@ document.getElementById("wonderlandSlider");
 
 const cruzDelSurTile =
 document.getElementById("cruzDelSurSlider");
+
+const santuarioHuellitasTile =
+document.getElementById("santuarioHuellitasSlider");
 
 const amenidadesCasasAcapulcoTile =
 document.getElementById("amenidadesCasasAcapulcoSlider");
@@ -1352,6 +1391,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   laMartinaTile.src;
+
+});
+
+  santuarioHuellitasTile.addEventListener("click",()=>{
+
+  currentProject = "santuarioHuellitas";
+
+  projectTitle.textContent =
+  "SANTUARIO HUELLITAS";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  santuarioHuellitasTile.src;
 
 });
 
@@ -1597,6 +1650,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "santuarioHuellitas"){
+
+  santuarioHuellitasIndex++;
+
+  if(santuarioHuellitasIndex >= santuarioHuellitasImages.length){
+    santuarioHuellitasIndex = 0;
+  }
+
+  projectModalImage.src =
+  santuarioHuellitasImages[santuarioHuellitasIndex];
+
+}
+
     if(currentProject === "resortZihuatanejo"){
 
   resortZihuatanejoIndex++;
@@ -1797,6 +1863,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   oceanicWondersAquariumImages[oceanicWondersAquariumIndex];
+
+}
+
+  if(currentProject === "santuarioHuellitas"){
+
+  santuarioHuellitasIndex--;
+
+  if(santuarioHuellitasIndex < 0){
+    santuarioHuellitasIndex =
+    santuarioHuellitasImages.length - 1;
+  }
+
+  projectModalImage.src =
+  santuarioHuellitasImages[santuarioHuellitasIndex];
 
 }
 
