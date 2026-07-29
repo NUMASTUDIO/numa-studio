@@ -751,6 +751,19 @@ let costasalLilithIndex = 0;
 
 let oceanicWondersAquariumIndex = 0;
 
+  const residencia7991Images = [
+  "./images/residencia-7991-00.jpg",
+  "./images/residencia-7991-01.jpg",
+  "./images/residencia-7991-02.jpg",
+  "./images/residencia-7991-03.jpg",
+  "./images/residencia-7991-04.jpg",
+  "./images/residencia-7991-05.jpg",
+  "./images/residencia-7991-06.jpg",
+  "./images/residencia-7991-07.jpg"
+];
+
+let residencia7991Index = 0;
+
   const wonderlandImages = [
   "./images/wonderland-01.jpg",
   "./images/wonderland-02.jpg",
@@ -1255,6 +1268,30 @@ setInterval(() => {
   },500);
 
 },5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("residencia7991Slider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    residencia7991Index++;
+
+    if(residencia7991Index >= residencia7991Images.length){
+      residencia7991Index = 0;
+    }
+
+    img.src =
+    residencia7991Images[residencia7991Index];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1298,6 +1335,9 @@ document.getElementById("wonderlandSlider");
 
 const cruzDelSurTile =
 document.getElementById("cruzDelSurSlider");
+
+const residencia7991Tile =
+document.getElementById("residencia7991Slider");
 
 const santuarioHuellitasTile =
 document.getElementById("santuarioHuellitasSlider");
@@ -1435,6 +1475,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   casaNaturaTile.src;
+
+});
+
+  residencia7991Tile.addEventListener("click",()=>{
+
+  currentProject = "residencia7991";
+
+  projectTitle.textContent =
+  "RESIDENCIA 7991";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  residencia7991Tile.src;
 
 });
 
@@ -1653,6 +1707,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "residencia7991"){
+
+  residencia7991Index++;
+
+  if(residencia7991Index >= residencia7991Images.length){
+    residencia7991Index = 0;
+  }
+
+  projectModalImage.src =
+  residencia7991Images[residencia7991Index];
+
+}
+
     if(currentProject === "casaNatura"){
 
   casaNaturaIndex++;
@@ -1865,6 +1932,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   wonderlandImages[wonderlandIndex];
+
+}
+
+  if(currentProject === "residencia7991"){
+
+  residencia7991Index--;
+
+  if(residencia7991Index < 0){
+    residencia7991Index =
+    residencia7991Images.length - 1;
+  }
+
+  projectModalImage.src =
+  residencia7991Images[residencia7991Index];
 
 }
 
