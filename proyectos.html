@@ -768,6 +768,17 @@ const costasalLilithImages = [
 
 let costasalLilithIndex = 0;
 
+  const casaCaliforniaImages = [
+  "./images/casa-california-00.jpg",
+  "./images/casa-california-01.jpg",
+  "./images/casa-california-02.jpg",
+  "./images/casa-california-03.jpg",
+  "./images/casa-california-04.jpg",
+  "./images/casa-california-05.jpg"
+];
+
+let casaCaliforniaIndex = 0;
+
   const numastudioOfficeImages = [
   "./images/numastudio-office-00.jpg",
   "./images/numastudio-office-01.jpg",
@@ -1355,6 +1366,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("casaCaliforniaSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    casaCaliforniaIndex++;
+
+    if(casaCaliforniaIndex >= casaCaliforniaImages.length){
+      casaCaliforniaIndex = 0;
+    }
+
+    img.src =
+    casaCaliforniaImages[casaCaliforniaIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1401,6 +1436,9 @@ document.getElementById("wonderlandSlider");
 
 const cruzDelSurTile =
 document.getElementById("cruzDelSurSlider");
+
+const casaCaliforniaTile =
+document.getElementById("casaCaliforniaSlider");
 
 const residencia7991Tile =
 document.getElementById("residencia7991Slider");
@@ -1471,6 +1509,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   oceanFrontTile.src;
+
+});
+
+  casaCaliforniaTile.addEventListener("click",()=>{
+
+  currentProject = "casaCalifornia";
+
+  projectTitle.textContent =
+  "CASA CALIFORNIA";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  casaCaliforniaTile.src;
 
 });
 
@@ -1774,6 +1826,19 @@ projectModal.addEventListener("click",(e)=>{
 
 }
 
+    if(currentProject === "casaCalifornia"){
+
+  casaCaliforniaIndex++;
+
+  if(casaCaliforniaIndex >= casaCaliforniaImages.length){
+    casaCaliforniaIndex = 0;
+  }
+
+  projectModalImage.src =
+  casaCaliforniaImages[casaCaliforniaIndex];
+
+}
+
     if(currentProject === "amenidadesCasasAcapulco"){
 
   amenidadesCasasAcapulcoIndex++;
@@ -2025,6 +2090,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   wonderlandImages[wonderlandIndex];
+
+}
+
+  if(currentProject === "casaCalifornia"){
+
+  casaCaliforniaIndex--;
+
+  if(casaCaliforniaIndex < 0){
+    casaCaliforniaIndex =
+    casaCaliforniaImages.length - 1;
+  }
+
+  projectModalImage.src =
+  casaCaliforniaImages[casaCaliforniaIndex];
 
 }
 
