@@ -726,6 +726,14 @@ const oceanFrontImages = [
 
 let oceanFrontIndex = 0;
 
+  const cineverseImages = [
+  "./images/cineverse-04.jpg",
+  "./images/cineverse-05.jpg",
+  "./images/cineverse-06.jpg"
+];
+
+let cineverseIndex = 0;
+
 setInterval(() => {
 
   const img = document.getElementById("oceanFrontSlider");
@@ -1405,6 +1413,30 @@ setInterval(() => {
   }, 500);
 
 }, 5000);
+
+    setInterval(() => {
+
+  const img =
+  document.getElementById("cineverseSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    cineverseIndex++;
+
+    if(cineverseIndex >= cineverseImages.length){
+      cineverseIndex = 0;
+    }
+
+    img.src =
+    cineverseImages[cineverseIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1448,6 +1480,9 @@ document.getElementById("numastudioOfficeSlider");
 
 const wonderlandTile =
 document.getElementById("wonderlandSlider");
+
+const cineverseTile =
+document.getElementById("cineverseSlider");
 
 const cruzDelSurTile =
 document.getElementById("cruzDelSurSlider");
@@ -1538,6 +1573,20 @@ oceanFrontTile.addEventListener("click",()=>{
 
   projectModalImage.src =
   casaCaliforniaTile.src;
+
+});
+
+  cineverseTile.addEventListener("click",()=>{
+
+  currentProject = "cineverse";
+
+  projectTitle.textContent =
+  "CINEVERSE";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src =
+  cineverseTile.src;
 
 });
 
@@ -1828,6 +1877,19 @@ projectModal.addEventListener("click",(e)=>{
 
   }
 
+    if(currentProject === "cineverse"){
+
+  cineverseIndex++;
+
+  if(cineverseIndex >= cineverseImages.length){
+    cineverseIndex = 0;
+  }
+
+  projectModalImage.src =
+  cineverseImages[cineverseIndex];
+
+}
+
     if(currentProject === "numastudioOffice"){
 
   numastudioOfficeIndex++;
@@ -2058,6 +2120,20 @@ projectModal.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   amounaImages[amounaIndex];
+
+}
+
+    if(currentProject === "cineverse"){
+
+  cineverseIndex--;
+
+  if(cineverseIndex < 0){
+    cineverseIndex =
+    cineverseImages.length - 1;
+  }
+
+  projectModalImage.src =
+  cineverseImages[cineverseIndex];
 
 }
 
