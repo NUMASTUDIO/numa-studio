@@ -432,8 +432,8 @@ nav > a:hover{
 <div class="tile hidden"><img src="./images/cineverse-04.jpg"></div>
 <div class="tile hidden"><img src="./images/cineverse-05.jpg"></div>
 <div class="tile hidden"><img src="./images/cineverse-06.jpg"></div>
-<div class="tile hidden"><img src="./images/cineverse-07.jpg"></div> 
-<div class="tile hidden"><img src="./images/cineverse-08.jpg"></div>  
+<div class="tile hidden"><img src="./images/cineverse-07.jpg"></div>
+<div class="tile hidden"><img src="./images/cineverse-08.jpg"></div>
   
 <div class="tile"><img src="./images/acuario-regional-1.jpg"></div>
 
@@ -1397,7 +1397,7 @@ setInterval(() => {
 
 }, 5000);
 
-    setInterval(() => {
+setInterval(() => {
 
   const img =
   document.getElementById("cineverseSlider");
@@ -2200,6 +2200,20 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   casaCaliforniaImages[casaCaliforniaIndex];
+
+}
+
+  if(currentProject === "cineverse"){
+
+  cineverseIndex--;
+
+  if(cineverseIndex < 0){
+    cineverseIndex =
+    cineverseImages.length - 1;
+  }
+
+  projectModalImage.src =
+  cineverseImages[cineverseIndex];
 
 }
 
