@@ -727,9 +727,14 @@ const oceanFrontImages = [
 let oceanFrontIndex = 0;
 
   const cineverseImages = [
+  "./images/cineverse-01.jpg",
+  "./images/cineverse-02.jpg",
+  "./images/cineverse-03.jpg",
   "./images/cineverse-04.jpg",
   "./images/cineverse-05.jpg",
-  "./images/cineverse-06.jpg"
+  "./images/cineverse-06.jpg",
+  "./images/cineverse-07.jpg",
+  "./images/cineverse-08.jpg"
 ];
 
 let cineverseIndex = 0;
@@ -1409,6 +1414,28 @@ setInterval(() => {
 
     img.src =
     cineverseImages[cineverseIndex];
+
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
+
+    setInterval(() => {
+
+  const img = document.getElementById("oceanFrontSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+
+    oceanFrontIndex++;
+
+    if(oceanFrontIndex >= oceanFrontImages.length){
+      oceanFrontIndex = 0;
+    }
+
+    img.src = oceanFrontImages[oceanFrontIndex];
 
     img.style.opacity = "1";
 
