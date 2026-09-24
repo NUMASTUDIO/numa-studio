@@ -624,7 +624,15 @@ nav > a:hover{
 <div class="tile hidden"><img src="./images/mcdonald's-05.jpg"></div>
 <div class="tile hidden"><img src="./images/mcdonald's-06.jpg"></div>
   
-<div class="tile"><img src="./images/plaza-rt86.jpg"></div>
+<div class="tile">
+  <img id="kidsRoomSlider" src="./images/kids'-room-01.jpg" style="cursor:pointer;">
+</div>
+
+<div class="tile hidden"><img src="./images/kids'-room-02.jpg"></div>
+<div class="tile hidden"><img src="./images/kids'-room-03.jpg"></div>
+<div class="tile hidden"><img src="./images/kids'-room-04.jpg"></div>
+<div class="tile hidden"><img src="./images/kids'-room-05.jpg"></div>
+<div class="tile hidden"><img src="./images/kids'-room-06.jpg"></div>
 
 <div class="tile">
   <img
@@ -871,6 +879,17 @@ const casaNaturaImages = [
 ];
 
 let casaNaturaIndex = 0;
+
+const kidsRoomImages = [
+  "./images/kids'-room-01.jpg",
+  "./images/kids'-room-02.jpg",
+  "./images/kids'-room-03.jpg",
+  "./images/kids'-room-04.jpg",
+  "./images/kids'-room-05.jpg",
+  "./images/kids'-room-06.jpg"
+];
+
+let kidsRoomIndex = 0;
 
 const amenidadesCasasAcapulcoImages = [
   "./images/amenidades-casas-acapulco-00.jpg",
@@ -1476,6 +1495,23 @@ setInterval(() => {
     img.style.opacity = "1";
   }, 500);
 }, 5000);
+
+    setInterval(() => {
+  const img = document.getElementById("kidsRoomSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+    kidsRoomIndex++;
+
+    if (kidsRoomIndex >= kidsRoomImages.length) {
+      kidsRoomIndex = 0;
+    }
+
+    img.src = kidsRoomImages[kidsRoomIndex];
+    img.style.opacity = "1";
+  }, 500);
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1516,6 +1552,9 @@ document.getElementById("laMartinaSlider");
 
 const numastudioOfficeTile =
 document.getElementById("numastudioOfficeSlider");
+
+const kidsRoomTile =
+document.getElementById("kidsRoomSlider");
 
 const fortemGymTile =
 document.getElementById("fortemGymSlider");
@@ -1654,6 +1693,16 @@ oceanFrontTile.addEventListener("click",()=>{
   projectModal.classList.add("active");
 
   projectModalImage.src = fortemGymTile.src;
+});
+
+  kidsRoomTile.addEventListener("click",()=>{
+  currentProject = "kidsRoom";
+
+  projectTitle.textContent = "KIDS' ROOM";
+
+  projectModal.classList.add("active");
+
+  projectModalImage.src = kidsRoomTile.src;
 });
 
   wonderlandTile.addEventListener("click",()=>{
@@ -1966,6 +2015,17 @@ projectModal.addEventListener("click",(e)=>{
   fortemGymImages[fortemGymIndex];
 }
 
+    if(currentProject === "kidsRoom"){
+  kidsRoomIndex++;
+
+  if(kidsRoomIndex >= kidsRoomImages.length){
+    kidsRoomIndex = 0;
+  }
+
+  projectModalImage.src =
+  kidsRoomImages[kidsRoomIndex];
+}
+
     if(currentProject === "casaCalifornia"){
 
   casaCaliforniaIndex++;
@@ -2229,6 +2289,18 @@ modalPrev.addEventListener("click",(e)=>{
 
   projectModalImage.src =
   fortemGymImages[fortemGymIndex];
+}
+
+  if(currentProject === "kidsRoom"){
+  kidsRoomIndex--;
+
+  if(kidsRoomIndex < 0){
+    kidsRoomIndex =
+    kidsRoomImages.length - 1;
+  }
+
+  projectModalImage.src =
+  kidsRoomImages[kidsRoomIndex];
 }
 
   if(currentProject === "wonderland"){
