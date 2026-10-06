@@ -994,558 +994,229 @@ let cruzDelSurIndex = 0;
 
 let laMartinaIndex = 0;
 
-setInterval(() => {
+// CAMBIO DE IMÁGENES INTERCALADO
 
-  const img =
-  document.getElementById("laMartinaSlider");
+function startStaggeredSlider(id, images, getIndex, setIndex, delay) {
 
-  img.style.opacity = "0";
+  function changeImage() {
 
-  setTimeout(() => {
+    const img = document.getElementById(id);
 
-    laMartinaIndex++;
+    if (!img) return;
 
-    if(laMartinaIndex >= laMartinaImages.length){
-      laMartinaIndex = 0;
-    }
+    img.style.opacity = "0";
 
-    img.src =
-    laMartinaImages[laMartinaIndex];
+    setTimeout(() => {
 
-    img.style.opacity = "1";
+      let index = getIndex() + 1;
 
-  }, 500);
+      if (index >= images.length) {
+        index = 0;
+      }
 
-}, 5000);
+      setIndex(index);
 
-    setInterval(() => {
+      img.src = images[index];
 
-  const img =
-  document.getElementById("cruzDelSurSlider");
+      img.style.opacity = "1";
 
-  img.style.opacity = "0";
+    }, 500);
+  }
 
   setTimeout(() => {
 
-    cruzDelSurIndex++;
-
-    if(cruzDelSurIndex >= cruzDelSurImages.length){
-      cruzDelSurIndex = 0;
-    }
-
-    img.src =
-    cruzDelSurImages[cruzDelSurIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("casasDiamanteSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    casasDiamanteIndex++;
-
-    if(casasDiamanteIndex >= casasDiamanteImages.length){
-      casasDiamanteIndex = 0;
-    }
-
-    img.src =
-    casasDiamanteImages[casasDiamanteIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("resortZihuatanejoSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    resortZihuatanejoIndex++;
-
-    if(resortZihuatanejoIndex >= resortZihuatanejoImages.length){
-      resortZihuatanejoIndex = 0;
-    }
-
-    img.src =
-    resortZihuatanejoImages[resortZihuatanejoIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img = document.getElementById("villaIrmaSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    villaIrmaIndex++;
-
-    if(villaIrmaIndex >= villaIrmaImages.length){
-      villaIrmaIndex = 0;
-    }
-
-    img.src = villaIrmaImages[villaIrmaIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("guajolotesSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    guajolotesIndex++;
-
-    if(guajolotesIndex >= guajolotesImages.length){
-      guajolotesIndex = 0;
-    }
-
-    img.src =
-    guajolotesImages[guajolotesIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("amounaSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    amounaIndex++;
-
-    if(amounaIndex >= amounaImages.length){
-      amounaIndex = 0;
-    }
-
-    img.src =
-    amounaImages[amounaIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("solYMarSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    solYMarIndex++;
-
-    if(solYMarIndex >= solYMarImages.length){
-      solYMarIndex = 0;
-    }
-
-    img.src =
-    solYMarImages[solYMarIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("costasalLilithSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    costasalLilithIndex++;
-
-    if(costasalLilithIndex >= costasalLilithImages.length){
-      costasalLilithIndex = 0;
-    }
-
-    img.src =
-    costasalLilithImages[costasalLilithIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("loftCaborealSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    loftCaborealIndex++;
-
-    if(loftCaborealIndex >= loftCaborealImages.length){
-      loftCaborealIndex = 0;
-    }
-
-    img.src =
-    loftCaborealImages[loftCaborealIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("mcdonaldsSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    mcdonaldsIndex++;
-
-    if(mcdonaldsIndex >= mcdonaldsImages.length){
-      mcdonaldsIndex = 0;
-    }
-
-    img.src =
-    mcdonaldsImages[mcdonaldsIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("amenidadesCasasAcapulcoSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    amenidadesCasasAcapulcoIndex++;
-
-    if(amenidadesCasasAcapulcoIndex >= amenidadesCasasAcapulcoImages.length){
-      amenidadesCasasAcapulcoIndex = 0;
-    }
-
-    img.src =
-    amenidadesCasasAcapulcoImages[amenidadesCasasAcapulcoIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("oceanicWondersAquariumSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    oceanicWondersAquariumIndex++;
-
-    if(oceanicWondersAquariumIndex >= oceanicWondersAquariumImages.length){
-      oceanicWondersAquariumIndex = 0;
-    }
-
-    img.src =
-    oceanicWondersAquariumImages[oceanicWondersAquariumIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("casaNaturaSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    casaNaturaIndex++;
-
-    if(casaNaturaIndex >= casaNaturaImages.length){
-      casaNaturaIndex = 0;
-    }
-
-    img.src =
-    casaNaturaImages[casaNaturaIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("wonderlandSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    wonderlandIndex++;
-
-    if(wonderlandIndex >= wonderlandImages.length){
-      wonderlandIndex = 0;
-    }
-
-    img.src =
-    wonderlandImages[wonderlandIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("santuarioHuellitasSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    santuarioHuellitasIndex++;
-
-    if(santuarioHuellitasIndex >= santuarioHuellitasImages.length){
-      santuarioHuellitasIndex = 0;
-    }
-
-    img.src =
-    santuarioHuellitasImages[santuarioHuellitasIndex];
-
-    img.style.opacity = "1";
-
-  },500);
-
-},5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("residencia7991Slider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    residencia7991Index++;
-
-    if(residencia7991Index >= residencia7991Images.length){
-      residencia7991Index = 0;
-    }
-
-    img.src =
-    residencia7991Images[residencia7991Index];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("numastudioOfficeSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    numastudioOfficeIndex++;
-
-    if(numastudioOfficeIndex >= numastudioOfficeImages.length){
-      numastudioOfficeIndex = 0;
-    }
-
-    img.src =
-    numastudioOfficeImages[numastudioOfficeIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img =
-  document.getElementById("casaCaliforniaSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    casaCaliforniaIndex++;
-
-    if(casaCaliforniaIndex >= casaCaliforniaImages.length){
-      casaCaliforniaIndex = 0;
-    }
-
-    img.src =
-    casaCaliforniaImages[casaCaliforniaIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-setInterval(() => {
-
-  const img =
-  document.getElementById("cineverseSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    cineverseIndex++;
-
-    if(cineverseIndex >= cineverseImages.length){
-      cineverseIndex = 0;
-    }
-
-    img.src =
-    cineverseImages[cineverseIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-
-  const img = document.getElementById("oceanFrontSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-
-    oceanFrontIndex++;
-
-    if(oceanFrontIndex >= oceanFrontImages.length){
-      oceanFrontIndex = 0;
-    }
-
-    img.src = oceanFrontImages[oceanFrontIndex];
-
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
-
-    setInterval(() => {
-  const img = document.getElementById("fortemGymSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-    fortemGymIndex++;
-
-    if (fortemGymIndex >= fortemGymImages.length) {
-      fortemGymIndex = 0;
-    }
-
-    img.src = fortemGymImages[fortemGymIndex];
-    img.style.opacity = "1";
-  }, 500);
-}, 5000);
-
-    setInterval(() => {
-  const img = document.getElementById("kidsRoomSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-    kidsRoomIndex++;
-
-    if (kidsRoomIndex >= kidsRoomImages.length) {
-      kidsRoomIndex = 0;
-    }
-
-    img.src = kidsRoomImages[kidsRoomIndex];
-    img.style.opacity = "1";
-  }, 500);
-}, 5000);
-
-    setInterval(() => {
-  const img = document.getElementById("refugioAnimalSlider");
-
-  img.style.opacity = "0";
-
-  setTimeout(() => {
-    refugioAnimalIndex++;
-
-    if(refugioAnimalIndex >= refugioAnimalImages.length){
-      refugioAnimalIndex = 0;
-    }
-
-    img.src = refugioAnimalImages[refugioAnimalIndex];
-    img.style.opacity = "1";
-
-  }, 500);
-
-}, 5000);
+    changeImage();
+
+    setInterval(changeImage, 5000);
+
+  }, delay);
+}
+
+
+const staggeredSliders = [
+
+  {
+    id: "cineverseSlider",
+    images: cineverseImages,
+    getIndex: () => cineverseIndex,
+    setIndex: value => cineverseIndex = value
+  },
+
+  {
+    id: "fortemGymSlider",
+    images: fortemGymImages,
+    getIndex: () => fortemGymIndex,
+    setIndex: value => fortemGymIndex = value
+  },
+
+  {
+    id: "santuarioHuellitasSlider",
+    images: santuarioHuellitasImages,
+    getIndex: () => santuarioHuellitasIndex,
+    setIndex: value => santuarioHuellitasIndex = value
+  },
+
+  {
+    id: "wonderlandSlider",
+    images: wonderlandImages,
+    getIndex: () => wonderlandIndex,
+    setIndex: value => wonderlandIndex = value
+  },
+
+  {
+    id: "numastudioOfficeSlider",
+    images: numastudioOfficeImages,
+    getIndex: () => numastudioOfficeIndex,
+    setIndex: value => numastudioOfficeIndex = value
+  },
+
+  {
+    id: "oceanicWondersAquariumSlider",
+    images: oceanicWondersAquariumImages,
+    getIndex: () => oceanicWondersAquariumIndex,
+    setIndex: value => oceanicWondersAquariumIndex = value
+  },
+
+  {
+    id: "costasalLilithSlider",
+    images: costasalLilithImages,
+    getIndex: () => costasalLilithIndex,
+    setIndex: value => costasalLilithIndex = value
+  },
+
+  {
+    id: "casaCaliforniaSlider",
+    images: casaCaliforniaImages,
+    getIndex: () => casaCaliforniaIndex,
+    setIndex: value => casaCaliforniaIndex = value
+  },
+
+  {
+    id: "amenidadesCasasAcapulcoSlider",
+    images: amenidadesCasasAcapulcoImages,
+    getIndex: () => amenidadesCasasAcapulcoIndex,
+    setIndex: value => amenidadesCasasAcapulcoIndex = value
+  },
+
+  {
+    id: "residencia7991Slider",
+    images: residencia7991Images,
+    getIndex: () => residencia7991Index,
+    setIndex: value => residencia7991Index = value
+  },
+
+  {
+    id: "loftCaborealSlider",
+    images: loftCaborealImages,
+    getIndex: () => loftCaborealIndex,
+    setIndex: value => loftCaborealIndex = value
+  },
+
+  {
+    id: "amounaSlider",
+    images: amounaImages,
+    getIndex: () => amounaIndex,
+    setIndex: value => amounaIndex = value
+  },
+
+  {
+    id: "casaNaturaSlider",
+    images: casaNaturaImages,
+    getIndex: () => casaNaturaIndex,
+    setIndex: value => casaNaturaIndex = value
+  },
+
+  {
+    id: "cruzDelSurSlider",
+    images: cruzDelSurImages,
+    getIndex: () => cruzDelSurIndex,
+    setIndex: value => cruzDelSurIndex = value
+  },
+
+  {
+    id: "refugioAnimalSlider",
+    images: refugioAnimalImages,
+    getIndex: () => refugioAnimalIndex,
+    setIndex: value => refugioAnimalIndex = value
+  },
+
+  {
+    id: "mcdonaldsSlider",
+    images: mcdonaldsImages,
+    getIndex: () => mcdonaldsIndex,
+    setIndex: value => mcdonaldsIndex = value
+  },
+
+  {
+    id: "kidsRoomSlider",
+    images: kidsRoomImages,
+    getIndex: () => kidsRoomIndex,
+    setIndex: value => kidsRoomIndex = value
+  },
+
+  {
+    id: "guajolotesSlider",
+    images: guajolotesImages,
+    getIndex: () => guajolotesIndex,
+    setIndex: value => guajolotesIndex = value
+  },
+
+  {
+    id: "laMartinaSlider",
+    images: laMartinaImages,
+    getIndex: () => laMartinaIndex,
+    setIndex: value => laMartinaIndex = value
+  },
+
+  {
+    id: "casasDiamanteSlider",
+    images: casasDiamanteImages,
+    getIndex: () => casasDiamanteIndex,
+    setIndex: value => casasDiamanteIndex = value
+  },
+
+  {
+    id: "resortZihuatanejoSlider",
+    images: resortZihuatanejoImages,
+    getIndex: () => resortZihuatanejoIndex,
+    setIndex: value => resortZihuatanejoIndex = value
+  },
+
+  {
+    id: "solYMarSlider",
+    images: solYMarImages,
+    getIndex: () => solYMarIndex,
+    setIndex: value => solYMarIndex = value
+  },
+
+  {
+    id: "villaIrmaSlider",
+    images: villaIrmaImages,
+    getIndex: () => villaIrmaIndex,
+    setIndex: value => villaIrmaIndex = value
+  },
+
+  {
+    id: "oceanFrontSlider",
+    images: oceanFrontImages,
+    getIndex: () => oceanFrontIndex,
+    setIndex: value => oceanFrontIndex = value
+  }
+
+];
+
+
+staggeredSliders.forEach((slider, index) => {
+
+  startStaggeredSlider(
+    slider.id,
+    slider.images,
+    slider.getIndex,
+    slider.setIndex,
+    index * 200
+  );
+
+});
     
 </script>
   <div id="projectModal">
