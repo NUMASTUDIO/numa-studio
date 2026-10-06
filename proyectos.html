@@ -607,7 +607,13 @@ nav > a:hover{
 <div class="tile hidden"><img src="./images/cruz-del-sur-depto-4.jpg"></div>
 <div class="tile hidden"><img src="./images/cruz-del-sur-depto-5.jpg"></div>
 
-<div class="tile"><img src="./images/cocina-integral-funes.jpg"></div>
+<div class="tile">
+  <img id="refugioAnimalSlider" src="./images/refugio-animal-01.jpg" alt="Refugio Animal">
+
+  <img class="project hidden" src="./images/refugio-animal-02.jpg" alt="Refugio Animal">
+  <img class="project hidden" src="./images/refugio-animal-03.jpg" alt="Refugio Animal">
+  <img class="project hidden" src="./images/refugio-animal-04.jpg" alt="Refugio Animal">
+</div>
   
   <div class="tile">
   <img
@@ -763,6 +769,15 @@ const fortemGymImages = [
 ];
 
 let fortemGymIndex = 0;
+
+const refugioAnimalImages = [
+  "./images/refugio-animal-01.jpg",
+  "./images/refugio-animal-02.jpg",
+  "./images/refugio-animal-03.jpg",
+  "./images/refugio-animal-04.jpg"
+];
+
+let refugioAnimalIndex = 0;
 
 const laMartinaImages = [
   "./images/la-martina.jpg",
@@ -1512,6 +1527,25 @@ setInterval(() => {
     img.style.opacity = "1";
   }, 500);
 }, 5000);
+
+    setInterval(() => {
+  const img = document.getElementById("refugioAnimalSlider");
+
+  img.style.opacity = "0";
+
+  setTimeout(() => {
+    refugioAnimalIndex++;
+
+    if(refugioAnimalIndex >= refugioAnimalImages.length){
+      refugioAnimalIndex = 0;
+    }
+
+    img.src = refugioAnimalImages[refugioAnimalIndex];
+    img.style.opacity = "1";
+
+  }, 500);
+
+}, 5000);
     
 </script>
   <div id="projectModal">
@@ -1552,6 +1586,9 @@ document.getElementById("laMartinaSlider");
 
 const numastudioOfficeTile =
 document.getElementById("numastudioOfficeSlider");
+
+const refugioAnimalTile =
+document.getElementById("refugioAnimalSlider");
 
 const kidsRoomTile =
 document.getElementById("kidsRoomSlider");
@@ -1669,6 +1706,13 @@ oceanFrontTile.addEventListener("click",()=>{
   projectModalImage.src =
   cineverseTile.src;
 
+});
+
+  refugioAnimalTile.addEventListener("click",()=>{
+  currentProject = "refugioAnimal";
+  projectTitle.textContent = "REFUGIO ANIMAL";
+  projectModal.classList.add("active");
+  projectModalImage.src = refugioAnimalTile.src;
 });
 
   oceanicWondersAquariumTile.addEventListener("click",()=>{
@@ -2026,6 +2070,16 @@ projectModal.addEventListener("click",(e)=>{
   kidsRoomImages[kidsRoomIndex];
 }
 
+    if(currentProject === "refugioAnimal"){
+  refugioAnimalIndex++;
+
+  if(refugioAnimalIndex >= refugioAnimalImages.length){
+    refugioAnimalIndex = 0;
+  }
+
+  projectModalImage.src = refugioAnimalImages[refugioAnimalIndex];
+}
+
     if(currentProject === "casaCalifornia"){
 
   casaCaliforniaIndex++;
@@ -2278,6 +2332,16 @@ modalPrev.addEventListener("click",(e)=>{
     oceanFrontImages[oceanFrontIndex];
 
   }
+
+  if(currentProject === "refugioAnimal"){
+  refugioAnimalIndex--;
+
+  if(refugioAnimalIndex < 0){
+    refugioAnimalIndex = refugioAnimalImages.length - 1;
+  }
+
+  projectModalImage.src = refugioAnimalImages[refugioAnimalIndex];
+}
 
   if(currentProject === "fortemGym"){
   fortemGymIndex--;
