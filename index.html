@@ -2,628 +2,463 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#063750">
+  <title>NUMA STUDIO | Architecture & Design</title>
 
-    <title>NUMA STUDIO | Architecture & Design</title>
-    <meta name="description" content="NUMA STUDIO. Architecture, interior design, executive projects and architectural visualization.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@200;300;400&display=swap" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      font-family: "Montserrat", sans-serif;
+      background: #063750;
+    }
 
-    <style>
-        :root {
-            --gold: #c7a76a;
-            --white: #ffffff;
-            --black: #111111;
-        }
+    body {
+      overflow-x: hidden;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100svh;
+      min-height: 500px;
+      overflow: hidden;
+      isolation: isolate;
+      background: #063750;
+      color: #f8f0df;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    /* Imagen completa de portada */
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: var(--black);
-            color: var(--white);
-        }
+    /* Sombreado sutil para conservar la legibilidad */
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      pointer-events: none;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 20, 35, 0.18) 0%,
+        transparent 28%,
+        transparent 75%,
+        rgba(0, 20, 35, 0.12) 100%
+      );
+    }
 
-        body.menu-open {
-            overflow: hidden;
-        }
+    /* Logotipo superior izquierdo */
+    .brand {
+      position: absolute;
+      top: 25px;
+      left: 2.6%;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      color: #f7f0e5;
+      text-decoration: none;
+      white-space: nowrap;
+    }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
+    .brand-n {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(32px, 3vw, 47px);
+      font-weight: 500;
+      line-height: 0.9;
+      color: #e8b36c;
+      text-shadow: 0 0 12px rgba(255, 184, 93, 0.3);
+    }
 
-        button {
-            font: inherit;
-        }
+    .brand-numa {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(23px, 2.1vw, 34px);
+      font-weight: 500;
+      letter-spacing: 0.015em;
+    }
 
-        /* PORTADA */
-        .hero {
-            position: relative;
-            width: 100%;
-            min-height: 100vh;
-            min-height: 100svh;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #333;
-        }
+    .brand-studio {
+      margin-left: 8px;
+      font-size: clamp(9px, 1vw, 15px);
+      font-weight: 200;
+      letter-spacing: 0.28em;
+    }
 
-        .hero-image {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-        }
+    /* Título principal */
+    .main-title {
+      position: absolute;
+      top: 26.5%;
+      left: 50%;
+      z-index: -1;
+      width: 100%;
+      transform: translateX(-50%);
+      text-align: center;
+      white-space: nowrap;
+      font-family: "Cormorant Garamond", "Times New Roman", serif;
+      font-size: clamp(70px, 12.2vw, 205px);
+      font-weight: 400;
+      line-height: 0.9;
+      letter-spacing: -0.065em;
+      color: #f7efdf;
+      pointer-events: none;
+    }
 
-        .hero::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background:
-                linear-gradient(
-                    180deg,
-                    rgba(0, 0, 0, 0.28) 0%,
-                    rgba(0, 0, 0, 0.04) 48%,
-                    rgba(0, 0, 0, 0.28) 100%
-                );
-            pointer-events: none;
-        }
+    /* Botón de menú */
+    .menu-button {
+      position: absolute;
+      top: 29px;
+      right: 3.4%;
+      z-index: 10;
+      width: 42px;
+      height: 36px;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
 
-        /* ENCABEZADO */
-        .header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 28px 5%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            z-index: 5;
-        }
+    .menu-button span {
+      position: absolute;
+      left: 2px;
+      width: 36px;
+      height: 1.5px;
+      background: #f7f3eb;
+      transition: transform 0.25s ease, top 0.25s ease;
+    }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+    .menu-button span:nth-child(1) { top: 8px; }
+    .menu-button span:nth-child(2) { top: 18px; }
+    .menu-button span:nth-child(3) { top: 28px; }
 
-        .brand-symbol {
-            color: var(--gold);
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 43px;
-            font-weight: 400;
-            line-height: 1;
-        }
+    .menu-button.active span:nth-child(1) {
+      top: 18px;
+      transform: rotate(45deg);
+    }
 
-        .brand-name {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 23px;
-            font-weight: 400;
-            letter-spacing: 3px;
-            color: var(--white);
-        }
+    .menu-button.active span:nth-child(2) {
+      opacity: 0;
+    }
 
-        /* MENÚ HAMBURGUESA */
-        .menu-button {
-            width: 44px;
-            height: 44px;
-            padding: 8px 4px;
-            border: 0;
-            background: transparent;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-end;
-            gap: 8px;
-        }
+    .menu-button.active span:nth-child(3) {
+      top: 18px;
+      transform: rotate(-45deg);
+    }
 
-        .menu-button span {
-            display: block;
-            width: 33px;
-            height: 1px;
-            background: var(--white);
-            transition: width 0.3s ease, transform 0.3s ease;
-        }
+    /* Menú desplegable */
+    .menu-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 8;
+      display: flex;
+      width: min(360px, 85vw);
+      height: 100%;
+      padding: 100px 42px 40px;
+      flex-direction: column;
+      justify-content: center;
+      gap: 28px;
+      background: rgba(3, 35, 53, 0.96);
+      backdrop-filter: blur(8px);
+      transform: translateX(101%);
+      transition: transform 0.35s ease;
+    }
 
-        .menu-button span:last-child {
-            width: 24px;
-        }
+    .menu-panel.open {
+      transform: translateX(0);
+    }
 
-        .menu-button:hover span:last-child {
-            width: 33px;
-        }
+    .menu-panel a {
+      color: #f7efdf;
+      text-decoration: none;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 29px;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+    }
 
-        /* TÍTULO CENTRAL */
-        .hero-content {
-            position: relative;
-            z-index: 3;
-            width: 100%;
-            padding: 30px 7%;
-            text-align: center;
-        }
+    .menu-panel a:hover {
+      color: #e8b36c;
+    }
 
-        .hero-title {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(48px, 10vw, 132px);
-            font-weight: 300;
-            letter-spacing: 0.105em;
-            line-height: 1.05;
-            color: #fff;
-            text-shadow: 0 2px 22px rgba(0, 0, 0, 0.15);
-        }
+    /* Redes sociales a la derecha */
+    .socials {
+      position: absolute;
+      right: 2.05%;
+      bottom: 12%;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
 
-        .hero-subtitle {
-            margin-top: 22px;
-            font-size: clamp(9px, 1.1vw, 12px);
-            font-weight: 300;
-            letter-spacing: 0.4em;
-            line-height: 2;
-            text-transform: uppercase;
-            color: rgba(255, 255, 255, 0.96);
-        }
+    .social-link {
+      display: flex;
+      width: 50px;
+      height: 50px;
+      align-items: center;
+      justify-content: center;
+      color: #fffaf1;
+      border: 2px solid rgba(255, 250, 241, 0.95);
+      border-radius: 50%;
+      text-decoration: none;
+      transition: color 0.2s ease, background 0.2s ease;
+    }
 
-        .gold-line {
-            width: 55px;
-            height: 1px;
-            margin: 24px auto 0;
-            background: var(--gold);
-        }
+    .social-link:hover {
+      color: #063750;
+      background: #fffaf1;
+    }
 
-        /* REDES SOCIALES */
-        .social-links {
-            position: absolute;
-            z-index: 5;
-            top: 50%;
-            right: 36px;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 17px;
-        }
+    .social-link svg {
+      width: 29px;
+      height: 29px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.7;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
 
-        .social-links a {
-            width: 35px;
-            height: 35px;
-            border: 1px solid rgba(255, 255, 255, 0.75);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 13px;
-            color: #fff;
-            transition:
-                background 0.3s ease,
-                color 0.3s ease,
-                border-color 0.3s ease;
-        }
+    .social-link.facebook svg {
+      fill: currentColor;
+      stroke: none;
+    }
 
-        .social-links a:hover {
-            background: var(--gold);
-            border-color: var(--gold);
-            color: #111;
-        }
+    /* Indicador de desplazamiento */
+    .scroll-indicator {
+      position: absolute;
+      right: 2.85%;
+      bottom: 3.7%;
+      z-index: 5;
+      display: flex;
+      width: 29px;
+      height: 49px;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      gap: 3px;
+      border: 1.5px solid #fffaf1;
+      border-radius: 18px;
+      color: #fffaf1;
+      text-decoration: none;
+    }
 
-        /* INDICADOR INFERIOR */
-        .scroll-indicator {
-            position: absolute;
-            z-index: 5;
-            bottom: 26px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            color: #fff;
-            font-size: 9px;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
+    .scroll-indicator span {
+      font-size: 13px;
+      line-height: 10px;
+    }
 
-        .scroll-line {
-            width: 1px;
-            height: 35px;
-            background: rgba(255, 255, 255, 0.85);
-            transform-origin: top;
-            animation: scrollAnimation 1.8s ease-in-out infinite;
-        }
+    .scroll-indicator .chevron {
+      font-size: 10px;
+      animation: moveDown 1.5s infinite;
+    }
 
-        @keyframes scrollAnimation {
-            0%, 100% {
-                transform: scaleY(0.4);
-                opacity: 0.5;
-            }
+    @keyframes moveDown {
+      0%, 100% { transform: translateY(-2px); }
+      50% { transform: translateY(3px); }
+    }
 
-            50% {
-                transform: scaleY(1);
-                opacity: 1;
-            }
-        }
+    @media (max-width: 700px) {
+      .hero {
+        min-height: 560px;
+      }
 
-        /* MENÚ COMPLETO */
-        .menu-overlay {
-            position: fixed;
-            inset: 0;
-            z-index: 20;
-            background: rgba(15, 15, 15, 0.97);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            visibility: hidden;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.35s ease, visibility 0.35s ease;
-        }
+      .hero-image {
+        object-position: 48% center;
+      }
 
-        .menu-overlay.active {
-            visibility: visible;
-            opacity: 1;
-            pointer-events: auto;
-        }
+      .brand {
+        top: 22px;
+        left: 4%;
+      }
 
-        .menu-close {
-            position: absolute;
-            top: 25px;
-            right: 5%;
-            width: 45px;
-            height: 45px;
-            border: 0;
-            background: transparent;
-            color: #fff;
-            font-size: 36px;
-            font-weight: 200;
-            cursor: pointer;
-        }
+      .brand-studio {
+        margin-left: 5px;
+        letter-spacing: 0.16em;
+      }
 
-        .menu-navigation {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 25px;
-            padding: 30px;
-        }
+      .menu-button {
+        top: 22px;
+        right: 4%;
+      }
 
-        .menu-navigation a {
-            position: relative;
-            font-family: 'Cormorant Garamond', serif;
-            font-size: clamp(27px, 4vw, 43px);
-            font-weight: 300;
-            letter-spacing: 2px;
-            transition: color 0.3s ease;
-        }
+      .main-title {
+        top: 34%;
+        font-size: clamp(55px, 12.5vw, 90px);
+        letter-spacing: -0.07em;
+      }
 
-        .menu-navigation a::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: var(--gold);
-            transition: width 0.3s ease;
-        }
+      .socials {
+        right: 3%;
+        bottom: 13%;
+        gap: 8px;
+      }
 
-        .menu-navigation a:hover {
-            color: var(--gold);
-        }
+      .social-link {
+        width: 38px;
+        height: 38px;
+        border-width: 1.5px;
+      }
 
-        .menu-navigation a:hover::after {
-            width: 100%;
-        }
+      .social-link svg {
+        width: 22px;
+        height: 22px;
+      }
 
-        .menu-footer {
-            position: absolute;
-            bottom: 25px;
-            left: 0;
-            width: 100%;
-            text-align: center;
-            font-size: 9px;
-            letter-spacing: 3px;
-            color: rgba(255, 255, 255, 0.55);
-        }
+      .scroll-indicator {
+        right: 4%;
+        bottom: 3%;
+        width: 25px;
+        height: 42px;
+      }
+    }
 
-        /* MENSAJE SI LA IMAGEN NO CARGA */
-        .image-error {
-            display: none;
-            position: absolute;
-            z-index: 2;
-            bottom: 80px;
-            left: 20px;
-            right: 20px;
-            text-align: center;
-            color: white;
-            font-size: 12px;
-        }
+    @media (max-width: 390px) {
+      .brand-studio {
+        display: none;
+      }
 
-        /* TABLETAS Y CELULARES */
-        @media (max-width: 768px) {
-            .header {
-                padding: 23px 5%;
-            }
-
-            .brand-symbol {
-                font-size: 36px;
-            }
-
-            .brand-name {
-                font-size: 19px;
-                letter-spacing: 2px;
-            }
-
-            .hero-title {
-                font-size: clamp(40px, 10vw, 76px);
-                letter-spacing: 0.055em;
-            }
-
-            .hero-subtitle {
-                max-width: 300px;
-                margin: 17px auto 0;
-                font-size: 9px;
-                letter-spacing: 0.2em;
-            }
-
-            .social-links {
-                right: 15px;
-                gap: 12px;
-            }
-
-            .social-links a {
-                width: 31px;
-                height: 31px;
-                font-size: 12px;
-            }
-
-            .scroll-indicator {
-                bottom: 20px;
-            }
-        }
-
-        @media (max-width: 420px) {
-            .brand {
-                gap: 8px;
-            }
-
-            .brand-symbol {
-                font-size: 31px;
-            }
-
-            .brand-name {
-                font-size: 16px;
-                letter-spacing: 1.5px;
-            }
-
-            .hero-content {
-                padding: 25px 35px;
-            }
-
-            .hero-title {
-                font-size: 39px;
-            }
-
-            .social-links {
-                right: 10px;
-            }
-
-            .social-links a {
-                width: 28px;
-                height: 28px;
-                font-size: 11px;
-            }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            *,
-            *::before,
-            *::after {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                scroll-behavior: auto !important;
-                transition-duration: 0.01ms !important;
-            }
-        }
-    </style>
+      .main-title {
+        font-size: 12vw;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="hero" id="inicio">
 
-    <main class="hero">
-
-        <!-- IMAGEN DE PORTADA -->
-        <img
-            class="hero-image"
-           src="./images/portada-html.jpg"
-            alt="Portada arquitectónica de NUMA STUDIO"
-            onerror="this.style.display='none'; document.getElementById('imageError').style.display='block';"
-        >
-
-        <p class="image-error" id="imageError">
-            No se pudo cargar portada-html.jpg. Verifica que esté en la misma carpeta que index.html.
-        </p>
-
-        <!-- ENCABEZADO Y LOGOTIPO -->
-        <header class="header">
-
-            <a class="brand" href="./index.html" aria-label="NUMA STUDIO, inicio">
-                <span class="brand-symbol">N</span>
-                <span class="brand-name">NUMA STUDIO</span>
-            </a>
-
-            <button
-                class="menu-button"
-                id="menuButton"
-                type="button"
-                aria-label="Abrir menú"
-                aria-expanded="false"
-                aria-controls="menuOverlay"
-            >
-                <span></span>
-                <span></span>
-            </button>
-
-        </header>
-
-        <!-- TÍTULO PRINCIPAL -->
-        <section class="hero-content">
-            <h1 class="hero-title">NUMA STUDIO</h1>
-
-            <p class="hero-subtitle">
-                Architecture · Interior Design · Visualization
-            </p>
-
-            <div class="gold-line"></div>
-        </section>
-
-        <!-- REDES SOCIALES Y CONTACTO -->
-        <nav class="social-links" aria-label="Redes sociales y contacto">
-
-            <a
-                href="https://www.instagram.com/numastudioarq/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                title="Instagram"
-            >
-                <i class="fa-brands fa-instagram"></i>
-            </a>
-
-            <a
-                href="https://www.facebook.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                title="Facebook"
-            >
-                <i class="fa-brands fa-facebook-f"></i>
-            </a>
-
-            <a
-                href="https://wa.me/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="WhatsApp"
-                title="WhatsApp"
-            >
-                <i class="fa-brands fa-whatsapp"></i>
-            </a>
-
-            <a
-                href="mailto:contacto@numastudio.com"
-                aria-label="Correo electrónico"
-                title="Correo electrónico"
-            >
-                <i class="fa-regular fa-envelope"></i>
-            </a>
-
-        </nav>
-
-        <!-- INDICADOR INFERIOR -->
-        <div class="scroll-indicator" aria-hidden="true">
-            <span>Scroll</span>
-            <div class="scroll-line"></div>
-        </div>
-
-    </main>
-
-    <!-- MENÚ DE NAVEGACIÓN -->
-    <div
-        class="menu-overlay"
-        id="menuOverlay"
-        aria-hidden="true"
+    <img
+      class="hero-image"
+      src="./images/portada-html.jpg"
+      alt="Portada arquitectónica de NUMA STUDIO"
+      fetchpriority="high"
     >
 
-        <button
-            class="menu-close"
-            id="menuClose"
-            type="button"
-            aria-label="Cerrar menú"
-        >
-            &times;
-        </button>
+    <a class="brand" href="#inicio" aria-label="NUMA STUDIO, inicio">
+      <span class="brand-n">N</span>
+      <span class="brand-numa">UMA</span>
+      <span class="brand-studio">STUDIO</span>
+    </a>
 
-        <nav class="menu-navigation" aria-label="Menú principal">
+    <h1 class="main-title">NUMA STUDIO</h1>
 
-            <a href="./index.html">Inicio</a>
-            <a href="./sobre-nosotros.html">Sobre nosotros</a>
-            <a href="./proyectos.html">Proyectos</a>
-            <a href="./servicios.html">Servicios</a>
-            <a href="./contacto.html">Contacto</a>
+    <button
+      class="menu-button"
+      id="menuButton"
+      type="button"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="menuPanel"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
 
-        </nav>
+    <nav class="menu-panel" id="menuPanel" aria-label="Menú principal">
+      <a href="./index.html">Inicio</a>
+      <a href="./sobre-nosotros.html">Sobre nosotros</a>
+      <a href="./proyectos.html">Proyectos</a>
+      <a href="mailto:contacto@numastudio.com">Contacto</a>
+    </nav>
 
-        <div class="menu-footer">
-            NUMA STUDIO · ARCHITECTURE & DESIGN
-        </div>
+    <nav class="socials" aria-label="Redes sociales">
 
-    </div>
+      <a class="social-link" href="mailto:contacto@numastudio.com"
+         aria-label="Correo electrónico">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="2.5" y="4.5" width="19" height="15" rx="1.5"/>
+          <path d="m3.5 6 8.5 7 8.5-7"/>
+        </svg>
+      </a>
 
-    <script>
-        const menuButton = document.getElementById("menuButton");
-        const menuClose = document.getElementById("menuClose");
-        const menuOverlay = document.getElementById("menuOverlay");
+      <a class="social-link"
+         href="https://wa.me/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="WhatsApp">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20.3 11.7a8.3 8.3 0 0 1-12.2 7.4L3 20.5l1.4-4.9a8.3 8.3 0 1 1 15.9-3.9Z"/>
+          <path d="M8.4 7.8c.2-.5.5-.5.8-.5h.4c.2 0 .4.1.5.5l.7 1.7c.1.3.1.5-.1.7l-.6.7c-.2.2-.2.4 0 .7.7 1.2 1.6 2.1 2.9 2.7.3.1.5.1.7-.1l.8-.9c.2-.2.4-.3.7-.2l1.6.8c.3.2.4.3.4.5 0 .4-.2 1.2-.7 1.6-.5.5-1.3.8-2.1.7-1-.1-2.4-.6-4.1-2.1-1.4-1.2-2.4-2.7-2.7-3.8-.3-1 .1-2 .5-2.5Z"/>
+        </svg>
+      </a>
 
-        function openMenu() {
-            menuOverlay.classList.add("active");
-            menuOverlay.setAttribute("aria-hidden", "false");
-            menuButton.setAttribute("aria-expanded", "true");
-            document.body.classList.add("menu-open");
-            menuClose.focus();
-        }
+      <a class="social-link"
+         href="https://www.instagram.com/numastudioarq/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Instagram">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4.2"/>
+          <circle cx="17.6" cy="6.7" r=".8" fill="currentColor" stroke="none"/>
+        </svg>
+      </a>
 
-        function closeMenu() {
-            menuOverlay.classList.remove("active");
-            menuOverlay.setAttribute("aria-hidden", "true");
-            menuButton.setAttribute("aria-expanded", "false");
-            document.body.classList.remove("menu-open");
-            menuButton.focus();
-        }
+      <a class="social-link facebook"
+         href="https://www.facebook.com/"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M13.8 21v-8h2.7l.4-3.2h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.4c-.7-.1-1.5-.2-2.5-.2-2.5 0-4.2 1.5-4.2 4.3v2.3H7.5V13h2.8v8h3.5Z"/>
+        </svg>
+      </a>
 
-        menuButton.addEventListener("click", openMenu);
-        menuClose.addEventListener("click", closeMenu);
+    </nav>
 
-        menuOverlay.addEventListener("click", function(event) {
-            if (event.target === menuOverlay) {
-                closeMenu();
-            }
-        });
+    <a class="scroll-indicator" href="#contenido"
+       aria-label="Desplazarse hacia abajo">
+      <span>⌄</span>
+      <span class="chevron">⌄</span>
+    </a>
 
-        menuOverlay.querySelectorAll("a").forEach(function(link) {
-            link.addEventListener("click", function() {
-                menuOverlay.classList.remove("active");
-                menuOverlay.setAttribute("aria-hidden", "true");
-                document.body.classList.remove("menu-open");
-            });
-        });
+  </main>
 
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Escape" && menuOverlay.classList.contains("active")) {
-                closeMenu();
-            }
-        });
-    </script>
+  <div id="contenido"></div>
 
+  <script>
+    const menuButton = document.getElementById("menuButton");
+    const menuPanel = document.getElementById("menuPanel");
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = menuPanel.classList.toggle("open");
+      menuButton.classList.toggle("active", isOpen);
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Cerrar menú" : "Abrir menú"
+      );
+    });
+
+    menuPanel.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menuPanel.classList.remove("open");
+        menuButton.classList.remove("active");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.setAttribute("aria-label", "Abrir menú");
+      });
+    });
+  </script>
 </body>
 </html>
 ```
