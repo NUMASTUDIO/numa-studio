@@ -46,25 +46,16 @@ html, body {
 
 @import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400&display=swap');
 
-.titulo {
+
+.logo {
   position: absolute;
   z-index: 2;
- top: 34%;
-left: 50%;
-transform: translate(-50%, -50%);
-
-width: 96%;
-  text-align: center;
-
-  font-family: 'Bodoni Moda', 'Times New Roman', serif;
-  font-size: clamp(2rem, 7.5vw, 8rem);
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  line-height: 1;
-  white-space: nowrap;
-
-  color: #e9dfc9;
-  margin: 0;
+  top: 34%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(82%, 1000px);
+  height: auto;
+  object-fit: contain;
 }
 
 .frente {
@@ -81,6 +72,7 @@ width: 96%;
 </head>
 
 <body>
+
 <main class="portada">
   <img
     class="fondo"
@@ -88,7 +80,11 @@ width: 96%;
     alt="Portada de NUMA STUDIO"
   >
 
-  <h1 class="titulo">NUMASTUDIO</h1>
+  <img
+    class="logo"
+    src="./images/logo-numastudio.png"
+    alt="NUMA STUDIO"
+  >
 
   <img
     class="frente"
@@ -97,5 +93,6 @@ width: 96%;
     aria-hidden="true"
   >
 </main>
+
 </body>
 </html>
