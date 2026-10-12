@@ -64,21 +64,23 @@
 
     /* 3. Fotografía en primer plano recortada por la máscara */
    ```css
+```css
 .frente {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
   z-index: 3;
+
+  /* La fotografía y la máscara deben coincidir */
+  object-fit: fill;
+  object-position: center;
 
   -webkit-mask-image: url("./images/mascara-portada.png");
   mask-image: url("./images/mascara-portada.png");
 
-  /* Mantener la proporción y el encuadre de la fotografía */
-  -webkit-mask-size: cover;
-  mask-size: cover;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
 
   -webkit-mask-position: center;
   mask-position: center;
