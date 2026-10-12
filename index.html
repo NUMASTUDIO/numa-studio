@@ -87,46 +87,48 @@
     >
 
     <!-- Capa 3: fotografía recortada por el canal alfa -->
-    <svg
-      class="frente"
-      viewBox="0 0 1707 921"
-      preserveAspectRatio="none"
-      xmlns="http://www.w3.org/2000/svg"
-      aria-hidden="true"
-    >
-      <defs>
-        <mask
-          id="mascara"
-          x="0"
-          y="0"
-          width="1707"
-          height="921"
-          maskUnits="userSpaceOnUse"
-          style="mask-type: alpha"
-        >
-          <image
-  href="./images/portada-html.jpg"
-  x="0"
-  y="0"
-  width="1707"
-  height="921"
+   ```html
+<svg
+  class="frente"
+  viewBox="0 0 1707 921"
   preserveAspectRatio="none"
-  mask="url(#mascara)"
-  style="transform: translateY(0);"
-/>
-        </mask>
-      </defs>
-
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <mask
+      id="mascara"
+      x="0"
+      y="0"
+      width="1707"
+      height="921"
+      maskUnits="userSpaceOnUse"
+      style="mask-type: luminance"
+    >
+      <!-- Aquí debe ir la MÁSCARA, no la fotografía -->
       <image
-        href="./images/portada-html.jpg"
+        href="./images/mascara-portada.png"
         x="0"
         y="0"
         width="1707"
         height="921"
         preserveAspectRatio="none"
-        mask="url(#mascara)"
       />
-    </svg>
+    </mask>
+  </defs>
+
+  <!-- Fotografía que quedará recortada por la máscara -->
+  <image
+    href="./images/portada-html.jpg"
+    x="0"
+    y="0"
+    width="1707"
+    height="921"
+    preserveAspectRatio="none"
+    mask="url(#mascara)"
+  />
+</svg>
+```
 
   </main>
 </body>
