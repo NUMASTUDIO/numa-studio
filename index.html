@@ -58,15 +58,19 @@ html, body {
   object-fit: contain;
 }
 
+
 .frente {
   z-index: 3;
   -webkit-mask-image: url("./images/mascara-portada.png");
   mask-image: url("./images/mascara-portada.png");
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
+  -webkit-mask-size: cover;
+  mask-size: cover;
+  -webkit-mask-position: center;
+  mask-position: center;
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
 }
+
 
 </style>
 </head>
