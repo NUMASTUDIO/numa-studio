@@ -13,8 +13,7 @@
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html, body {
       width: 100%;
       height: 100%;
       overflow: hidden;
@@ -31,74 +30,40 @@
       background: #000;
     }
 
-    .fondo,
-    .frente {
+    .fondo {
       position: absolute;
       inset: 0;
-      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: center;
-    }
-
-    /* 1. Fotografía de fondo */
-    .fondo {
       z-index: 1;
     }
 
-    /* 2. Logotipo detrás del edificio y las palmeras */
     .logo {
       position: absolute;
       z-index: 2;
       top: 34%;
       left: 50%;
-      display: block;
+      transform: translate(-50%, -50%);
       width: min(82%, 1000px);
       height: auto;
-      max-height: 70%;
       object-fit: contain;
-      object-position: center;
-      transform: translate(-50%, -50%);
     }
 
-    /* 3. Fotografía en primer plano recortada por la máscara */
-   ```css
-```css
-.frente {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 3;
+    .frente {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
 
-  /* La fotografía y la máscara deben coincidir */
-  object-fit: fill;
-  object-position: center;
-
-  -webkit-mask-image: url("./images/mascara-portada.png");
-  mask-image: url("./images/mascara-portada.png");
-
-  -webkit-mask-size: 100% 100%;
-  mask-size: 100% 100%;
-
-  -webkit-mask-position: center;
-  mask-position: center;
-
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-
-  -webkit-mask-mode: alpha;
-  mask-mode: alpha;
-}
-```
-
-    /* Ajustes para pantallas pequeñas */
     @media (max-width: 600px) {
       .logo {
         width: 90%;
         top: 34%;
-        max-height: 60%;
       }
     }
   </style>
@@ -107,24 +72,59 @@
 <body>
   <main class="portada">
 
+    <!-- Capa 1: fotografía completa -->
     <img
       class="fondo"
       src="./images/portada-html.jpg"
       alt="Portada de NUMA STUDIO"
     >
 
+    <!-- Capa 2: logotipo -->
     <img
       class="logo"
       src="./images/logo-numastudio.png"
       alt="NUMA STUDIO"
     >
 
-    <img
+    <!-- Capa 3: fotografía recortada por el canal alfa -->
+    <svg
       class="frente"
-      src="./images/portada-html.jpg"
-      alt=""
+      viewBox="0 0 1707 921"
+      preserveAspectRatio="none"
+      xmlns="http://www.w3.org/2000/svg"
       aria-hidden="true"
     >
+      <defs>
+        <mask
+          id="mascara"
+          x="0"
+          y="0"
+          width="1707"
+          height="921"
+          maskUnits="userSpaceOnUse"
+          style="mask-type: alpha"
+        >
+          <image
+            href="./images/mascara-portada.png"
+            x="0"
+            y="0"
+            width="1707"
+            height="921"
+            preserveAspectRatio="none"
+          />
+        </mask>
+      </defs>
+
+      <image
+        href="./images/portada-html.jpg"
+        x="0"
+        y="0"
+        width="1707"
+        height="921"
+        preserveAspectRatio="none"
+        mask="url(#mascara)"
+      />
+    </svg>
 
   </main>
 </body>
