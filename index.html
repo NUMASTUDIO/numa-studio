@@ -558,6 +558,112 @@ footer .firma{ display:none; }
     animation: none;
   }
 }
+
+
+/* =========================================
+   ANIMACIÓN DE ENTRADA — NUMA STUDIO
+   ========================================= */
+
+/* 1. Menú completo: entra desde arriba */
+html.intro-pending header {
+  animation: numaDesdeArriba
+    0.85s cubic-bezier(.22, .75, .25, 1) both;
+  animation-delay: 0.08s;
+}
+
+/* 2. Logotipo principal: entra desde la izquierda */
+html.intro-pending .hero-logo {
+  animation: numaDesdeIzquierda
+    0.85s cubic-bezier(.22, .75, .25, 1) both;
+  animation-delay: 0.30s;
+}
+
+/* 3. Eslogan: entra después del logotipo */
+html.intro-pending .hero h1 {
+  animation: numaDesdeIzquierda
+    0.85s cubic-bezier(.22, .75, .25, 1) both;
+  animation-delay: 0.50s;
+}
+
+/* 4. Texto descriptivo: entra después del eslogan */
+html.intro-pending .hero p {
+  animation: numaDesdeIzquierda
+    0.85s cubic-bezier(.22, .75, .25, 1) both;
+  animation-delay: 0.68s;
+}
+
+/* 5. Indicador del ratón: entra desde la derecha */
+html.intro-pending .scroll-indicator {
+  animation:
+    numaDesdeDerecha 0.85s cubic-bezier(.22, .75, .25, 1) both,
+    scrollFloat 2s ease-in-out 1.8s infinite;
+  animation-delay: 0.85s, 1.8s;
+}
+
+/* Entrada desde arriba */
+@keyframes numaDesdeArriba {
+  from {
+    opacity: 0;
+    transform: translateY(-32px);
+    filter: brightness(1.25);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: brightness(1);
+  }
+}
+
+/* Entrada desde la izquierda */
+@keyframes numaDesdeIzquierda {
+  from {
+    opacity: 0;
+    transform: translateX(-35px);
+    filter: brightness(1.2);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    filter: brightness(1);
+  }
+}
+
+/* Entrada desde la derecha */
+@keyframes numaDesdeDerecha {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+
+  to {
+    opacity: 0.9;
+    transform: translateX(0);
+  }
+}
+
+/* Accesibilidad: respetar movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  html.intro-pending header,
+  html.intro-pending .hero-logo,
+  html.intro-pending .hero h1,
+  html.intro-pending .hero p,
+  html.intro-pending .scroll-indicator {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
   
 </style>
 
@@ -567,6 +673,23 @@ footer .firma{ display:none; }
 <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
 <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
 <link rel="manifest" href="./images/site.webmanifest">
+
+
+<script>
+(function () {
+  try {
+    /* Reproducir la animación solo una vez por sesión */
+    if (!sessionStorage.getItem("numaIntroVisto")) {
+      document.documentElement.classList.add("intro-pending");
+      sessionStorage.setItem("numaIntroVisto", "1");
+    }
+  } catch (error) {
+    /* Si el navegador bloquea sessionStorage,
+       la página seguirá funcionando normalmente. */
+  }
+})();
+</script>
+
   
 </head>
 <body>
