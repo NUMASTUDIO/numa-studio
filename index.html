@@ -456,25 +456,6 @@ footer .firma{ display:none; }
   pointer-events:none;
 }
 
-
-<!-- RATÓN DE NAVEGACIÓN NUMA STUDIO -->
-<div class="scroll-indicator" id="scrollIndicator">
-  <button class="scroll-control" id="scrollUp"
-          aria-label="Subir al inicio" title="Subir">
-    ↑
-  </button>
-
-  <button class="scroll-control" id="scrollDown"
-          aria-label="Bajar por la página" title="Bajar">
-    ↓
-  </button>
-
-  <div class="scroll-mouse" aria-hidden="true">
-    <div class="scroll-wheel"></div>
-  </div>
-</div>
-
-
 /* Contorno del ratón */
 .scroll-mouse {
   width: 25px;
@@ -883,6 +864,36 @@ html.intro-pending .scroll-indicator {
   }
 }
 
+
+/* VISIBILIDAD DEL RATÓN DE NAVEGACIÓN */
+#scrollIndicator {
+  position: fixed;
+  right: 30px;
+  bottom: 25px;
+  z-index: 99999;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#scrollIndicator .scroll-mouse {
+  flex-shrink: 0;
+}
+
+#scrollIndicator .scroll-control {
+  color: #c9a96e;
+}
+
+#scrollIndicator .scroll-control:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 768px) {
+  #scrollIndicator {
+    right: 18px;
+    bottom: 18px;
+  }
+}
+
   
 </style>
 
@@ -1161,9 +1172,7 @@ html.intro-pending .scroll-indicator {
 </footer>
 
 <script>
-document.addEventListener("DOMContentLoaded", function () {
-  const indicator = document.getElementById("scrollIndicator");
-
+  
   if (!indicator) return;
 
   function updateScrollIndicator() {
