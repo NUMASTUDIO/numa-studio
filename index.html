@@ -675,20 +675,39 @@ html.intro-pending .scroll-indicator {
 <link rel="manifest" href="./images/site.webmanifest">
 
 
+
 <script>
 (function () {
   try {
-    /* Reproducir la animación solo una vez por sesión */
-    if (!sessionStorage.getItem("numaIntroVisto")) {
+    const esPaginaInicio =
+      window.location.pathname.endsWith("/") ||
+      window.location.pathname.endsWith("/index.html");
+
+    if (!esPaginaInicio) return;
+
+    const clave = "numaIntroVisto";
+    const navegacion = performance.getEntriesByType("navigation")[0];
+
+    /* Repetir la animación al recargar la página */
+    if (
+      navegacion &&
+      navegacion.type === "reload"
+    ) {
+      sessionStorage.removeItem(clave);
+    }
+
+    /* Animar solo si todavía no se reprodujo */
+    if (!sessionStorage.getItem(clave)) {
       document.documentElement.classList.add("intro-pending");
-      sessionStorage.setItem("numaIntroVisto", "1");
+      sessionStorage.setItem(clave, "1");
     }
   } catch (error) {
-    /* Si el navegador bloquea sessionStorage,
-       la página seguirá funcionando normalmente. */
+    /* La página seguirá funcionando aunque
+       el navegador bloquee sessionStorage. */
   }
 })();
 </script>
+
 
   
 </head>
