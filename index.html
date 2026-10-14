@@ -762,6 +762,127 @@ html.intro-pending .scroll-indicator {
     animation: none;
   }
 }
+
+
+/* NAVEGACIÓN VERTICAL NUMA STUDIO */
+
+.scroll-indicator {
+  position: fixed;
+  right: 30px;
+  bottom: 25px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  color: #c9a96e;
+  opacity: 0.9;
+
+  animation: scrollFloat 2s ease-in-out infinite;
+}
+
+.scroll-control {
+  display: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 23px;
+  line-height: 1;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.scroll-control:hover {
+  color: #ffffff;
+  transform: scale(1.15);
+}
+
+/* Portada: solo flecha hacia abajo */
+.scroll-indicator.en-portada #scrollDown {
+  display: block;
+}
+
+/* Centro: ambas flechas */
+.scroll-indicator.en-medio #scrollUp,
+.scroll-indicator.en-medio #scrollDown {
+  display: block;
+}
+
+/* Final: solo flecha hacia arriba */
+.scroll-indicator.al-final #scrollUp {
+  display: block;
+}
+
+/* Contorno del ratón */
+.scroll-mouse {
+  width: 25px;
+  height: 40px;
+  border: 1.5px solid currentColor;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+
+/* Rueda animada */
+.scroll-wheel {
+  width: 3px;
+  height: 7px;
+  border-radius: 3px;
+  background: currentColor;
+  animation: wheelMove 1.5s ease-in-out infinite;
+}
+
+/* Movimiento del conjunto */
+@keyframes scrollFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(4px);
+  }
+}
+
+/* Movimiento de la rueda */
+@keyframes wheelMove {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  30% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+/* Teléfonos */
+@media (max-width: 768px) {
+  .scroll-indicator {
+    right: 18px;
+    bottom: 18px;
+  }
+
+  .scroll-mouse {
+    width: 22px;
+    height: 35px;
+  }
+}
+
+/* Accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator,
+  .scroll-wheel {
+    animation: none;
+  }
+}
+
   
 </style>
 
@@ -821,18 +942,33 @@ html.intro-pending .scroll-indicator {
 </nav>
 </header>
 
-<!-- Indicador de scroll NUMA STUDIO -->
-<a href="#servicios"
-   class="scroll-indicator"
-   id="scrollIndicator"
-   aria-label="Desplazarse hacia abajo">
 
-  <span class="scroll-mouse">
-    <span class="scroll-wheel"></span>
-  </span>
+<!-- RATÓN DE NAVEGACIÓN NUMA STUDIO -->
+<div class="scroll-indicator en-portada" id="scrollIndicator">
 
-  <span class="scroll-arrow">↓</span>
-</a>
+  <button
+    class="scroll-control"
+    id="scrollUp"
+    type="button"
+    aria-label="Subir al inicio"
+    title="Subir">
+    ↑
+  </button>
+
+  <button
+    class="scroll-control"
+    id="scrollDown"
+    type="button"
+    aria-label="Bajar por la página"
+    title="Bajar">
+    ↓
+  </button>
+
+  <div class="scroll-mouse" aria-hidden="true">
+    <div class="scroll-wheel"></div>
+  </div>
+
+</div>
 
 <section class="hero">
   <img src="./images/logo.png" class="hero-logo" alt="logo">
@@ -1047,58 +1183,88 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+
 <script>
 (function () {
-  const indicador = document.getElementById("scrollIndicator");
-  const subir = document.getElementById("scrollUp");
-  const bajar = document.getElementById("scrollDown");
+  function iniciarIndicador() {
+    const indicador =
+      document.getElementById("scrollIndicator");
 
-  if (!indicador || !subir || !bajar) return;
+    const subir =
+      document.getElementById("scrollUp");
 
-  function actualizarIndicador() {
-    const posicion = window.scrollY;
-    const alturaPagina =
-      document.documentElement.scrollHeight;
-    const alturaVentana = window.innerHeight;
-    const distanciaFinal =
-      alturaPagina - alturaVentana - posicion;
+    const bajar =
+      document.getElementById("scrollDown");
 
-    indicador.classList.remove(
-      "en-portada", "en-medio", "al-final"
+    if (!indicador || !subir || !bajar) return;
+
+    function actualizarIndicador() {
+      const posicion = window.scrollY;
+
+      const alturaDocumento =
+        document.documentElement.scrollHeight;
+
+      const alturaVentana = window.innerHeight;
+
+      const distanciaFinal =
+        alturaDocumento - alturaVentana - posicion;
+
+      indicador.classList.remove(
+        "en-portada",
+        "en-medio",
+        "al-final"
+      );
+
+      if (posicion <= 30) {
+        indicador.classList.add("en-portada");
+      } else if (distanciaFinal <= 30) {
+        indicador.classList.add("al-final");
+      } else {
+        indicador.classList.add("en-medio");
+      }
+    }
+
+    /* Flecha hacia arriba */
+    subir.addEventListener("click", function () {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+
+    /* Flecha hacia abajo */
+    bajar.addEventListener("click", function () {
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
+        behavior: "smooth"
+      });
+    });
+
+    window.addEventListener(
+      "scroll",
+      actualizarIndicador,
+      { passive: true }
     );
 
-    if (posicion <= 30) {
-      indicador.classList.add("en-portada");
-    } else if (distanciaFinal <= 30) {
-      indicador.classList.add("al-final");
-    } else {
-      indicador.classList.add("en-medio");
-    }
+    window.addEventListener(
+      "resize",
+      actualizarIndicador
+    );
+
+    actualizarIndicador();
   }
 
-  subir.addEventListener("click", function () {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
-  });
-
-  bajar.addEventListener("click", function () {
-    window.scrollTo({
-      top: document.documentElement.scrollHeight,
-      behavior: "smooth"
-    });
-  });
-
-  window.addEventListener("scroll", actualizarIndicador, {
-    passive: true
-  });
-
-  window.addEventListener("resize", actualizarIndicador);
-
-  actualizarIndicador();
+  if (document.readyState === "loading") {
+    document.addEventListener(
+      "DOMContentLoaded",
+      iniciarIndicador
+    );
+  } else {
+    iniciarIndicador();
+  }
 })();
 </script>
+
   
 </body> 
 </html>
