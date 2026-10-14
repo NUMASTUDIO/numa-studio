@@ -456,25 +456,24 @@ footer .firma{ display:none; }
   pointer-events:none;
 }
 
-/* RATÓN ANIMADO DE SCROLL - NUMA STUDIO */
-.scroll-indicator {
-  position: fixed;
-  right: 30px;
-  bottom: 25px;
-  z-index: 9999;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+<!-- RATÓN DE NAVEGACIÓN NUMA STUDIO -->
+<div class="scroll-indicator" id="scrollIndicator">
+  <button class="scroll-control" id="scrollUp"
+          aria-label="Subir al inicio" title="Subir">
+    ↑
+  </button>
 
-  color: #c9a96e;
-  text-decoration: none;
-  opacity: 0.9;
+  <button class="scroll-control" id="scrollDown"
+          aria-label="Bajar por la página" title="Bajar">
+    ↓
+  </button>
 
-  animation: scrollFloat 2s ease-in-out infinite;
-  transition: opacity 0.4s ease, visibility 0.4s ease;
-}
+  <div class="scroll-mouse" aria-hidden="true">
+    <div class="scroll-wheel"></div>
+  </div>
+</div>
+
 
 /* Contorno del ratón */
 .scroll-mouse {
@@ -671,6 +670,96 @@ html.intro-pending .scroll-indicator {
     opacity: 1;
     transform: none;
     filter: none;
+  }
+}
+
+  
+/* NAVEGACIÓN VERTICAL NUMA STUDIO */
+.scroll-indicator {
+  position: fixed;
+  right: 30px;
+  bottom: 25px;
+  z-index: 9999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+
+  color: #c9a96e;
+  opacity: 0.9;
+  animation: scrollFloat 2s ease-in-out infinite;
+}
+
+.scroll-control {
+  display: none;
+  border: none;
+  background: transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 23px;
+  line-height: 1;
+  padding: 3px 8px;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.scroll-control:hover {
+  color: #ffffff;
+  transform: scale(1.15);
+}
+
+.scroll-indicator.en-portada #scrollDown,
+.scroll-indicator.en-medio #scrollUp,
+.scroll-indicator.en-medio #scrollDown,
+.scroll-indicator.al-final #scrollUp {
+  display: block;
+}
+
+.scroll-mouse {
+  width: 25px;
+  height: 40px;
+  border: 1.5px solid currentColor;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  padding-top: 7px;
+}
+
+.scroll-wheel {
+  width: 3px;
+  height: 7px;
+  border-radius: 3px;
+  background: currentColor;
+  animation: wheelMove 1.5s ease-in-out infinite;
+}
+
+@keyframes scrollFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+@keyframes wheelMove {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(10px); }
+}
+
+@media (max-width: 768px) {
+  .scroll-indicator {
+    right: 18px;
+    bottom: 18px;
+  }
+  .scroll-mouse {
+    width: 22px;
+    height: 35px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-indicator,
+  .scroll-wheel {
+    animation: none;
   }
 }
   
@@ -955,6 +1044,60 @@ document.addEventListener("DOMContentLoaded", function () {
 
   updateScrollIndicator();
 });
+</script>
+
+
+<script>
+(function () {
+  const indicador = document.getElementById("scrollIndicator");
+  const subir = document.getElementById("scrollUp");
+  const bajar = document.getElementById("scrollDown");
+
+  if (!indicador || !subir || !bajar) return;
+
+  function actualizarIndicador() {
+    const posicion = window.scrollY;
+    const alturaPagina =
+      document.documentElement.scrollHeight;
+    const alturaVentana = window.innerHeight;
+    const distanciaFinal =
+      alturaPagina - alturaVentana - posicion;
+
+    indicador.classList.remove(
+      "en-portada", "en-medio", "al-final"
+    );
+
+    if (posicion <= 30) {
+      indicador.classList.add("en-portada");
+    } else if (distanciaFinal <= 30) {
+      indicador.classList.add("al-final");
+    } else {
+      indicador.classList.add("en-medio");
+    }
+  }
+
+  subir.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+
+  bajar.addEventListener("click", function () {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth"
+    });
+  });
+
+  window.addEventListener("scroll", actualizarIndicador, {
+    passive: true
+  });
+
+  window.addEventListener("resize", actualizarIndicador);
+
+  actualizarIndicador();
+})();
 </script>
   
 </body> 
