@@ -52,6 +52,16 @@ header .logo {
   align-items: center;
   flex-shrink: 0;
 }
+
+header .logo .logo-simbolo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin: 0 10px 0 0;
+}
+
+  
 header .logo img{
   height:40px;
   width:auto;
@@ -992,9 +1002,12 @@ html.intro-pending .scroll-indicator {
 <body>
 
 <header>
- <div class="logo">
+ 
+<div class="logo">
+  <img src="./images/logo-simbolo.png" alt="" class="logo-simbolo">
   <span class="logo-text">NUMA STUDIO</span>
 </div>
+
  <nav>
   <a href="#servicios">SERVICIOS</a>
   <a href="#proyectos">PROYECTOS</a>
