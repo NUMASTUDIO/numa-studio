@@ -71,14 +71,19 @@ header .logo .logo-text {
   padding: 0;
 }
   
+
 header nav {
   display: flex;
   align-items: center;
   justify-content: flex-end;
   gap: 25px;
-  position: static;
-  margin-left: auto;
+  position: absolute;
+  top: 50%;
+  right: 380px;
+  transform: translateY(-50%);
+  margin-left: 0;
 }
+
 nav > a{
   color:white;
   font-size:14px;
