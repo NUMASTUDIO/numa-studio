@@ -1,1 +1,55 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NUMA STUDIO</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Playfair+Display&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./intro.css">
+<script src="./intro.js" defer></script>
+</head>
+<body>
+<main id="intro">
+
+<svg class="fondo" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+<g class="lineas izquierda">
+<path d="M-20 80 Q80 150 200 20 M-20 110 Q90 180 210 50 M-20 160 Q90 220 210 90 M-20 220 Q90 270 210 130 M-20 290 Q90 320 210 180 M-20 360 Q90 370 210 230 M-20 430 Q90 420 210 280 M-20 500 Q90 470 210 330 M-20 570 Q90 530 210 390 M-20 640 Q90 590 210 450 M-20 710 Q90 650 210 510 M-20 780 Q90 710 210 570 M-20 850 Q90 770 210 640"/>
+<path d="M-10 120 L170 30 M-10 190 L180 70 M-10 270 L180 120 M-10 350 L180 180 M-10 430 L180 250 M-10 510 L180 320 M-10 590 L180 390 M-10 670 L180 460 M-10 750 L180 530"/>
+</g>
+<g class="lineas derecha">
+<path d="M1460 70 Q1360 140 1240 20 M1460 120 Q1360 180 1240 60 M1460 190 Q1360 230 1240 100 M1460 260 Q1360 280 1240 150 M1460 330 Q1360 340 1240 210 M1460 400 Q1360 400 1240 270 M1460 470 Q1360 460 1240 330 M1460 540 Q1360 520 1240 390 M1460 610 Q1360 580 1240 450 M1460 680 Q1360 640 1240 510 M1460 750 Q1360 700 1240 570 M1460 820 Q1360 760 1240 630"/>
+<path d="M1460 150 L1270 30 M1460 240 L1270 100 M1460 330 L1270 170 M1460 420 L1270 240 M1460 510 L1270 310 M1460 600 L1270 380 M1460 690 L1270 450 M1460 780 L1270 520"/>
+</g>
+<g class="lineas abajo">
+<path d="M30 920 Q180 820 300 900 T550 900 T800 900 T1050 900 T1300 900 M350 920 Q450 850 600 920 M750 920 Q850 850 1000 920"/>
+</g>
+</svg>
+
+<section class="centro">
+<svg class="logo" viewBox="0 0 400 440" aria-label="Símbolo NUMA STUDIO">
+<g class="trazo n">
+<path d="M65 365 L65 70 L105 70 L310 350 L310 70 L345 70 L345 365 L305 365 L100 100 L100 365 Z"/>
+</g>
+<g class="trazo abeja">
+<path d="M195 105 Q160 75 173 55 Q198 65 202 95 M204 99 Q222 65 247 67 Q251 91 219 112 M195 108 Q185 135 205 160 Q224 133 213 105 M201 117 L210 125 L201 135 L212 144 M195 108 Q170 115 161 135 M211 108 Q239 115 250 135"/>
+</g>
+</svg>
+<h1>NUMA STUDIO</h1>
+<div class="subrayado"></div>
+<p>ARQUITECTURA · DISEÑO · VISIÓN</p>
+</section>
+
+<button id="audioBtn" aria-label="Silenciar sonido" title="Activar o silenciar sonido">
+<svg viewBox="0 0 24 24" aria-hidden="true">
+<path d="M3 9v6h4l5 4V5L7 9H3Z M15 9a5 5 0 0 1 0 6 M17.5 6.5a8 8 0 0 1 0 11"/>
+<path class="mute" d="M16 9l5 6m0-6-5 6"/>
+</svg>
+</button>
+
+<audio id="audioIntro" preload="auto" playsinline>
+<source src="./intro-pencil.wav" type="audio/wav">
+</audio>
+</main>
+</body>
+</html>
