@@ -1,1 +1,34 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#000000">
+  <title>NUMA STUDIO | Intro</title>
+  <link rel="stylesheet" href="intro.css">
+</head>
+<body>
+  <main class="intro">
+    <video
+      id="introVideo"
+      class="intro-video"
+      autoplay
+      muted
+      playsinline
+      preload="auto"
+      aria-label="Intro cinematográfica de NUMA STUDIO"
+    >
+      <source src="intro.mp4" type="video/mp4">
+      Tu navegador no puede reproducir este video.
+    </video>
+
+    <button id="skipIntro" class="skip-button" type="button">
+      Omitir intro <span aria-hidden="true">→</span>
+    </button>
+  </main>
+
+  <script src="intro.js"></script>
+</body>
+</html>
+
