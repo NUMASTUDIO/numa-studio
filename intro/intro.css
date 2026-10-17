@@ -5,9 +5,9 @@
 
 html,
 body {
-  margin: 0;
   width: 100%;
   height: 100%;
+  margin: 0;
   background: #000;
 }
 
@@ -18,108 +18,147 @@ body {
 
 #intro {
   position: relative;
-  display: grid;
-  place-items: center;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
-  height: 100vh;
-  height: 100svh;
+  min-height: 100vh;
+  min-height: 100svh;
   overflow: hidden;
   background: #000;
 }
 
+/* Dibujo arquitectónico de los bordes */
 .fondo {
   position: absolute;
   inset: 0;
+  z-index: -1;
   width: 100%;
   height: 100%;
-  z-index: 0;
   pointer-events: none;
 }
 
-.lineas {
+.boceto,
+.detalles {
   fill: none;
-  stroke: #a99a7f;
-  stroke-width: 1.2;
+  stroke: #b7a17a;
+  stroke-width: 1.15;
   stroke-linecap: round;
   stroke-linejoin: round;
-  opacity: 0.8;
-  stroke-dasharray: 1800;
-  stroke-dashoffset: 1800;
-  animation: dibujar 5.8s ease forwards;
+  opacity: 0.76;
 }
 
-.izquierda { animation-delay: 0s; }
-.derecha { animation-delay: 0.3s; }
-.abajo { animation-delay: 0.6s; }
+.boceto {
+  stroke-dasharray: 2600;
+  stroke-dashoffset: 2600;
+  animation: dibujarBoceto 5.5s ease-out forwards;
+}
 
+.boceto-der {
+  animation-delay: 0.35s;
+}
+
+.boceto-abajo {
+  animation-delay: 0.7s;
+}
+
+.detalles {
+  stroke-width: 0.8;
+  opacity: 0;
+  animation: aparecerDetalles 1.2s ease forwards;
+  animation-delay: 2.2s;
+}
+
+/* Bloque central */
 .centro {
   position: relative;
   z-index: 1;
-  width: min(88vw, 650px);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: min(90vw, 680px);
+  padding: 35px 10px;
   text-align: center;
-  transform: translateY(-20px);
+  transform: translateY(-12px);
 }
 
+/* El emblema aparece de izquierda a derecha */
 .logo {
   display: block;
-  width: min(65vw, 340px);
-  max-height: 48vh;
+  width: min(58vw, 320px);
+  max-width: 100%;
+  max-height: 43vh;
   object-fit: contain;
-  opacity: 1;
-  clip-path: none;
-  animation: none;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  animation: revelarLogo 2.5s ease-in-out forwards;
+  animation-delay: 0.5s;
 }
 
 h1 {
-  margin: 18px 0 0;
+  margin: 22px 0 0;
+  color: #c9a96e;
   font-family: "Cinzel", serif;
-  font-size: clamp(22px, 4.5vw, 34px);
+  font-size: clamp(22px, 4vw, 35px);
   font-weight: 400;
   letter-spacing: 0.2em;
-  color: #c9a96e;
-  opacity: 1;
-  animation: none;
+  opacity: 0;
+  animation: aparecerTexto 1.3s ease forwards;
+  animation-delay: 2.1s;
 }
+
 .subrayado {
+  width: 0;
   height: 1px;
-  width: 75%;
+  margin: 15px auto 0;
   background: #c9a96e;
-  margin: 13px auto 0;
-  animation: none;
+  animation: extenderLinea 1s ease forwards;
+  animation-delay: 2.7s;
 }
 
 p {
-  margin: 16px 0 0;
-  font-family: "Playfair Display", serif;
-  font-size: clamp(9px, 1.8vw, 12px);
-  letter-spacing: 0.24em;
+  margin: 15px 0 0;
   color: #b7b2aa;
-  opacity: 1;
-  animation: none;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(9px, 1.5vw, 12px);
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  line-height: 1.8;
+  opacity: 0;
+  animation: aparecerTexto 1.2s ease forwards;
+  animation-delay: 3s;
 }
 
-
+/* Botón de sonido */
 #audioBtn {
   position: absolute;
-  z-index: 2;
+  z-index: 3;
   top: 24px;
   right: 24px;
+  display: grid;
+  place-items: center;
   width: 44px;
   height: 44px;
-  padding: 10px;
-  border: 1px solid #c9a96e;
+  padding: 9px;
+  border: 1px solid rgba(201, 169, 110, 0.8);
   border-radius: 50%;
-  background: #000;
+  background: rgba(0, 0, 0, 0.85);
   color: #c9a96e;
   cursor: pointer;
+  transition: background 0.25s ease, color 0.25s ease;
+}
+
+#audioBtn:hover {
+  background: #c9a96e;
+  color: #000;
 }
 
 #audioBtn svg {
-  width: 22px;
+  display: block;
+  width: 23px;
+  height: 23px;
   fill: none;
   stroke: currentColor;
   stroke-width: 1.6;
@@ -127,23 +166,26 @@ p {
   stroke-linejoin: round;
 }
 
-#audioBtn .mute {
+.icono-mudo {
   display: none;
 }
 
-#audioBtn.silenciado svg path:first-child {
+#audioBtn.silenciado .icono-sonido {
   display: none;
 }
 
-#audioBtn.silenciado .mute {
+#audioBtn.silenciado .icono-mudo {
   display: block;
 }
 
-@keyframes dibujar {
-  to { stroke-dashoffset: 0; }
+/* Animaciones */
+@keyframes dibujarBoceto {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-@keyframes dibujarLogo {
+@keyframes revelarLogo {
   0% {
     opacity: 1;
     clip-path: inset(0 100% 0 0);
@@ -154,28 +196,77 @@ p {
   }
 }
 
-@keyframes aparecer {
-  to { opacity: 1; }
+@keyframes aparecerTexto {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-@keyframes expandir {
-  to { width: 75%; }
+@keyframes extenderLinea {
+  to {
+    width: 75%;
+  }
 }
 
+@keyframes aparecerDetalles {
+  to {
+    opacity: 0.65;
+  }
+}
+
+/* Móviles */
 @media (max-width: 600px) {
-  .centro { width: 90vw; }
-  .logo { width: min(70vw, 280px); }
-  h1 { letter-spacing: 0.12em; }
-  #audioBtn { top: 15px; right: 15px; }
+  .centro {
+    width: 92vw;
+    padding: 25px 5px;
+    transform: translateY(-5px);
+  }
+
+  .logo {
+    width: min(68vw, 270px);
+    max-height: 38vh;
+  }
+
+  h1 {
+    margin-top: 18px;
+    font-size: clamp(19px, 5vw, 27px);
+    letter-spacing: 0.12em;
+  }
+
+  p {
+    max-width: 90vw;
+    font-size: 9px;
+    letter-spacing: 0.13em;
+  }
+
+  #audioBtn {
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .boceto,
+  .detalles {
+    stroke-width: 1;
+  }
 }
 
+/* Accesibilidad */
 @media (prefers-reduced-motion: reduce) {
-  .lineas,
+  .boceto,
+  .detalles,
   .logo,
   h1,
   .subrayado,
   p {
     animation-duration: 0.01ms !important;
     animation-delay: 0ms !important;
+    animation-fill-mode: forwards !important;
   }
 }
