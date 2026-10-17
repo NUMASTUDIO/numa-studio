@@ -62,15 +62,15 @@ body {
   text-align: center;
 }
 
+
 .logo {
   display: block;
   width: min(65vw, 340px);
   max-height: 48vh;
   object-fit: contain;
-  opacity: 0;
-  clip-path: inset(0 100% 0 0);
-  animation: dibujarLogo 3.2s ease forwards;
-  animation-delay: 1.2s;
+  opacity: 1;
+  clip-path: none;
+  animation: none;
 }
 
 h1 {
@@ -80,18 +80,16 @@ h1 {
   font-weight: 400;
   letter-spacing: 0.2em;
   color: #c9a96e;
-  opacity: 0;
-  animation: aparecer 1s ease forwards;
-  animation-delay: 4.2s;
+  opacity: 1;
+  animation: none;
 }
 
 .subrayado {
   height: 1px;
-  width: 0;
+  width: 75%;
   background: #c9a96e;
   margin: 13px auto 0;
-  animation: expandir 0.8s ease forwards;
-  animation-delay: 4.6s;
+  animation: none;
 }
 
 p {
@@ -100,10 +98,10 @@ p {
   font-size: clamp(9px, 1.8vw, 12px);
   letter-spacing: 0.24em;
   color: #b7b2aa;
-  opacity: 0;
-  animation: aparecer 1s ease forwards;
-  animation-delay: 4.9s;
+  opacity: 1;
+  animation: none;
 }
+
 
 #audioBtn {
   position: absolute;
