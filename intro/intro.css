@@ -76,6 +76,7 @@ body {
 }
 
 /* Letras más grandes, finas y elegantes */
+
 .intro h1 {
   margin-top: 26px;
   font-family: "Cinzel", "Times New Roman", serif;
@@ -85,23 +86,34 @@ body {
   text-indent: clamp(5px, 1.15vw, 12px);
   line-height: 1.3;
 
-  /* Acabado metálico dorado */
+  /* Oro metálico con reflejos como las líneas del fondo */
   background: linear-gradient(
     180deg,
-    #fff0bd 0%,
-    #e8c879 22%,
-    #b88636 48%,
-    #f8df99 66%,
-    #b88636 100%
+    #fff7d6 0%,
+    #e9c879 12%,
+    #a8752b 27%,
+    #fbe7a0 42%,
+    #c18b36 55%,
+    #704719 68%,
+    #e5bd68 82%,
+    #fff0bd 94%,
+    #9b6b28 100%
   );
+
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
 
-  filter: drop-shadow(0 0 8px rgba(201, 169, 110, 0.2));
+  /* Brillo fino y reflejo cálido */
+  filter:
+    drop-shadow(0 0 1px rgba(255, 226, 153, 0.8))
+    drop-shadow(0 0 5px rgba(201, 153, 66, 0.3));
+
   opacity: 0;
   animation: aparecerNombre 1.5s ease-out 2.6s forwards;
 }
+
 
 /* Línea ornamental debajo del nombre */
 .intro h1::after {
