@@ -249,3 +249,33 @@ body {
     0 0 10px rgba(201, 169, 110, 0.35);
 }
 
+
+/* Imagen original del texto NUMA STUDIO */
+.intro-texto {
+  display: block;
+  width: min(78vw, 620px);
+  height: auto;
+  max-height: 18vh;
+  object-fit: contain;
+  margin-top: 20px;
+  opacity: 0;
+  filter: none;
+  animation: aparecerNombre 1.5s ease-out 2.6s forwards;
+}
+
+@media (max-width: 600px) {
+  .intro-texto {
+    width: min(84vw, 440px);
+    max-height: 14vh;
+    margin-top: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-texto {
+    animation-duration: 0.01ms;
+    animation-delay: 0ms;
+    opacity: 1;
+  }
+}
+
