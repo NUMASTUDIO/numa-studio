@@ -1,1 +1,151 @@
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  background: #000;
+}
+
+body {
+  overflow: hidden;
+  color: #fff;
+  font-family: "Cinzel", Georgia, serif;
+}
+
+.intro {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  background: #000;
+}
+
+/* Fondo ornamental */
+.intro-fondo {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: url("portada-intro.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0;
+  animation: revelarFondo 2.8s ease forwards;
+}
+
+/* Logo y nombre */
+.intro-contenido {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 30px 20px;
+  text-align: center;
+}
+
+.intro-logo {
+  display: block;
+  width: min(64vw, 390px);
+  max-height: 55vh;
+  object-fit: contain;
+  opacity: 0;
+  filter: drop-shadow(0 0 0 rgba(201, 169, 110, 0));
+  animation: aparecerLogo 1.8s ease-out 1.9s forwards;
+}
+
+.intro h1 {
+  margin-top: 20px;
+  color: #c9a96e;
+  font-family: "Cinzel", Georgia, serif;
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 400;
+  letter-spacing: clamp(4px, 1vw, 9px);
+  text-indent: clamp(4px, 1vw, 9px);
+  opacity: 0;
+  animation: aparecerNombre 1.5s ease-out 2.6s forwards;
+}
+
+/* Animaciones */
+@keyframes revelarFondo {
+  0% {
+    opacity: 0;
+    transform: scale(1.04);
+    filter: brightness(0.35);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes aparecerLogo {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+    filter: drop-shadow(0 0 0 rgba(201, 169, 110, 0));
+  }
+  65% {
+    opacity: 1;
+    transform: scale(1.015);
+    filter: drop-shadow(0 0 22px rgba(201, 169, 110, 0.45));
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+    filter: drop-shadow(0 0 8px rgba(201, 169, 110, 0.16));
+  }
+}
+
+@keyframes aparecerNombre {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+    letter-spacing: 12px;
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: clamp(4px, 1vw, 9px);
+  }
+}
+
+/* Adaptación a móviles */
+@media (max-width: 600px) {
+  .intro-fondo {
+    background-size: cover;
+  }
+
+  .intro-logo {
+    width: min(72vw, 320px);
+  }
+
+  .intro h1 {
+    margin-top: 16px;
+  }
+}
+
+/* Respeta la preferencia de movimiento reducido */
+@media (prefers-reduced-motion: reduce) {
+  .intro-fondo,
+  .intro-logo,
+  .intro h1 {
+    animation-duration: 0.01ms;
+    animation-delay: 0ms;
+    animation-iteration-count: 1;
+    opacity: 1;
+  }
+}
+
