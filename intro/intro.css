@@ -221,3 +221,31 @@ body {
     opacity: 1;
   }
 }
+
+
+.intro h1 {
+  position: relative;
+  text-shadow: 0 0 1px rgba(255, 228, 160, 0.35);
+}
+
+.intro h1::after {
+  content: "";
+  display: block;
+  width: 58%;
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #80551e 15%,
+    #d7a94e 35%,
+    #fff0b2 50%,
+    #d7a94e 65%,
+    #80551e 85%,
+    transparent
+  );
+  box-shadow:
+    0 0 3px rgba(255, 218, 133, 0.8),
+    0 0 10px rgba(201, 169, 110, 0.35);
+}
+
