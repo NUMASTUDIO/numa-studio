@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  
+<script>
+  (() => {
+    const clave = "numaIntroMostrada";
+
+    try {
+      if (!sessionStorage.getItem(clave)) {
+        sessionStorage.setItem(clave, "1");
+        window.location.replace("./intro/intro.html");
+      }
+    } catch (error) {
+      // Si el navegador bloquea sessionStorage,
+      // se mantiene la portada sin interrumpirla.
+    }
+  })();
+</script>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NUMA STUDIO</title>
