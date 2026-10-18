@@ -1,4 +1,6 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -29,9 +31,15 @@ body {
   overflow: hidden;
   isolation: isolate;
   background: #000;
+  opacity: 1;
+  transition: opacity 900ms ease;
 }
 
-/* Fondo ornamental */
+.intro.intro-saliendo {
+  opacity: 0;
+}
+
+/* Fondo negro y dorado */
 .intro-fondo {
   position: absolute;
   inset: 0;
@@ -44,7 +52,7 @@ body {
   animation: revelarFondo 2.8s ease forwards;
 }
 
-/* Logo y nombre */
+/* Composición central */
 .intro-contenido {
   display: flex;
   flex-direction: column;
@@ -53,55 +61,95 @@ body {
   width: 100%;
   padding: 30px 20px;
   text-align: center;
+  transform: translateY(-1vh);
 }
 
+/* Logo un poco más pequeño */
 .intro-logo {
   display: block;
-  width: min(64vw, 390px);
-  max-height: 55vh;
+  width: min(52vw, 310px);
+  max-height: 43vh;
   object-fit: contain;
   opacity: 0;
   filter: drop-shadow(0 0 0 rgba(201, 169, 110, 0));
   animation: aparecerLogo 1.8s ease-out 1.9s forwards;
 }
 
+/* Letras más grandes, finas y elegantes */
 .intro h1 {
-  margin-top: 20px;
-  color: #c9a96e;
-  font-family: "Cinzel", Georgia, serif;
-  font-size: clamp(20px, 3vw, 32px);
-  font-weight: 400;
-  letter-spacing: clamp(4px, 1vw, 9px);
-  text-indent: clamp(4px, 1vw, 9px);
+  margin-top: 26px;
+  font-family: "Cinzel", "Times New Roman", serif;
+  font-size: clamp(30px, 4.2vw, 48px);
+  font-weight: 500;
+  letter-spacing: clamp(5px, 1.15vw, 12px);
+  text-indent: clamp(5px, 1.15vw, 12px);
+  line-height: 1.3;
+
+  /* Acabado metálico dorado */
+  background: linear-gradient(
+    180deg,
+    #fff0bd 0%,
+    #e8c879 22%,
+    #b88636 48%,
+    #f8df99 66%,
+    #b88636 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  filter: drop-shadow(0 0 8px rgba(201, 169, 110, 0.2));
   opacity: 0;
   animation: aparecerNombre 1.5s ease-out 2.6s forwards;
 }
 
-/* Animaciones */
+/* Línea ornamental debajo del nombre */
+.intro h1::after {
+  content: "";
+  display: block;
+  width: 58%;
+  height: 1px;
+  margin: 20px auto 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #8d672e,
+    #f5d88c,
+    #8d672e,
+    transparent
+  );
+  box-shadow: 0 0 8px rgba(201, 169, 110, 0.35);
+}
+
+/* Animación del fondo */
 @keyframes revelarFondo {
-  0% {
+  from {
     opacity: 0;
     transform: scale(1.04);
     filter: brightness(0.35);
   }
-  100% {
+
+  to {
     opacity: 1;
     transform: scale(1);
     filter: brightness(1);
   }
 }
 
+/* Aparición del logo con destello suave */
 @keyframes aparecerLogo {
   0% {
     opacity: 0;
-    transform: scale(0.94);
+    transform: scale(0.92);
     filter: drop-shadow(0 0 0 rgba(201, 169, 110, 0));
   }
+
   65% {
     opacity: 1;
-    transform: scale(1.015);
+    transform: scale(1.02);
     filter: drop-shadow(0 0 22px rgba(201, 169, 110, 0.45));
   }
+
   100% {
     opacity: 1;
     transform: scale(1);
@@ -109,36 +157,49 @@ body {
   }
 }
 
+/* Entrada del texto */
 @keyframes aparecerNombre {
   from {
     opacity: 0;
     transform: translateY(12px);
-    letter-spacing: 12px;
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
-    letter-spacing: clamp(4px, 1vw, 9px);
   }
 }
 
-/* Adaptación a móviles */
+/* Adaptación para móviles */
 @media (max-width: 600px) {
-  .intro-fondo {
-    background-size: cover;
+  .intro-contenido {
+    padding: 24px 16px;
+    transform: translateY(-1vh);
   }
 
   .intro-logo {
-    width: min(72vw, 320px);
+    width: min(62vw, 250px);
+    max-height: 36vh;
   }
 
   .intro h1 {
+    margin-top: 22px;
+    font-size: clamp(25px, 6vw, 34px);
+    letter-spacing: 4px;
+    text-indent: 4px;
+  }
+
+  .intro h1::after {
     margin-top: 16px;
   }
 }
 
-/* Respeta la preferencia de movimiento reducido */
+/* Respeto a movimiento reducido */
 @media (prefers-reduced-motion: reduce) {
+  .intro {
+    transition: none;
+  }
+
   .intro-fondo,
   .intro-logo,
   .intro h1 {
@@ -146,21 +207,5 @@ body {
     animation-delay: 0ms;
     animation-iteration-count: 1;
     opacity: 1;
-  }
-}
-
-
-.intro {
-  opacity: 1;
-  transition: opacity 900ms ease;
-}
-
-.intro.intro-saliendo {
-  opacity: 0;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .intro {
-    transition: none;
   }
 }
