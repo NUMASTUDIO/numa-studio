@@ -2,7 +2,7 @@
 (() => {
   "use strict";
 
-  const DURACION_INTRO = 5000;
+  const DURACION_INTRO = 3500;
   const intro = document.querySelector(".intro");
 
   if (!intro) return;
