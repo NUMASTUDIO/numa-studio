@@ -257,7 +257,7 @@ body {
   height: auto;
   max-height: 18vh;
   object-fit: contain;
-  margin-top: 8px;
+  margin-top: 0px;
   opacity: 0;
   filter: none;
   animation: aparecerNombre 1.5s ease-out 2.6s forwards;
